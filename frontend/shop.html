@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop — Furniquin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ── Reset & Base ─────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --clr-bg: #faf9f7;
+            --clr-surface: #ffffff;
+            --clr-border: #e8e4de;
+            --clr-text: #1a1814;
+            --clr-muted: #6b6560;
+            --clr-accent: #b5813e;
+            --clr-accent-lt: #f3ead8;
+            --clr-hover: #f5f2ee;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', sans-serif;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.10);
+            --transition: 0.22s ease;
+            --max-w: 1240px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--clr-bg);
+            color: var(--clr-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Header ──────────────────────────────────── */
+        .main-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 249, 247, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--clr-border);
+        }
+
+        .main-header .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--clr-text);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--clr-accent);
+        }
+
+        /* ── Breadcrumb ──────────────────────────────── */
+        .breadcrumb-bar {
+            background: var(--clr-surface);
+            border-bottom: 1px solid var(--clr-border);
+            padding: 12px 0;
+        }
+
+        .breadcrumb-bar .inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--clr-muted);
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb li a {
+            color: var(--clr-muted);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .breadcrumb li a:hover {
+            color: var(--clr-accent);
+        }
+
+        .breadcrumb li.active {
+            color: var(--clr-text);
+            font-weight: 500;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: "/";
+            margin-left: 6px;
+            opacity: 0.4;
+        }
+
+        /* ── Shop Hero (left text + right image) ─────── */
+        .shop-hero {
+            background: var(--clr-surface);
+            border-bottom: 1px solid var(--clr-border);
+        }
+
+        .shop-hero .inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 320px;
+            align-items: stretch;
+        }
+
+        .hero-left {
+            padding: 52px 48px 52px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid var(--clr-border);
+        }
+
+        .cat-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--clr-accent);
+            background: var(--clr-accent-lt);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+
+        .hero-left h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.4px;
+            margin-bottom: 14px;
+        }
+
+        .hero-left p {
+            font-size: 0.95rem;
+            color: var(--clr-muted);
+            line-height: 1.7;
+            max-width: 440px;
+        }
+
+        .hero-right {
+            overflow: hidden;
+            background: var(--clr-hover);
+            position: relative;
+        }
+
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-right-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            opacity: 0.35;
+        }
+
+        /* ── Skeleton ─────────────────────────────────── */
+        .skeleton {
+            background: linear-gradient(90deg, #ede9e3 25%, #e4dfd8 50%, #ede9e3 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.4s infinite;
+            border-radius: 6px;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0
+            }
+
+            100% {
+                background-position: -200% 0
+            }
+        }
+
+        /* ── Shop Body ────────────────────────────────── */
+        .shop-body {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* ── Filter Sidebar ───────────────────────────── */
+        .filter-sidebar {
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            position: sticky;
+            top: 88px;
+        }
+
+        .filter-sidebar h3 {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--clr-muted);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-reset-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--clr-accent);
+            cursor: pointer;
+            padding: 0;
+            text-transform: none;
+            letter-spacing: 0;
+            font-weight: 400;
+        }
+
+        .filter-reset-btn:hover {
+            text-decoration: underline;
+        }
+
+        .filter-group {
+            margin-bottom: 24px;
+        }
+
+        .filter-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-label {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--clr-text);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* select */
+        .filter-select {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-sm);
+            background: var(--clr-bg);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--clr-text);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6560' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            transition: border-color var(--transition);
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--clr-accent);
+        }
+
+        /* price range inputs */
+        .price-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .price-input {
+            width: 100%;
+            padding: 9px 10px;
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-sm);
+            background: var(--clr-bg);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--clr-text);
+            transition: border-color var(--transition);
+        }
+
+        .price-input:focus {
+            outline: none;
+            border-color: var(--clr-accent);
+        }
+
+        .price-input::placeholder {
+            color: var(--clr-muted);
+        }
+
+        /* text filter input */
+        .filter-input {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-sm);
+            background: var(--clr-bg);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--clr-text);
+            transition: border-color var(--transition);
+        }
+
+        .filter-input:focus {
+            outline: none;
+            border-color: var(--clr-accent);
+        }
+
+        .filter-input::placeholder {
+            color: var(--clr-muted);
+        }
+
+        /* apply button */
+        .filter-apply-btn {
+            width: 100%;
+            padding: 11px;
+            background: var(--clr-text);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background var(--transition);
+            margin-top: 4px;
+        }
+
+        .filter-apply-btn:hover {
+            background: var(--clr-accent);
+        }
+
+        /* ── Product Area ─────────────────────────────── */
+        .product-area {}
+
+        /* toolbar */
+        .product-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .product-count {
+            font-size: 0.85rem;
+            color: var(--clr-muted);
+        }
+
+        .product-count strong {
+            color: var(--clr-text);
+        }
+
+        .sort-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--clr-muted);
+        }
+
+        .sort-select {
+            padding: 8px 32px 8px 12px;
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-sm);
+            background: var(--clr-surface);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--clr-text);
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6560' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+
+        .sort-select:focus {
+            outline: none;
+            border-color: var(--clr-accent);
+        }
+
+        /* ── Product Grid ─────────────────────────────── */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        /* ── Product Card ─────────────────────────────── */
+        .product-card {
+            display: block;
+            text-decoration: none;
+            color: var(--clr-text);
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(181, 129, 62, 0.35);
+        }
+
+        .product-img-wrap {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: var(--clr-hover);
+            position: relative;
+        }
+
+        .product-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .product-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: var(--clr-muted);
+            opacity: 0.4;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--clr-accent);
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 500;
+            padding: 3px 8px;
+            border-radius: 20px;
+            letter-spacing: 0.03em;
+        }
+
+        .product-info {
+            padding: 14px 16px 16px;
+        }
+
+        .product-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.35;
+            margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--clr-text);
+        }
+
+        .product-price-original {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            color: var(--clr-muted);
+            text-decoration: line-through;
+            margin-left: 6px;
+            font-weight: 400;
+        }
+
+        /* ── Product skeleton ─────────────────────────── */
+        .prod-skel {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--clr-border);
+        }
+
+        .prod-skel-img {
+            aspect-ratio: 1/1;
+        }
+
+        .prod-skel-body {
+            padding: 14px 16px 16px;
+        }
+
+        .prod-skel-line {
+            height: 13px;
+            width: 80%;
+            margin-bottom: 6px;
+        }
+
+        .prod-skel-line2 {
+            height: 13px;
+            width: 55%;
+            margin-bottom: 10px;
+        }
+
+        .prod-skel-price {
+            height: 16px;
+            width: 45%;
+        }
+
+        /* ── State boxes ──────────────────────────────── */
+        .state-box {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 80px 24px;
+            color: var(--clr-muted);
+        }
+
+        .state-box i {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            display: block;
+            opacity: 0.35;
+        }
+
+        .state-box h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--clr-text);
+            margin-bottom: 8px;
+        }
+
+        .state-box p {
+            font-size: 0.9rem;
+        }
+
+        .state-box a {
+            color: var(--clr-accent);
+            text-decoration: none;
+        }
+
+        /* ── Pagination ───────────────────────────────── */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .page-btn {
+            min-width: 38px;
+            height: 38px;
+            padding: 0 10px;
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-sm);
+            background: var(--clr-surface);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--clr-text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+        }
+
+        .page-btn:hover {
+            border-color: var(--clr-accent);
+            color: var(--clr-accent);
+        }
+
+        .page-btn.active {
+            background: var(--clr-text);
+            color: #fff;
+            border-color: var(--clr-text);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .page-ellipsis {
+            padding: 0 4px;
+            color: var(--clr-muted);
+            font-size: 0.85rem;
+            line-height: 38px;
+        }
+
+        /* ── Mobile filter toggle ─────────────────────── */
+        .mobile-filter-btn {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-sm);
+            background: var(--clr-surface);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            cursor: pointer;
+            color: var(--clr-text);
+        }
+
+        .filter-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 200;
+        }
+
+        .filter-drawer {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 300px;
+            background: var(--clr-surface);
+            padding: 24px;
+            overflow-y: auto;
+            z-index: 201;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .filter-drawer.open {
+            transform: translateX(0);
+        }
+
+        .filter-overlay.open {
+            display: block;
+        }
+
+        .filter-drawer-close {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .filter-drawer-close span {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .filter-drawer-close button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--clr-muted);
+        }
+
+        /* ── Responsive ───────────────────────────────── */
+        @media (max-width: 900px) {
+            .shop-hero .inner {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-left {
+                border-right: none;
+                border-bottom: 1px solid var(--clr-border);
+                padding: 36px 0;
+            }
+
+            .hero-right {
+                min-height: 220px;
+            }
+
+            .shop-body {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-sidebar {
+                display: none;
+            }
+
+            /* shown in drawer on mobile */
+            .mobile-filter-btn {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .shop-body {
+                padding: 24px 16px 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Furni<span>quin</span></a>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-bar">
+        <div class="inner">
+            <ol class="breadcrumb" id="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li id="bc-parent" style="display:none"><a href="#" id="bc-parent-link">Category</a></li>
+                <li class="active" id="bc-current">Shop</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="shop-hero" id="shop-hero">
+        <div class="inner">
+            <div class="hero-left" id="hero-left">
+                <div class="skeleton" style="width:100px;height:24px;border-radius:20px;margin-bottom:16px;"></div>
+                <div class="skeleton" style="width:70%;height:40px;margin-bottom:10px;"></div>
+                <div class="skeleton" style="width:50%;height:40px;margin-bottom:18px;"></div>
+                <div class="skeleton" style="width:90%;height:14px;margin-bottom:8px;"></div>
+                <div class="skeleton" style="width:70%;height:14px;"></div>
+            </div>
+            <div class="hero-right" id="hero-right">
+                <div class="hero-right-placeholder">🪑</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOBILE FILTER OVERLAY & DRAWER -->
+    <div class="filter-overlay" id="filterOverlay" onclick="closeFilterDrawer()"></div>
+    <div class="filter-drawer" id="filterDrawer">
+        <div class="filter-drawer-close">
+            <span>Filters</span>
+            <button onclick="closeFilterDrawer()"><i class="fas fa-times"></i></button>
+        </div>
+        <!-- filled by JS -->
+        <div id="filter-drawer-body"></div>
+    </div>
+
+    <!-- SHOP BODY -->
+    <div class="shop-body">
+
+        <!-- FILTER SIDEBAR (desktop) -->
+        <aside class="filter-sidebar" id="filter-sidebar">
+            <h3>Filters <button class="filter-reset-btn" id="reset-btn-sidebar">Clear all</button></h3>
+            <div id="filter-sidebar-body"></div>
+        </aside>
+
+        <!-- PRODUCT AREA -->
+        <div class="product-area">
+
+            <!-- Toolbar -->
+            <div class="product-toolbar">
+                <div style="display:flex;align-items:center;gap:12px;">
+                    <button class="mobile-filter-btn" id="mobileFilterBtn" onclick="openFilterDrawer()">
+                        <i class="fas fa-sliders-h"></i> Filters
+                    </button>
+                    <span class="product-count" id="product-count">Loading products…</span>
+                </div>
+                <div class="sort-wrap">
+                    <span>Sort:</span>
+                    <select class="sort-select" id="sort-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="price_asc">Price: Low to High</option>
+                        <option value="price_desc">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="product-grid">
+                <!-- skeleton -->
+                <div class="prod-skel">
+                    <div class="skeleton prod-skel-img"></div>
+                    <div class="prod-skel-body">
+                        <div class="skeleton prod-skel-line"></div>
+                        <div class="skeleton prod-skel-line2"></div>
+                        <div class="skeleton prod-skel-price"></div>
+                    </div>
+                </div>
+                <div class="prod-skel">
+                    <div class="skeleton prod-skel-img"></div>
+                    <div class="prod-skel-body">
+                        <div class="skeleton prod-skel-line"></div>
+                        <div class="skeleton prod-skel-line2"></div>
+                        <div class="skeleton prod-skel-price"></div>
+                    </div>
+                </div>
+                <div class="prod-skel">
+                    <div class="skeleton prod-skel-img"></div>
+                    <div class="prod-skel-body">
+                        <div class="skeleton prod-skel-line"></div>
+                        <div class="skeleton prod-skel-line2"></div>
+                        <div class="skeleton prod-skel-price"></div>
+                    </div>
+                </div>
+                <div class="prod-skel">
+                    <div class="skeleton prod-skel-img"></div>
+                    <div class="prod-skel-body">
+                        <div class="skeleton prod-skel-line"></div>
+                        <div class="skeleton prod-skel-line2"></div>
+                        <div class="skeleton prod-skel-price"></div>
+                    </div>
+                </div>
+                <div class="prod-skel">
+                    <div class="skeleton prod-skel-img"></div>
+                    <div class="prod-skel-body">
+                        <div class="skeleton prod-skel-line"></div>
+                        <div class="skeleton prod-skel-line2"></div>
+                        <div class="skeleton prod-skel-price"></div>
+                    </div>
+                </div>
+                <div class="prod-skel">
+                    <div class="skeleton prod-skel-img"></div>
+                    <div class="prod-skel-body">
+                        <div class="skeleton prod-skel-line"></div>
+                        <div class="skeleton prod-skel-line2"></div>
+                        <div class="skeleton prod-skel-price"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </div>
+
+    <!-- SLIM FOOTER -->
+    <footer style="background:var(--clr-text);color:rgba(255,255,255,0.55);">
+        <div
+            style="max-width:var(--max-w);margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,0.08);">
+            <span>© 2026 Furniquin. All rights reserved.</span>
+            <span style="font-size:0.82rem;"><a href="#"
+                    style="color:rgba(255,255,255,0.45);text-decoration:none;">Privacy</a> · <a href="#"
+                    style="color:rgba(255,255,255,0.45);text-decoration:none;">Terms</a></span>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { getCategoryBySlug, resolveThumbnail } from "./category/categoryService.js";
+
+        const BASE_URL = "http://localhost:8000";
+
+        /* ── Helpers ─────────────────────────────────────── */
+        function esc(s) {
+            return String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        /**
+         * Format a number as Indian Rupee price string.
+         * e.g. 75000 → "₹75,000"  |  1250000 → "₹12,50,000"
+         */
+        function formatINR(num) {
+            const n = Math.round(Number(num));
+            return "₹" + n.toLocaleString("en-IN");
+        }
+
+        /* ── URL state (filter params live in the URL) ───── */
+        const params = new URLSearchParams(location.search);
+        const categorySlug = params.get("slug") || "";
+
+        // Current filter state (merged from URL params on load)
+        const state = {
+            page: Number(params.get("page")) || 1,
+            sort: params.get("sort") || "newest",
+            minPrice: params.get("minPrice") || "",
+            maxPrice: params.get("maxPrice") || "",
+            color: params.get("color") || "",
+            material: params.get("material") || "",
+            size: params.get("size") || "",
+        };
+
+        /* ── Init sort dropdown ──────────────────────────── */
+        document.getElementById("sort-select").value = state.sort;
+        document.getElementById("sort-select").addEventListener("change", e => {
+            state.sort = e.target.value;
+            state.page = 1;
+            fetchProducts();
+        });
+
+        /* ── Filter HTML (shared by sidebar & drawer) ────── */
+        function filterHTML() {
+            return `
+                <div class="filter-group">
+                    <label class="filter-label">Price Range (₹)</label>
+                    <div class="price-row">
+                        <input class="price-input" id="fi-minPrice" type="number" placeholder="Min" min="0" value="${esc(state.minPrice)}" />
+                        <input class="price-input" id="fi-maxPrice" type="number" placeholder="Max" min="0" value="${esc(state.maxPrice)}" />
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Color</label>
+                    <input class="filter-input" id="fi-color" type="text" placeholder="e.g. Walnut Brown" value="${esc(state.color)}" />
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Material</label>
+                    <input class="filter-input" id="fi-material" type="text" placeholder="e.g. Solid Wood" value="${esc(state.material)}" />
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Size</label>
+                    <input class="filter-input" id="fi-size" type="text" placeholder="e.g. Queen, L, 6x4" value="${esc(state.size)}" />
+                </div>
+                <button class="filter-apply-btn" id="fi-apply">Apply Filters</button>
+            `;
+        }
+
+        function mountFilters(containerId) {
+            const el = document.getElementById(containerId);
+            if (!el) return;
+            el.innerHTML = filterHTML();
+            el.querySelector("#fi-apply").addEventListener("click", () => {
+                state.minPrice = el.querySelector("#fi-minPrice").value.trim();
+                state.maxPrice = el.querySelector("#fi-maxPrice").value.trim();
+                state.color = el.querySelector("#fi-color").value.trim();
+                state.material = el.querySelector("#fi-material").value.trim();
+                state.size = el.querySelector("#fi-size").value.trim();
+                state.page = 1;
+                closeFilterDrawer();
+                mountFilters("filter-sidebar-body");
+                fetchProducts();
+            });
+        }
+
+        function resetFilters() {
+            state.minPrice = ""; state.maxPrice = "";
+            state.color = ""; state.material = ""; state.size = "";
+            state.page = 1;
+            mountFilters("filter-sidebar-body");
+            fetchProducts();
+        }
+
+        mountFilters("filter-sidebar-body");
+        document.getElementById("reset-btn-sidebar").addEventListener("click", resetFilters);
+
+        /* ── Mobile drawer ───────────────────────────────── */
+        window.openFilterDrawer = function () {
+            mountFilters("filter-drawer-body");
+            document.getElementById("filterDrawer").classList.add("open");
+            document.getElementById("filterOverlay").classList.add("open");
+        };
+        window.closeFilterDrawer = function () {
+            document.getElementById("filterDrawer").classList.remove("open");
+            document.getElementById("filterOverlay").classList.remove("open");
+        };
+
+        /* ── Product fetching ────────────────────────────── */
+        async function fetchProducts() {
+            const grid = document.getElementById("product-grid");
+            const count = document.getElementById("product-count");
+            const pager = document.getElementById("pagination");
+
+            // show skeletons
+            grid.innerHTML = Array(6).fill(`
+                <div class="prod-skel">
+                    <div class="skeleton prod-skel-img"></div>
+                    <div class="prod-skel-body">
+                        <div class="skeleton prod-skel-line"></div>
+                        <div class="skeleton prod-skel-line2"></div>
+                        <div class="skeleton prod-skel-price"></div>
+                    </div>
+                </div>`).join("");
+            count.textContent = "Loading…";
+            pager.innerHTML = "";
+
+            // Build query string
+            const q = new URLSearchParams({ category: categorySlug, sort: state.sort, page: state.page, limit: 12 });
+            if (state.minPrice) q.set("minPrice", state.minPrice);
+            if (state.maxPrice) q.set("maxPrice", state.maxPrice);
+            if (state.color) q.set("color", state.color);
+            if (state.material) q.set("material", state.material);
+            if (state.size) q.set("size", state.size);
+
+            try {
+                const res = await fetch(`${BASE_URL}/product?${q.toString()}`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+
+                if (!data.success) throw new Error(data.message);
+
+                renderProducts(data.products || []);
+                renderCount(data.totalProducts || 0);
+                renderPagination(data.page, data.totalPages);
+            } catch (err) {
+                console.error("[Furniquin] Products fetch error:", err);
+                grid.innerHTML = `
+                    <div class="state-box">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h3>Could not load products</h3>
+                        <p>Check your connection and <a href="javascript:fetchProducts()">try again</a>.</p>
+                    </div>`;
+                count.textContent = "";
+            }
+        }
+
+        window.fetchProducts = fetchProducts; // expose for retry link
+
+        function renderProducts(products) {
+            const grid = document.getElementById("product-grid");
+
+            if (products.length === 0) {
+                grid.innerHTML = `
+                    <div class="state-box">
+                        <i class="fas fa-search"></i>
+                        <h3>No products found</h3>
+                        <p>Try adjusting your filters or <a href="#" onclick="resetFilters();return false;">clear all filters</a>.</p>
+                    </div>`;
+                return;
+            }
+
+            grid.innerHTML = products.map(product => {
+                // Primary image
+                const primaryImg = (product.images || []).find(img => img.isPrimary) || product.images?.[0];
+                const imgHtml = primaryImg
+                    ? `<img src="${esc(primaryImg.url)}" alt="${esc(product.name)}" loading="lazy" />`
+                    : `<div class="product-img-placeholder"><i class="fas fa-couch"></i></div>`;
+
+                // Price from first variant
+                const firstVariant = (product.variants || [])[0];
+                let priceHtml = "";
+                if (firstVariant) {
+                    const price = firstVariant.price;
+                    const discount = firstVariant.discountPercentage || 0;
+                    if (discount > 0) {
+                        const finalPrice = price * (1 - discount / 100);
+                        priceHtml = `
+                            <span class="product-price">${formatINR(finalPrice)}</span>
+                            <span class="product-price-original">${formatINR(price)}</span>`;
+                    } else {
+                        priceHtml = `<span class="product-price">${formatINR(price)}</span>`;
+                    }
+                }
+
+                // Discount badge
+                const discount = (product.variants?.[0]?.discountPercentage) || 0;
+                const badge = discount > 0 ? `<div class="product-badge">${discount}% off</div>` : "";
+
+                return `
+                    <a class="product-card" href="product.html?slug=${encodeURIComponent(product.slug)}" aria-label="${esc(product.name)}">
+                        <div class="product-img-wrap">
+                            ${imgHtml}
+                            ${badge}
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">${esc(product.name)}</div>
+                            <div>${priceHtml}</div>
+                        </div>
+                    </a>`;
+            }).join("");
+        }
+
+        function renderCount(total) {
+            const el = document.getElementById("product-count");
+            el.innerHTML = `<strong>${total.toLocaleString("en-IN")}</strong> product${total !== 1 ? "s" : ""} found`;
+        }
+
+        function renderPagination(currentPage, totalPages) {
+            const pager = document.getElementById("pagination");
+            if (totalPages <= 1) { pager.innerHTML = ""; return; }
+
+            let html = "";
+
+            // Prev
+            html += `<button class="page-btn" onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? "disabled" : ""}>
+                <i class="fas fa-chevron-left"></i>
+            </button>`;
+
+            // Page numbers with ellipsis
+            const pages = buildPageNumbers(currentPage, totalPages);
+            for (const p of pages) {
+                if (p === "…") {
+                    html += `<span class="page-ellipsis">…</span>`;
+                } else {
+                    html += `<button class="page-btn ${p === currentPage ? "active" : ""}" onclick="goToPage(${p})">${p}</button>`;
+                }
+            }
+
+            // Next
+            html += `<button class="page-btn" onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? "disabled" : ""}>
+                <i class="fas fa-chevron-right"></i>
+            </button>`;
+
+            pager.innerHTML = html;
+        }
+
+        function buildPageNumbers(current, total) {
+            if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+            const pages = [];
+            if (current <= 4) {
+                pages.push(1, 2, 3, 4, 5, "…", total);
+            } else if (current >= total - 3) {
+                pages.push(1, "…", total - 4, total - 3, total - 2, total - 1, total);
+            } else {
+                pages.push(1, "…", current - 1, current, current + 1, "…", total);
+            }
+            return pages;
+        }
+
+        window.goToPage = function (page) {
+            state.page = page;
+            fetchProducts();
+            document.querySelector(".shop-body").scrollIntoView({ behavior: "smooth", block: "start" });
+        };
+
+        /* ── Category hero ───────────────────────────────── */
+        async function loadHero() {
+            if (!categorySlug) return;
+            try {
+                const data = await getCategoryBySlug(categorySlug);
+
+                // Breadcrumb: if it has a parent, show parent in breadcrumb
+                document.getElementById("bc-current").textContent = data.name;
+                document.title = `${data.name} — Furniquin`;
+
+                // Try to find parent info via the slug (if depth > 0, the parent slug is in URL referrer or we skip it)
+                // For now show a sensible breadcrumb with Collections link
+                const bcParent = document.getElementById("bc-parent");
+                bcParent.style.display = "";
+                document.getElementById("bc-parent-link").href = "index.html#categories";
+                document.getElementById("bc-parent-link").textContent = "Collections";
+
+                // Hero left
+                document.getElementById("hero-left").innerHTML = `
+                    <span class="cat-tag">Browse</span>
+                    <h1>${esc(data.name)}</h1>
+                    ${data.description ? `<p>${esc(data.description)}</p>` : `<p>Explore our curated collection of ${esc(data.name).toLowerCase()} furniture.</p>`}
+                `;
+
+                // Hero right — use thumbnail if available
+                const heroRight = document.getElementById("hero-right");
+                if (data.thumbnail) {
+                    const thumbUrl = data.thumbnail.startsWith("http") ? data.thumbnail : `${BASE_URL}${data.thumbnail}`;
+                    heroRight.innerHTML = `<img src="${thumbUrl}" alt="${esc(data.name)}" />`;
+                }
+                // else keep the placeholder
+            } catch (err) {
+                console.warn("[Furniquin] Hero load failed:", err);
+                document.getElementById("hero-left").innerHTML = `
+                    <span class="cat-tag">Browse</span>
+                    <h1>Our Collection</h1>
+                    <p>Explore our range of quality furniture.</p>
+                `;
+            }
+        }
+
+        /* ── Boot ────────────────────────────────────────── */
+        if (!categorySlug) {
+            document.getElementById("product-count").textContent = "No category selected.";
+            document.getElementById("product-grid").innerHTML = `
+                <div class="state-box">
+                    <i class="fas fa-arrow-left"></i>
+                    <h3>No category selected</h3>
+                    <p><a href="index.html">Return home →</a></p>
+                </div>`;
+        } else {
+            loadHero();
+            fetchProducts();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Orders — Furniquin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --cream: #F7F3EE;
+            --cream-dark: #EDE7DC;
+            --bark: #2C2218;
+            --bark-mid: #5C4A36;
+            --bark-light: #8C7560;
+            --gold: #B8975A;
+            --gold-light: #D4B483;
+            --gold-pale: #EDD9B0;
+            --border: #D8CEBF;
+            --shadow: rgba(44, 34, 24, 0.08);
+            --error: #C0392B;
+            --success: #27AE60;
+            --warning: #E67E22;
+            --info: #2980B9;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', sans-serif;
+            --radius: 4px;
+            --transition: 0.22s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--bark);
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ── Header ── */
+        .site-header {
+            background: var(--bark);
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            color: var(--gold-light);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-nav a {
+            color: var(--bark-light);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 0.06em;
+            transition: color var(--transition);
+        }
+
+        .header-nav a:hover {
+            color: var(--gold-light);
+        }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb {
+            padding: 14px 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--bark-light);
+            letter-spacing: 0.04em;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb a {
+            color: var(--bark-light);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--gold);
+        }
+
+        .breadcrumb .sep {
+            color: var(--border);
+        }
+
+        .breadcrumb .active {
+            color: var(--bark);
+            font-weight: 400;
+        }
+
+        /* ── Page Layout ── */
+        .page-wrap {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 48px 40px 80px;
+        }
+
+        /* ── Page Title ── */
+        .page-title-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 36px;
+            animation: fadeUp 0.45s ease both;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 38px;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: var(--bark);
+        }
+
+        .page-title em {
+            font-style: italic;
+            color: var(--bark-mid);
+        }
+
+        .orders-count {
+            font-size: 12px;
+            color: var(--bark-light);
+            letter-spacing: 0.06em;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── Order Card ── */
+        .orders-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .order-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 2px 12px var(--shadow);
+            transition: box-shadow var(--transition), transform var(--transition);
+            animation: fadeUp 0.45s ease both;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .order-card:hover {
+            box-shadow: 0 6px 28px rgba(44, 34, 24, 0.13);
+            transform: translateY(-2px);
+        }
+
+        .order-card:nth-child(2) {
+            animation-delay: 0.06s;
+        }
+
+        .order-card:nth-child(3) {
+            animation-delay: 0.12s;
+        }
+
+        .order-card:nth-child(4) {
+            animation-delay: 0.18s;
+        }
+
+        .order-card:nth-child(5) {
+            animation-delay: 0.24s;
+        }
+
+        .order-card-header {
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--cream-dark);
+            background: #FDFAF6;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .order-meta {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .order-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .order-meta-label {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--bark-light);
+        }
+
+        .order-meta-val {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--bark);
+        }
+
+        .order-number-val {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--bark);
+            letter-spacing: 0.04em;
+        }
+
+        /* Status badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            flex-shrink: 0;
+        }
+
+        .status-Pending {
+            background: #FEF3E2;
+            color: var(--warning);
+        }
+
+        .status-Confirmed {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .status-Processing {
+            background: #E3F2FD;
+            color: var(--info);
+        }
+
+        .status-Shipped {
+            background: #EDE7F6;
+            color: #6A1B9A;
+        }
+
+        .status-Delivered {
+            background: #E8F5E9;
+            color: var(--success);
+        }
+
+        .status-Cancelled {
+            background: #FFEBEE;
+            color: var(--error);
+        }
+
+        .status-Returned {
+            background: #FFF8E1;
+            color: #F57F17;
+        }
+
+        /* Payment badge */
+        .pay-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+
+        .pay-Paid {
+            background: #E8F5E9;
+            color: var(--success);
+        }
+
+        .pay-Pending {
+            background: #FEF3E2;
+            color: var(--warning);
+        }
+
+        .pay-Failed {
+            background: #FFEBEE;
+            color: var(--error);
+        }
+
+        .pay-Refunded {
+            background: #EDE7F6;
+            color: #6A1B9A;
+        }
+
+        /* Order body — product thumbnails */
+        .order-card-body {
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .order-thumbs {
+            display: flex;
+            align-items: center;
+            gap: -8px;
+        }
+
+        .order-thumb {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius);
+            border: 2px solid #fff;
+            object-fit: cover;
+            margin-left: -8px;
+            background: var(--cream-dark);
+            box-shadow: 0 1px 4px var(--shadow);
+        }
+
+        .order-thumb:first-child {
+            margin-left: 0;
+        }
+
+        .order-thumb-placeholder {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius);
+            border: 2px solid #fff;
+            background: var(--cream-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-left: -8px;
+            box-shadow: 0 1px 4px var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .order-thumb-placeholder:first-child {
+            margin-left: 0;
+        }
+
+        .order-thumb-more {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius);
+            border: 2px solid #fff;
+            background: var(--bark);
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 500;
+            margin-left: -8px;
+            box-shadow: 0 1px 4px var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .order-summary-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .order-amount {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--bark);
+        }
+
+        .order-item-count {
+            font-size: 12px;
+            color: var(--bark-light);
+        }
+
+        .view-detail-arrow {
+            color: var(--bark-light);
+            font-size: 18px;
+            transition: transform var(--transition), color var(--transition);
+        }
+
+        .order-card:hover .view-detail-arrow {
+            transform: translateX(4px);
+            color: var(--gold);
+        }
+
+        /* ── Pagination ── */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 40px;
+            animation: fadeUp 0.45s 0.3s ease both;
+        }
+
+        .page-btn {
+            width: 38px;
+            height: 38px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            background: #fff;
+            color: var(--bark-mid);
+            font-family: var(--font-body);
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+        }
+
+        .page-btn:hover {
+            border-color: var(--gold);
+            color: var(--bark);
+        }
+
+        .page-btn.active {
+            background: var(--bark);
+            color: var(--gold-light);
+            border-color: var(--bark);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .page-btn:disabled:hover {
+            border-color: var(--border);
+            color: var(--bark-mid);
+        }
+
+        /* ── Skeleton loader ── */
+        .skeleton-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 2px 12px var(--shadow);
+        }
+
+        .skeleton-header {
+            padding: 16px 24px;
+            background: #FDFAF6;
+            border-bottom: 1px solid var(--cream-dark);
+            display: flex;
+            gap: 40px;
+        }
+
+        .skeleton-body {
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -600px 0;
+            }
+
+            100% {
+                background-position: 600px 0;
+            }
+        }
+
+        .skel {
+            background: linear-gradient(90deg, var(--cream-dark) 25%, #F5EFE6 50%, var(--cream-dark) 75%);
+            background-size: 600px 100%;
+            animation: shimmer 1.4s infinite;
+            border-radius: 3px;
+        }
+
+        .skel-line {
+            height: 12px;
+        }
+
+        .skel-sm {
+            width: 80px;
+        }
+
+        .skel-md {
+            width: 140px;
+        }
+
+        .skel-lg {
+            width: 200px;
+        }
+
+        .skel-circle {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius);
+        }
+
+        .skel-title {
+            width: 120px;
+            height: 18px;
+        }
+
+        /* ── Empty state ── */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            animation: fadeUp 0.45s ease both;
+        }
+
+        .empty-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+            display: block;
+            opacity: 0.5;
+        }
+
+        .empty-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--bark);
+            margin-bottom: 10px;
+        }
+
+        .empty-sub {
+            font-size: 13px;
+            color: var(--bark-light);
+            margin-bottom: 28px;
+        }
+
+        .btn-shop {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: var(--bark);
+            color: var(--gold-light);
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-family: var(--font-body);
+            transition: background var(--transition);
+        }
+
+        .btn-shop:hover {
+            background: var(--bark-mid);
+        }
+
+        /* ── Toast ── */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--bark);
+            color: var(--cream);
+            padding: 14px 24px;
+            border-radius: var(--radius);
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+            z-index: 9999;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            white-space: nowrap;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast.error {
+            background: #C0392B;
+        }
+
+        .toast.success {
+            background: #27AE60;
+        }
+
+        @media (max-width: 680px) {
+            .page-wrap {
+                padding: 28px 16px 60px;
+            }
+
+            .site-header {
+                padding: 0 16px;
+            }
+
+            .breadcrumb {
+                padding: 12px 16px;
+            }
+
+            .order-card-header {
+                padding: 12px 16px;
+            }
+
+            .order-card-body {
+                padding: 12px 16px;
+            }
+
+            .page-title {
+                font-size: 28px;
+            }
+
+            .order-meta {
+                gap: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a href="index.html" class="logo">Furni<span>quin</span></a>
+        <nav class="header-nav">
+            <a href="shop.html">Shop</a>
+            <a href="cart.html">Cart</a>
+            <a href="orders.html" style="color:var(--gold-light)">My Orders</a>
+        </nav>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <span class="active">My Orders</span>
+    </nav>
+
+    <main class="page-wrap">
+        <div class="page-title-row">
+            <h1 class="page-title">My <em>Orders</em></h1>
+            <span class="orders-count" id="orders-count"></span>
+        </div>
+
+        <div class="orders-list" id="orders-list">
+            <!-- Skeleton loaders -->
+            ${[1,2,3].map(() => `
+            <div class="skeleton-card">
+                <div class="skeleton-header">
+                    <div style="display:flex;flex-direction:column;gap:6px">
+                        <div class="skel skel-line skel-sm"></div>
+                        <div class="skel skel-title"></div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:6px">
+                        <div class="skel skel-line skel-sm"></div>
+                        <div class="skel skel-line skel-md"></div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:6px">
+                        <div class="skel skel-line skel-sm"></div>
+                        <div class="skel skel-line skel-sm"></div>
+                    </div>
+                </div>
+                <div class="skeleton-body">
+                    <div style="display:flex;gap:8px">
+                        <div class="skel skel-circle"></div>
+                        <div class="skel skel-circle"></div>
+                    </div>
+                    <div class="skel skel-line skel-md"></div>
+                </div>
+            </div>`).join('')}
+        </div>
+
+        <div class="pagination" id="pagination" style="display:none"></div>
+    </main>
+
+    <div class="toast" id="toast"><span id="toast-msg"></span></div>
+
+    <script>
+        const BASE_URL = "http://localhost:8000";
+        const fmt = n => "₹" + Math.round(Number(n)).toLocaleString("en-IN");
+        const fmtDate = d => new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+
+        let currentPage = 1;
+        let totalPages = 1;
+
+        let toastTimer;
+        function showToast(msg, type = "info") {
+            const t = document.getElementById("toast");
+            t.className = "toast " + type;
+            document.getElementById("toast-msg").textContent = msg;
+            t.classList.add("show");
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove("show"), 3500);
+        }
+
+        function statusBadge(status) {
+            return `<span class="status-badge status-${status}">${status}</span>`;
+        }
+
+        function payBadge(payment) {
+            const method = payment.method === "COD" ? "COD" : payment.method;
+            return `<span class="pay-status pay-${payment.status}">${method} · ${payment.status}</span>`;
+        }
+
+        function renderOrders(orders) {
+            const list = document.getElementById("orders-list");
+            if (orders.length === 0) {
+                list.innerHTML = `
+        <div class="empty-state">
+          <span class="empty-icon">🛋️</span>
+          <h2 class="empty-title">No orders yet</h2>
+          <p class="empty-sub">You haven't placed any orders. Start exploring our collection.</p>
+          <a href="shop.html" class="btn-shop">Browse Furniture →</a>
+        </div>`;
+                return;
+            }
+
+            list.innerHTML = orders.map((order, i) => {
+                const items = order.items || [];
+                const visible = items.slice(0, 3);
+                const extra = items.length - 3;
+
+                const thumbsHtml = visible.map(item =>
+                    item.image
+                        ? `<img class="order-thumb" src="${item.image}" alt="${item.productName}" loading="lazy"/>`
+                        : `<div class="order-thumb-placeholder">🛋️</div>`
+                ).join("") + (extra > 0 ? `<div class="order-thumb-more">+${extra}</div>` : "");
+
+                const totalItems = items.reduce((s, i) => s + i.quantity, 0);
+
+                return `
+        <a class="order-card" href="orderDetail.html?orderId=${order._id}" style="animation-delay:${i * 0.06}s">
+          <div class="order-card-header">
+            <div class="order-meta">
+              <div class="order-meta-item">
+                <span class="order-meta-label">Order</span>
+                <span class="order-number-val">${order.orderNumber}</span>
+              </div>
+              <div class="order-meta-item">
+                <span class="order-meta-label">Placed on</span>
+                <span class="order-meta-val">${fmtDate(order.createdAt)}</span>
+              </div>
+              <div class="order-meta-item">
+                <span class="order-meta-label">Total</span>
+                <span class="order-meta-val" style="font-family:var(--font-display);font-size:15px;font-weight:500">${fmt(order.totalAmount)}</span>
+              </div>
+              <div class="order-meta-item">
+                <span class="order-meta-label">Payment</span>
+                ${payBadge(order.payment)}
+              </div>
+            </div>
+            ${statusBadge(order.orderStatus)}
+          </div>
+          <div class="order-card-body">
+            <div style="display:flex;align-items:center;gap:16px">
+              <div class="order-thumbs">${thumbsHtml}</div>
+              <span class="order-item-count">${totalItems} item${totalItems !== 1 ? "s" : ""}</span>
+            </div>
+            <div class="order-summary-right">
+              <span class="order-amount">${fmt(order.totalAmount)}</span>
+              <span class="view-detail-arrow">→</span>
+            </div>
+          </div>
+        </a>`;
+            }).join("");
+        }
+
+        function renderPagination() {
+            const el = document.getElementById("pagination");
+            if (totalPages <= 1) { el.style.display = "none"; return; }
+            el.style.display = "flex";
+
+            let html = `<button class="page-btn" onclick="goPage(${currentPage - 1})" ${currentPage === 1 ? "disabled" : ""}>‹</button>`;
+            for (let p = 1; p <= totalPages; p++) {
+                html += `<button class="page-btn ${p === currentPage ? "active" : ""}" onclick="goPage(${p})">${p}</button>`;
+            }
+            html += `<button class="page-btn" onclick="goPage(${currentPage + 1})" ${currentPage === totalPages ? "disabled" : ""}>›</button>`;
+            el.innerHTML = html;
+        }
+
+        async function loadOrders(page = 1) {
+            try {
+                const res = await fetch(`${BASE_URL}/order/my-orders?page=${page}&limit=10`, {
+                    credentials: "include"
+                });
+                if (res.status === 401) {
+                    window.location.href = "./auth/signin.html";
+                    return;
+                }
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.message || "Failed to load orders");
+
+                currentPage = data.page;
+                totalPages = data.totalPages;
+
+                const countEl = document.getElementById("orders-count");
+                countEl.textContent = data.orders.length > 0 ? `Page ${currentPage} of ${totalPages}` : "";
+
+                renderOrders(data.orders);
+                renderPagination();
+
+            } catch (err) {
+                showToast(err.message || "Failed to load orders", "error");
+                document.getElementById("orders-list").innerHTML = `
+        <div class="empty-state">
+          <span class="empty-icon">⚠️</span>
+          <h2 class="empty-title">Something went wrong</h2>
+          <p class="empty-sub">${err.message}</p>
+        </div>`;
+            }
+        }
+
+        function goPage(p) {
+            if (p < 1 || p > totalPages) return;
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            loadOrders(p);
+        }
+
+        loadOrders();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Category — Furniquin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ── Reset & Base ─────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --clr-bg: #faf9f7;
+            --clr-surface: #ffffff;
+            --clr-border: #e8e4de;
+            --clr-text: #1a1814;
+            --clr-muted: #6b6560;
+            --clr-accent: #b5813e;
+            --clr-accent-lt: #f3ead8;
+            --clr-hover: #f5f2ee;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'DM Sans', sans-serif;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.10);
+            --transition: 0.22s ease;
+            --max-w: 1240px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--clr-bg);
+            color: var(--clr-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Reused header/nav styles (keep consistent with index.html) ── */
+        .main-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 249, 247, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--clr-border);
+        }
+
+        .main-header .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--clr-text);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--clr-accent);
+        }
+
+        /* ── Breadcrumb ──────────────────────────────── */
+        .breadcrumb-bar {
+            background: var(--clr-surface);
+            border-bottom: 1px solid var(--clr-border);
+            padding: 12px 0;
+        }
+
+        .breadcrumb-bar .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--clr-muted);
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb li a {
+            color: var(--clr-muted);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        .breadcrumb li a:hover {
+            color: var(--clr-accent);
+        }
+
+        .breadcrumb li.active {
+            color: var(--clr-text);
+            font-weight: 500;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: "/";
+            margin-left: 6px;
+            opacity: 0.4;
+        }
+
+        /* ── Category Hero ───────────────────────────── */
+        .cat-hero {
+            background: var(--clr-surface);
+            border-bottom: 1px solid var(--clr-border);
+            padding: 56px 0 48px;
+        }
+
+        .cat-hero .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .cat-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--clr-accent);
+            background: var(--clr-accent-lt);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .cat-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            max-width: 640px;
+            margin-bottom: 16px;
+        }
+
+        .cat-hero p {
+            font-size: 1rem;
+            color: var(--clr-muted);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        /* ── Skeleton for hero ────────────────────────── */
+        .skeleton {
+            background: linear-gradient(90deg, #ede9e3 25%, #e4dfd8 50%, #ede9e3 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.4s infinite;
+            border-radius: 6px;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0
+            }
+
+            100% {
+                background-position: -200% 0
+            }
+        }
+
+        .skel-tag {
+            width: 120px;
+            height: 24px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .skel-h1 {
+            width: 60%;
+            height: 48px;
+            margin-bottom: 12px;
+        }
+
+        .skel-h1b {
+            width: 40%;
+            height: 48px;
+            margin-bottom: 20px;
+        }
+
+        .skel-p {
+            width: 80%;
+            height: 16px;
+            margin-bottom: 8px;
+        }
+
+        .skel-p2 {
+            width: 60%;
+            height: 16px;
+        }
+
+        /* ── Subcategories Section ───────────────────── */
+        .subcat-section {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 56px 24px 80px;
+        }
+
+        .subcat-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 3vw, 1.9rem);
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .subcat-sub {
+            color: var(--clr-muted);
+            font-size: 0.92rem;
+            margin-bottom: 36px;
+        }
+
+        /* ── Subcategory Grid ─────────────────────────── */
+        .subcat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        /* ── Subcategory Card ─────────────────────────── */
+        .subcat-card {
+            display: block;
+            text-decoration: none;
+            color: var(--clr-text);
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+        }
+
+        .subcat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--clr-accent);
+        }
+
+        .subcat-card:hover .subcat-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .subcat-img-wrap {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: var(--clr-hover);
+            position: relative;
+        }
+
+        .subcat-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .subcat-card:hover .subcat-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .subcat-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            background: var(--clr-accent-lt);
+        }
+
+        .subcat-info {
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .subcat-name {
+            font-weight: 500;
+            font-size: 0.95rem;
+            line-height: 1.3;
+        }
+
+        .subcat-arrow {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--clr-accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            flex-shrink: 0;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: opacity var(--transition), transform var(--transition);
+        }
+
+        /* ── Skeleton cards ───────────────────────────── */
+        .subcat-skel {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--clr-border);
+        }
+
+        .subcat-skel-img {
+            aspect-ratio: 4/3;
+        }
+
+        .subcat-skel-body {
+            padding: 16px 18px;
+        }
+
+        .subcat-skel-line {
+            height: 14px;
+            width: 70%;
+        }
+
+        /* ── Empty / Error states ─────────────────────── */
+        .state-box {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 64px 24px;
+            color: var(--clr-muted);
+        }
+
+        .state-box i {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+            opacity: 0.4;
+        }
+
+        .state-box p {
+            font-size: 0.95rem;
+        }
+
+        /* ── Footer ──────────────────────────────────── */
+        footer {
+            background: var(--clr-text);
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        /* ── Responsive ───────────────────────────────── */
+        @media (max-width: 600px) {
+            .subcat-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .cat-hero {
+                padding: 36px 0 32px;
+            }
+
+            .subcat-section {
+                padding: 36px 16px 56px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV (minimal version — swap with your full nav include if you use a build tool) -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Furni<span>quin</span></a>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <ol class="breadcrumb" id="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#categories">Collections</a></li>
+                <li class="active" id="breadcrumb-current">Category</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="cat-hero" id="cat-hero">
+        <div class="container" id="hero-content">
+            <!-- skeleton shown until data loads -->
+            <div class="skeleton skel-tag"></div>
+            <div class="skeleton skel-h1"></div>
+            <div class="skeleton skel-h1b"></div>
+            <div class="skeleton skel-p"></div>
+            <div class="skeleton skel-p2"></div>
+        </div>
+    </section>
+
+    <!-- SUBCATEGORY SECTION -->
+    <section class="subcat-section">
+        <div id="subcat-heading-wrap" style="display:none;">
+            <h2 class="subcat-heading">Shop by product type</h2>
+            <p class="subcat-sub" id="subcat-sub-text"></p>
+        </div>
+        <div class="subcat-grid" id="subcat-grid">
+            <!-- skeleton cards -->
+            ${[...Array(6)].join('<div class="subcat-skel">
+                <div class="skeleton subcat-skel-img"></div>
+                <div class="subcat-skel-body">
+                    <div class="skeleton subcat-skel-line"></div>
+                </div>
+            </div>')}
+        </div>
+    </section>
+
+    <!-- SLIM FOOTER -->
+    <footer>
+        <div class="footer-bottom">
+            <div>© 2026 Furniquin. All rights reserved.</div>
+            <div><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { getCategoryBySlug, resolveThumbnail } from "./category/categoryService.js";
+
+        const BASE_URL = "http://localhost:8000";
+
+        const params = new URLSearchParams(location.search);
+        const slug = params.get("slug") || "";
+
+        const heroEl = document.getElementById("hero-content");
+        const grid = document.getElementById("subcat-grid");
+        const headingWrap = document.getElementById("subcat-heading-wrap");
+        const subcatSub = document.getElementById("subcat-sub-text");
+        const bcCurrent = document.getElementById("breadcrumb-current");
+
+        function escHtml(s) {
+            return String(s ?? "")
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        function renderHero(cat) {
+            document.title = `${cat.name} — Furniquin`;
+            bcCurrent.textContent = cat.name;
+            heroEl.innerHTML = `
+                <span class="cat-tag">Collection</span>
+                <h1>${escHtml(cat.name)}</h1>
+                ${cat.description ? `<p>${escHtml(cat.description)}</p>` : ""}
+            `;
+        }
+
+        function renderSubcats(children) {
+            if (!children || children.length === 0) {
+                grid.innerHTML = `
+                    <div class="state-box">
+                        <i class="fas fa-layer-group"></i>
+                        <p>No subcategories found. <a href="shop.html?slug=${encodeURIComponent(slug)}" style="color:var(--clr-accent);">Browse all products →</a></p>
+                    </div>`;
+                return;
+            }
+
+            headingWrap.style.display = "block";
+            subcatSub.textContent = `${children.length} product type${children.length !== 1 ? "s" : ""} available`;
+
+            grid.innerHTML = children.map(child => {
+                const thumbUrl = child.thumbnail ? resolveThumbnail(child.thumbnail) : null;
+                const imgHtml = thumbUrl
+                    ? `<img src="${thumbUrl}" alt="${escHtml(child.name)}" loading="lazy" />`
+                    : `<div class="subcat-img-placeholder">🪑</div>`;
+
+                return `
+                    <a class="subcat-card" href="shop.html?slug=${encodeURIComponent(child.slug)}" aria-label="Shop ${escHtml(child.name)}">
+                        <div class="subcat-img-wrap">${imgHtml}</div>
+                        <div class="subcat-info">
+                            <span class="subcat-name">${escHtml(child.name)}</span>
+                            <span class="subcat-arrow"><i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>`;
+            }).join("");
+        }
+
+        function renderError(msg) {
+            heroEl.innerHTML = `<h1 style="color:var(--clr-muted);">${escHtml(msg)}</h1>`;
+            grid.innerHTML = `
+                <div class="state-box">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Something went wrong. <a href="index.html" style="color:var(--clr-accent);">Return home →</a></p>
+                </div>`;
+        }
+
+        // ── Init ────────────────────────────────────────
+        if (!slug) {
+            renderError("No category specified.");
+        } else {
+            getCategoryBySlug(slug)
+                .then(data => {
+                    renderHero(data);
+                    renderSubcats(data.children || []);
+                })
+                .catch(err => {
+                    console.error(err);
+                    renderError("Category not found.");
+                });
+        }
+    </script>
+</body>
+
+</html>
