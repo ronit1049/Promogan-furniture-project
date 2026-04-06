@@ -152,7 +152,150 @@
 
 <body>
 
-    <div id="navbar"></div>
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div class="top-wrapper" id="topWrapper">
+        <!-- Announcement Bar -->
+        <div class="announcement-bar">
+            <div class="container">
+                <div class="announcement-left">
+                    <div class="announcement-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Free Shipping on Orders</span>
+                    </div>
+                    <div class="announcement-item">
+                        <i class="fas fa-undo-alt"></i>
+                        <span>30-Day Returns</span>
+                    </div>
+                    <div class="announcement-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>2-Year Warranty</span>
+                    </div>
+                </div>
+                <div class="announcement-right">
+                    <a href="" id="adminPanelLink" class="announcement-link" style="display: none;" target="_blank">
+                        <i class="fas fa-user-shield"></i> Admin Panel
+                    </a>
+                    <div class="user-menu" id="userMenu">
+                        <div class="user-trigger" id="userTrigger">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Login</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NAV -->
+        <header class="main-header" id="header">
+            <div class="container">
+                <a href="index.html" class="logo">Furni<span>quin</span></a>
+
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <nav class="nav-menu">
+                    <div class="close-menu" id="closeMenu">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-grid">
+                                <div class="mega-col">
+                                    <h4>Living Room</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=sofa"><i class="fas fa-chevron-right"></i> Sofas</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=sectional"><i class="fas fa-chevron-right"></i>
+                                                Sectionals</a></li>
+                                        <li><a href="shop.html?cat=coffee"><i class="fas fa-chevron-right"></i> Coffee
+                                                Tables</a></li>
+                                        <li><a href="shop.html?cat=tv"><i class="fas fa-chevron-right"></i> TV Units</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=chair"><i class="fas fa-chevron-right"></i>
+                                                Armchairs</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h4>Bedroom</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=bed"><i class="fas fa-chevron-right"></i> Beds</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=mattress"><i class="fas fa-chevron-right"></i>
+                                                Mattresses</a></li>
+                                        <li><a href="shop.html?cat=wardrobe"><i class="fas fa-chevron-right"></i>
+                                                Wardrobes</a></li>
+                                        <li><a href="shop.html?cat=nightstand"><i class="fas fa-chevron-right"></i>
+                                                Nightstands</a></li>
+                                        <li><a href="shop.html?cat=dresser"><i class="fas fa-chevron-right"></i>
+                                                Dressers</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h4>Dining</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=dining-table"><i class="fas fa-chevron-right"></i>
+                                                Dining Tables</a></li>
+                                        <li><a href="shop.html?cat=dining-chair"><i class="fas fa-chevron-right"></i>
+                                                Dining Chairs</a></li>
+                                        <li><a href="shop.html?cat=buffet"><i class="fas fa-chevron-right"></i>
+                                                Buffets</a></li>
+                                        <li><a href="shop.html?cat=bar-stool"><i class="fas fa-chevron-right"></i> Bar
+                                                Stools</a></li>
+                                        <li><a href="shop.html?cat=china-cabinet"><i class="fas fa-chevron-right"></i>
+                                                China Cabinets</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mega-featured">
+                                <div class="mega-feature-item">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Free Shipping on Orders</span>
+                                </div>
+                                <div class="mega-feature-item">
+                                    <i class="fas fa-undo-alt"></i>
+                                    <span>30-Day Returns</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html#categories" class="nav-link">Collections</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="./about.html" class="nav-link">About</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </div>
+                </nav>
+
+                <div class="header-icons">
+                    <div class="icon-wrapper">
+                        <a href="cart.html" class="icon-link cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="Search products...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
 
     <!-- HERO -->
     <section class="contact-hero">
@@ -194,32 +337,241 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-        fetch("navbar.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("navbar").innerHTML = data;
-                updateCartCount();
-                updateWishlistCount();
-            });
-    </script>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="logo">Furni<span>quin</span></span>
+                <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
+                    India.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Living Room</a></li>
+                    <li><a href="#">Bedroom</a></li>
+                    <li><a href="#">Dining Room</a></li>
+                    <li><a href="#">Home Office</a></li>
+                    <li><a href="#">Outdoor</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Delivery Info</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Design District, New York</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div class="policies">
+                <a href="#">Refund policy</a>&middot;
+                <a href="#">Privacy policy</a>&middot;
+                <a href="#">Terms of service</a>&middot;
+                <a href="#">Shipping policy</a>
+            </div>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
 
-    <script>
+
+    <script type="module">
+        import { getCategoryTree, getAllCategories } from "./category/categoryService.js";
+
+        // cart
+        function syncCartBadge() {
+            try {
+                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+                document.querySelectorAll(".cart-count").forEach(el => {
+                    el.textContent = total;
+                });
+            } catch {
+                // localStorage unavailable — leave badge as-is
+            }
+        }
+
+        // navbar category listing
+        async function buildNavMegaMenu() {
+            const megaGrid = document.querySelector(".mega-grid");
+            if (!megaGrid) return;
+
+            try {
+                const { tree } = await getCategoryTree();
+                if (!tree || tree.length === 0) return; // Keep static HTML as fallback
+
+                // Build one .mega-col per top-level category
+                const cols = tree.map((topCat) => {
+                    const children = topCat.children || [];
+                    const childLinks = children
+                        .map(
+                            (child) =>
+                                `<li>
+                            <a href="shop.html?slug=${encodeURIComponent(child.slug)}">
+                                <i class="fas fa-chevron-right"></i>
+                                ${escapeHtml(child.name)}
+                            </a>
+                        </li>`
+                        )
+                        .join("");
+
+                    return `
+                <div class="mega-col">
+                    <h4>
+                        <a href="category.html?slug=${encodeURIComponent(topCat.slug)}" class="mega-col-heading-link">
+                            ${escapeHtml(topCat.name)}
+                        </a>
+                    </h4>
+                    <ul class="mega-links">
+                        ${childLinks || `<li><a href="category.html?slug=${encodeURIComponent(topCat.slug)}"><i class="fas fa-chevron-right"></i> View All</a></li>`}
+                    </ul>
+                </div>`;
+                });
+
+                megaGrid.innerHTML = cols.join("");
+            } catch (err) {
+                // Silently fall back to the static HTML already in the DOM
+                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+            }
+        }
+
+        function escapeHtml(s) {
+            return String(s ?? "")
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        async function loginSwap() {
+            const userText = document.getElementById("userText")
+            const userTrigger = document.getElementById("userTrigger")
+            const adminPanelLink = document.getElementById("adminPanelLink")
+
+            let isLoggedIn = false
+
+            // check auth from backend
+            try {
+                const res = await fetch("http://localhost:8000/auth/me", {
+                    credentials: "include"
+                })
+
+                const data = await res.json()
+                if (data.isLoggedIn) {
+                    isLoggedIn = true,
+                        userText.textContent = "Account"
+
+                    // role check
+                    if (data.user.role === "admin") {
+                        adminPanelLink.style.display = "inline-flex"
+                    }
+
+                } else {
+                    userText.textContent = "Login"
+                }
+            } catch (err) {
+                console.error(err)
+                userText.textContent = "Login"
+            }
+
+            // click behavior
+            userTrigger.addEventListener("click", (e) => {
+                e.stopPropagation()
+
+                if (!isLoggedIn) {
+                    window.location.href = "./auth/signin.html"
+                } else {
+                    window.location.href = "./account.html"
+                }
+            })
+
+            adminPanelLink.addEventListener("click", (e) => {
+                e.preventDefault()
+                window.open("./admin/admin-panel.html", "_blank")
+            })
+        }
+
+        async function buildFooterShopLinks() {
+            // Target the <ul> inside the footer column whose <h4> is "Shop"
+            const footerShopUl = findFooterShopUl();
+            if (!footerShopUl) return;
+
+            try {
+                const { categories } = await getAllCategories();
+                if (!categories || categories.length === 0) return;
+
+                // Only top-level categories (no parent) in footer
+                const topLevel = categories.filter((c) => !c.parent);
+
+                if (topLevel.length === 0) return;
+
+                footerShopUl.innerHTML = topLevel
+                    .map(
+                        (cat) =>
+                            `<li>
+                        <a href="category.html?slug=${encodeURIComponent(cat.slug)}">
+                            ${escapeHtml(cat.name)}
+                        </a>
+                    </li>`
+                    )
+                    .join("");
+            } catch (err) {
+                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+            }
+        }
+
+        function findFooterShopUl() {
+            const footerCols = document.querySelectorAll(".footer-col");
+            for (const col of footerCols) {
+                const heading = col.querySelector("h4");
+                if (heading && heading.textContent.trim().toLowerCase() === "shop") {
+                    return col.querySelector("ul");
+                }
+            }
+            return null;
+        }
+
         function sendMessage(e) {
             e.preventDefault();
             alert("✅ Message sent successfully!");
             e.target.reset();
         }
-    </script>
-    <script src="./common.js"></script>
-    <div id="navbar"></div>
-
-    <script>
-        fetch("navbar.html")
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById("navbar").innerHTML = data;
-            });
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            syncCartBadge()
+            buildNavMegaMenu()
+            loginSwap()
+            buildFooterShopLinks()
+        })
     </script>
     <script src="./script.js"></script>
 </body>

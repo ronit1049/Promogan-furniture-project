@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Orders — Furniquin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
+
     <style>
         *,
         *::before,
@@ -20,15 +23,9 @@
         }
 
         :root {
-            --cream: #F7F3EE;
-            --cream-dark: #EDE7DC;
-            --bark: #2C2218;
-            --bark-mid: #5C4A36;
-            --bark-light: #8C7560;
-            --gold: #B8975A;
+
+            --clr-accent-lt: #f3ead8;
             --gold-light: #D4B483;
-            --gold-pale: #EDD9B0;
-            --border: #D8CEBF;
             --shadow: rgba(44, 34, 24, 0.08);
             --error: #C0392B;
             --success: #27AE60;
@@ -37,7 +34,7 @@
             --font-display: 'Cormorant Garamond', Georgia, serif;
             --font-body: 'DM Sans', sans-serif;
             --radius: 4px;
-            --transition: 0.22s ease;
+            --transition: 0.2s ease;
         }
 
         html {
@@ -45,60 +42,13 @@
         }
 
         body {
-            background: var(--cream);
-            color: var(--bark);
+            background: var(--warm-white);
+            color: var(--dark);
             font-family: var(--font-body);
             font-size: 14px;
             font-weight: 300;
             line-height: 1.6;
             min-height: 100vh;
-        }
-
-        /* ── Header ── */
-        .site-header {
-            background: var(--bark);
-            padding: 0 40px;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
-        }
-
-        .logo {
-            font-family: var(--font-display);
-            font-size: 26px;
-            font-weight: 300;
-            letter-spacing: 0.12em;
-            color: var(--gold-light);
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .logo span {
-            font-style: italic;
-            color: var(--gold);
-        }
-
-        .header-nav {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .header-nav a {
-            color: var(--bark-light);
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 0.06em;
-            transition: color var(--transition);
-        }
-
-        .header-nav a:hover {
-            color: var(--gold-light);
         }
 
         /* ── Breadcrumb ── */
@@ -108,26 +58,26 @@
             align-items: center;
             gap: 8px;
             font-size: 12px;
-            color: var(--bark-light);
+            color: var(--text-muted);
             letter-spacing: 0.04em;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .breadcrumb a {
-            color: var(--bark-light);
+            color: var(--text-muted);
             text-decoration: none;
         }
 
         .breadcrumb a:hover {
-            color: var(--gold);
+            color: var(--primary);
         }
 
         .breadcrumb .sep {
-            color: var(--border);
+            color: var(--border-light);
         }
 
         .breadcrumb .active {
-            color: var(--bark);
+            color: var(--dark);
             font-weight: 400;
         }
 
@@ -149,20 +99,20 @@
 
         .page-title {
             font-family: var(--font-display);
-            font-size: 38px;
-            font-weight: 400;
-            letter-spacing: 0.02em;
-            color: var(--bark);
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 600;
+            letter-spacing: -0.4px;
+            line-height: 1.1;
         }
 
         .page-title em {
             font-style: italic;
-            color: var(--bark-mid);
+            color: var(--dark);
         }
 
         .orders-count {
             font-size: 12px;
-            color: var(--bark-light);
+            color: var(--text-muted);
             letter-spacing: 0.06em;
         }
 
@@ -187,7 +137,7 @@
 
         .order-card {
             background: #fff;
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: 0 2px 12px var(--shadow);
@@ -225,7 +175,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid var(--cream-dark);
+            border-bottom: 1px solid var(--light-gray);
             background: #FDFAF6;
             flex-wrap: wrap;
             gap: 10px;
@@ -249,20 +199,20 @@
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--bark-light);
+            color: var(--text-muted);
         }
 
         .order-meta-val {
             font-size: 13px;
             font-weight: 400;
-            color: var(--bark);
+            color: var(--dark);
         }
 
         .order-number-val {
             font-family: var(--font-display);
             font-size: 15px;
             font-weight: 500;
-            color: var(--bark);
+            color: var(--dark);
             letter-spacing: 0.04em;
         }
 
@@ -290,33 +240,33 @@
         }
 
         .status-Pending {
-            background: #FEF3E2;
-            color: var(--warning);
+            background: #fff3e0;
+            color: #f57c00;
         }
 
         .status-Confirmed {
-            background: #E8F5E9;
-            color: #2E7D32;
+            background: #e8f5e9;
+            color: #2e7d32;
         }
 
         .status-Processing {
-            background: #E3F2FD;
-            color: var(--info);
+            background: #e3f2fd;
+            color: #1565c0;
         }
 
         .status-Shipped {
-            background: #EDE7F6;
-            color: #6A1B9A;
+            background: #ede7f6;
+            color: #5e35b1;
         }
 
         .status-Delivered {
-            background: #E8F5E9;
-            color: var(--success);
+            background: #e8f5e9;
+            color: #2e7d32;
         }
 
         .status-Cancelled {
-            background: #FFEBEE;
-            color: var(--error);
+            background: #ffebee;
+            color: #c62828;
         }
 
         .status-Returned {
@@ -378,7 +328,7 @@
             border: 2px solid #fff;
             object-fit: cover;
             margin-left: -8px;
-            background: var(--cream-dark);
+            background: var(--light-gray);
             box-shadow: 0 1px 4px var(--shadow);
         }
 
@@ -391,7 +341,7 @@
             height: 52px;
             border-radius: var(--radius);
             border: 2px solid #fff;
-            background: var(--cream-dark);
+            background: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -410,7 +360,7 @@
             height: 52px;
             border-radius: var(--radius);
             border: 2px solid #fff;
-            background: var(--bark);
+            background: var(--dark);
             color: var(--gold-light);
             display: flex;
             align-items: center;
@@ -433,23 +383,23 @@
             font-family: var(--font-display);
             font-size: 20px;
             font-weight: 600;
-            color: var(--bark);
+            color: var(--dark);
         }
 
         .order-item-count {
             font-size: 12px;
-            color: var(--bark-light);
+            color: var(--text-muted);
         }
 
         .view-detail-arrow {
-            color: var(--bark-light);
+            color: var(--text-muted);
             font-size: 18px;
             transition: transform var(--transition), color var(--transition);
         }
 
         .order-card:hover .view-detail-arrow {
             transform: translateX(4px);
-            color: var(--gold);
+            color: var(--primary);
         }
 
         /* ── Pagination ── */
@@ -465,10 +415,10 @@
         .page-btn {
             width: 38px;
             height: 38px;
-            border: 1.5px solid var(--border);
+            border: 1.5px solid var(--border-light);
             border-radius: var(--radius);
             background: #fff;
-            color: var(--bark-mid);
+            color: var(--dark);
             font-family: var(--font-body);
             font-size: 13px;
             cursor: pointer;
@@ -479,14 +429,14 @@
         }
 
         .page-btn:hover {
-            border-color: var(--gold);
-            color: var(--bark);
+            border-color: var(--primary);
+            color: var(--dark);
         }
 
         .page-btn.active {
-            background: var(--bark);
+            background: var(--dark);
             color: var(--gold-light);
-            border-color: var(--bark);
+            border-color: var(--dark);
         }
 
         .page-btn:disabled {
@@ -495,14 +445,14 @@
         }
 
         .page-btn:disabled:hover {
-            border-color: var(--border);
-            color: var(--bark-mid);
+            border-color: var(--border-light);
+            color: var(--dark);
         }
 
         /* ── Skeleton loader ── */
         .skeleton-card {
             background: #fff;
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: 0 2px 12px var(--shadow);
@@ -511,7 +461,7 @@
         .skeleton-header {
             padding: 16px 24px;
             background: #FDFAF6;
-            border-bottom: 1px solid var(--cream-dark);
+            border-bottom: 1px solid var(--light-gray);
             display: flex;
             gap: 40px;
         }
@@ -534,7 +484,7 @@
         }
 
         .skel {
-            background: linear-gradient(90deg, var(--cream-dark) 25%, #F5EFE6 50%, var(--cream-dark) 75%);
+            background: linear-gradient(90deg, var(--light-gray) 25%, #F5EFE6 50%, var(--light-gray) 75%);
             background-size: 600px 100%;
             animation: shimmer 1.4s infinite;
             border-radius: 3px;
@@ -575,23 +525,28 @@
         }
 
         .empty-icon {
-            font-size: 56px;
-            margin-bottom: 20px;
-            display: block;
-            opacity: 0.5;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--clr-accent-lt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 1.8rem;
+            color: var(--primary);
         }
 
         .empty-title {
             font-family: var(--font-display);
-            font-size: 28px;
-            font-weight: 400;
-            color: var(--bark);
-            margin-bottom: 10px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .empty-sub {
-            font-size: 13px;
-            color: var(--bark-light);
+            font-size: 0.92rem;
+            color: var(--text-muted);
             margin-bottom: 28px;
         }
 
@@ -599,20 +554,19 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 32px;
-            background: var(--bark);
-            color: var(--gold-light);
+            padding: 13px 28px;
+            background: var(--dark);
+            color: #fff;
             text-decoration: none;
-            border-radius: var(--radius);
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-family: var(--font-body);
-            transition: background var(--transition);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .btn-shop:hover {
-            background: var(--bark-mid);
+           background: var(--primary);
+           transform: translateY(-2px);
         }
 
         /* ── Toast ── */
@@ -621,8 +575,8 @@
             bottom: 32px;
             left: 50%;
             transform: translateX(-50%) translateY(80px);
-            background: var(--bark);
-            color: var(--cream);
+            background: var(--dark);
+            color: var(--warm-white);
             padding: 14px 24px;
             border-radius: var(--radius);
             font-size: 13px;
@@ -652,10 +606,6 @@
                 padding: 28px 16px 60px;
             }
 
-            .site-header {
-                padding: 0 16px;
-            }
-
             .breadcrumb {
                 padding: 12px 16px;
             }
@@ -680,15 +630,148 @@
 </head>
 
 <body>
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
-    <header class="site-header">
-        <a href="index.html" class="logo">Furni<span>quin</span></a>
-        <nav class="header-nav">
-            <a href="shop.html">Shop</a>
-            <a href="cart.html">Cart</a>
-            <a href="orders.html" style="color:var(--gold-light)">My Orders</a>
-        </nav>
-    </header>
+    <div class="top-wrapper" id="topWrapper">
+        <!-- Announcement Bar -->
+        <div class="announcement-bar">
+            <div class="container">
+                <div class="announcement-left">
+                    <div class="announcement-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Free Shipping on Orders</span>
+                    </div>
+                    <div class="announcement-item">
+                        <i class="fas fa-undo-alt"></i>
+                        <span>30-Day Returns</span>
+                    </div>
+                    <div class="announcement-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>2-Year Warranty</span>
+                    </div>
+                </div>
+                <div class="announcement-right">
+                    <a href="" id="adminPanelLink" class="announcement-link" style="display: none;" target="_blank">
+                        <i class="fas fa-user-shield"></i> Admin Panel
+                    </a>
+                    <div class="user-menu" id="userMenu">
+                        <div class="user-trigger" id="userTrigger">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Login</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- NAV -->
+        <header class="main-header" id="header">
+            <div class="container">
+                <a href="index.html" class="logo">Furni<span>quin</span></a>
+
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <nav class="nav-menu">
+                    <div class="close-menu" id="closeMenu">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-grid">
+                                <div class="mega-col">
+                                    <h4>Living Room</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=sofa"><i class="fas fa-chevron-right"></i> Sofas</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=sectional"><i class="fas fa-chevron-right"></i>
+                                                Sectionals</a></li>
+                                        <li><a href="shop.html?cat=coffee"><i class="fas fa-chevron-right"></i> Coffee
+                                                Tables</a></li>
+                                        <li><a href="shop.html?cat=tv"><i class="fas fa-chevron-right"></i> TV Units</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=chair"><i class="fas fa-chevron-right"></i>
+                                                Armchairs</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h4>Bedroom</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=bed"><i class="fas fa-chevron-right"></i> Beds</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=mattress"><i class="fas fa-chevron-right"></i>
+                                                Mattresses</a></li>
+                                        <li><a href="shop.html?cat=wardrobe"><i class="fas fa-chevron-right"></i>
+                                                Wardrobes</a></li>
+                                        <li><a href="shop.html?cat=nightstand"><i class="fas fa-chevron-right"></i>
+                                                Nightstands</a></li>
+                                        <li><a href="shop.html?cat=dresser"><i class="fas fa-chevron-right"></i>
+                                                Dressers</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h4>Dining</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=dining-table"><i class="fas fa-chevron-right"></i>
+                                                Dining Tables</a></li>
+                                        <li><a href="shop.html?cat=dining-chair"><i class="fas fa-chevron-right"></i>
+                                                Dining Chairs</a></li>
+                                        <li><a href="shop.html?cat=buffet"><i class="fas fa-chevron-right"></i>
+                                                Buffets</a></li>
+                                        <li><a href="shop.html?cat=bar-stool"><i class="fas fa-chevron-right"></i> Bar
+                                                Stools</a></li>
+                                        <li><a href="shop.html?cat=china-cabinet"><i class="fas fa-chevron-right"></i>
+                                                China Cabinets</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mega-featured">
+                                <div class="mega-feature-item">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Free Shipping on Orders</span>
+                                </div>
+                                <div class="mega-feature-item">
+                                    <i class="fas fa-undo-alt"></i>
+                                    <span>30-Day Returns</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html#categories" class="nav-link">Collections</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="./about.html" class="nav-link">About</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </div>
+                </nav>
+
+                <div class="header-icons">
+                    <div class="icon-wrapper">
+                        <a href="cart.html" class="icon-link cart-icon" id="header-cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="header-cart-count">0</span>
+                        </a>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="Search products...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
 
     <nav class="breadcrumb">
         <a href="index.html">Home</a>
@@ -698,7 +781,7 @@
 
     <main class="page-wrap">
         <div class="page-title-row">
-            <h1 class="page-title">My <em>Orders</em></h1>
+            <h1 class="page-title">My Orders</em></h1>
             <span class="orders-count" id="orders-count"></span>
         </div>
 
@@ -735,7 +818,79 @@
 
     <div class="toast" id="toast"><span id="toast-msg"></span></div>
 
-    <script>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="logo">Furni<span>quin</span></span>
+                <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
+                    India.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Living Room</a></li>
+                    <li><a href="#">Bedroom</a></li>
+                    <li><a href="#">Dining Room</a></li>
+                    <li><a href="#">Home Office</a></li>
+                    <li><a href="#">Outdoor</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Delivery Info</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Design District, New York</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div class="policies">
+                <a href="#">Refund policy</a>&middot;
+                <a href="#">Privacy policy</a>&middot;
+                <a href="#">Terms of service</a>&middot;
+                <a href="#">Shipping policy</a>
+            </div>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script type="module">
+        import { getCategoryTree, getAllCategories } from "./category/categoryService.js";
+
         const BASE_URL = "http://localhost:8000";
         const fmt = n => "₹" + Math.round(Number(n)).toLocaleString("en-IN");
         const fmtDate = d => new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
@@ -767,10 +922,10 @@
             if (orders.length === 0) {
                 list.innerHTML = `
         <div class="empty-state">
-          <span class="empty-icon">🛋️</span>
+          <div class="empty-icon"><i class="fas fa-box-open"></i></div>
           <h2 class="empty-title">No orders yet</h2>
           <p class="empty-sub">You haven't placed any orders. Start exploring our collection.</p>
-          <a href="shop.html" class="btn-shop">Browse Furniture →</a>
+          <a href="index.html" class="btn-shop">Browse Furniture</a>
         </div>`;
                 return;
             }
@@ -875,6 +1030,161 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
             loadOrders(p);
         }
+
+        function syncCartBadge() {
+            try {
+                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+                document.querySelectorAll(".cart-count").forEach(el => {
+                    el.textContent = total;
+                });
+            } catch {
+                // localStorage unavailable — leave badge as-is
+            }
+        }
+
+        async function buildNavMegaMenu() {
+            const megaGrid = document.querySelector(".mega-grid");
+            if (!megaGrid) return;
+
+            try {
+                const { tree } = await getCategoryTree();
+                if (!tree || tree.length === 0) return; // Keep static HTML as fallback
+
+                // Build one .mega-col per top-level category
+                const cols = tree.map((topCat) => {
+                    const children = topCat.children || [];
+                    const childLinks = children
+                        .map(
+                            (child) =>
+                                `<li>
+                            <a href="shop.html?slug=${encodeURIComponent(child.slug)}">
+                                <i class="fas fa-chevron-right"></i>
+                                ${escapeHtml(child.name)}
+                            </a>
+                        </li>`
+                        )
+                        .join("");
+
+                    return `
+                <div class="mega-col">
+                    <h4>
+                        <a href="category.html?slug=${encodeURIComponent(topCat.slug)}" class="mega-col-heading-link">
+                            ${escapeHtml(topCat.name)}
+                        </a>
+                    </h4>
+                    <ul class="mega-links">
+                        ${childLinks || `<li><a href="category.html?slug=${encodeURIComponent(topCat.slug)}"><i class="fas fa-chevron-right"></i> View All</a></li>`}
+                    </ul>
+                </div>`;
+                });
+
+                megaGrid.innerHTML = cols.join("");
+            } catch (err) {
+                // Silently fall back to the static HTML already in the DOM
+                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+            }
+        }
+
+        function escapeHtml(s) {
+            return String(s ?? "")
+                .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        async function loginSwap() {
+            const userText = document.getElementById("userText")
+            const userTrigger = document.getElementById("userTrigger")
+            const adminPanelLink = document.getElementById("adminPanelLink")
+
+            let isLoggedIn = false
+
+            // check auth from backend
+            try {
+                const res = await fetch("http://localhost:8000/auth/me", {
+                    credentials: "include"
+                })
+
+                const data = await res.json()
+                if (data.isLoggedIn) {
+                    isLoggedIn = true,
+                        userText.textContent = "Account"
+
+                    // role check
+                    if (data.user.role === "admin") {
+                        adminPanelLink.style.display = "inline-flex"
+                    }
+
+                } else {
+                    userText.textContent = "Login"
+                }
+            } catch (err) {
+                console.error(err)
+                userText.textContent = "Login"
+            }
+
+            // click behavior
+            userTrigger.addEventListener("click", (e) => {
+                e.stopPropagation()
+
+                if (!isLoggedIn) {
+                    window.location.href = "./auth/signin.html"
+                } else {
+                    window.location.href = "./account.html"
+                }
+            })
+
+            adminPanelLink.addEventListener("click", (e) => {
+                e.preventDefault()
+                window.open("./admin/admin-panel.html", "_blank")
+            })
+        }
+
+        async function buildFooterShopLinks() {
+            // Target the <ul> inside the footer column whose <h4> is "Shop"
+            const footerShopUl = findFooterShopUl();
+            if (!footerShopUl) return;
+
+            try {
+                const { categories } = await getAllCategories();
+                if (!categories || categories.length === 0) return;
+
+                // Only top-level categories (no parent) in footer
+                const topLevel = categories.filter((c) => !c.parent);
+
+                if (topLevel.length === 0) return;
+
+                footerShopUl.innerHTML = topLevel
+                    .map(
+                        (cat) =>
+                            `<li>
+                        <a href="category.html?slug=${encodeURIComponent(cat.slug)}">
+                            ${escapeHtml(cat.name)}
+                        </a>
+                    </li>`
+                    )
+                    .join("");
+            } catch (err) {
+                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+            }
+        }
+
+        function findFooterShopUl() {
+            const footerCols = document.querySelectorAll(".footer-col");
+            for (const col of footerCols) {
+                const heading = col.querySelector("h4");
+                if (heading && heading.textContent.trim().toLowerCase() === "shop") {
+                    return col.querySelector("ul");
+                }
+            }
+            return null;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            syncCartBadge()
+            buildNavMegaMenu()
+            loginSwap()
+            buildFooterShopLinks()
+        })
 
         loadOrders();
     </script>

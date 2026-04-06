@@ -410,9 +410,21 @@ let productsData = [];
 
 const loadProducts = async () => {
     try {
-        const res = await fetch("http://localhost:8000/product/", { credentials: "include" });
+        const statusEl = document.getElementById("productStatusFilter");
+        const searchEl = document.getElementById("productSearch");
+        
+        // Elements only exist in the Manage tab — read optionally
+        const status = statusEl ? statusEl.value : "";
+        const search = searchEl ? searchEl.value.trim() : "";
+
+        let query = "?limit=10";
+        if (status) query += `&status=${encodeURIComponent(status)}`;
+        if (search) query += `&search=${encodeURIComponent(search)}`;
+        // No status param = all products returned (active + inactive)
+
+        const res = await fetch(`http://localhost:8000/product/products${query}`, { credentials: "include" });
         const data = await res.json();
-        productsData = data.products || [];
+        productsData = data.data || [];
         renderProducts();
     } catch (err) {
         console.error("Failed to load products:", err);

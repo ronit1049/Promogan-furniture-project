@@ -11,6 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
     <style>
         /* ── Reset & Base ─────────────────────────────── */
         *,
@@ -23,21 +24,13 @@
 
         :root {
             --clr-bg: #faf9f7;
-            --clr-surface: #ffffff;
-            --clr-border: #e8e4de;
             --clr-text: #1a1814;
-            --clr-muted: #6b6560;
             --clr-accent: #b5813e;
             --clr-accent-lt: #f3ead8;
-            --clr-hover: #f5f2ee;
-            --clr-danger: #c0362a;
-            --clr-danger-lt: #fdf0ee;
             --font-display: 'Cormorant Garamond', Georgia, serif;
             --font-body: 'DM Sans', sans-serif;
             --radius-sm: 6px;
             --radius-md: 12px;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.08);
             --transition: 0.2s ease;
             --max-w: 1000px;
         }
@@ -48,64 +41,13 @@
 
         body {
             font-family: var(--font-body);
-            background: var(--clr-bg);
-            color: var(--clr-text);
+            background: var(--warm-white);
+            color: var(--dark);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-        }
-
-        /* ── Header ──────────────────────────────────── */
-        .main-header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(250, 249, 247, 0.96);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--clr-border);
-        }
-
-        .header-inner {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 0 24px;
-            height: 68px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-family: var(--font-display);
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--clr-text);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--clr-accent);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 0.85rem;
-            color: var(--clr-muted);
-        }
-
-        .header-right a {
-            color: var(--clr-muted);
-            text-decoration: none;
-            transition: color var(--transition);
-        }
-
-        .header-right a:hover {
-            color: var(--clr-accent);
         }
 
         /* ── Page wrapper ─────────────────────────────── */
@@ -137,7 +79,7 @@
 
         .cart-item-count {
             font-size: 0.85rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             font-weight: 400;
         }
 
@@ -169,7 +111,7 @@
 
         .cart-empty p {
             font-size: 0.92rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             margin-bottom: 28px;
         }
 
@@ -178,7 +120,7 @@
             align-items: center;
             gap: 8px;
             padding: 13px 28px;
-            background: var(--clr-text);
+            background: var(--dark);
             color: #fff;
             border-radius: var(--radius-sm);
             text-decoration: none;
@@ -188,15 +130,15 @@
         }
 
         .btn-start-shopping:hover {
-            background: var(--clr-accent);
+            background: var(--primary);
         }
 
         /* ── Cart table ───────────────────────────────── */
         .cart-table-wrap {
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
             overflow: hidden;
-            background: var(--clr-surface);
+            background: #fff;
             margin-bottom: 24px;
         }
 
@@ -206,8 +148,8 @@
             grid-template-columns: 1fr 140px 130px 48px;
             gap: 0;
             padding: 12px 20px;
-            background: var(--clr-hover);
-            border-bottom: 1px solid var(--clr-border);
+            background: var(--light-gray);
+            border-bottom: 1px solid var(--border-light);
         }
 
         .cart-table-head span {
@@ -215,7 +157,7 @@
             font-weight: 500;
             letter-spacing: 0.07em;
             text-transform: uppercase;
-            color: var(--clr-muted);
+            color: var(--text-muted);
         }
 
         .cart-table-head span:nth-child(2),
@@ -234,7 +176,7 @@
             gap: 0;
             align-items: center;
             padding: 18px 20px;
-            border-bottom: 1px solid var(--clr-border);
+            border-bottom: 1px solid var(--border-light);
             transition: background var(--transition);
         }
 
@@ -260,8 +202,8 @@
             border-radius: var(--radius-sm);
             object-fit: cover;
             flex-shrink: 0;
-            border: 1px solid var(--clr-border);
-            background: var(--clr-hover);
+            border: 1px solid var(--border-light);
+            background: var(--light-gray);
         }
 
         .cart-product-img-ph {
@@ -274,7 +216,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
         }
 
         .cart-product-details {
@@ -310,11 +252,11 @@
 
         .cart-meta-tag {
             font-size: 0.72rem;
-            color: var(--clr-muted);
-            background: var(--clr-hover);
+            color: var(--text-muted);
+            background: var(--light-gray);
             padding: 2px 8px;
             border-radius: 20px;
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
         }
 
         /* Quantity cell */
@@ -326,7 +268,7 @@
         .qty-stepper {
             display: flex;
             align-items: center;
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-sm);
             overflow: hidden;
             background: var(--clr-bg);
@@ -349,7 +291,7 @@
         }
 
         .qty-btn:hover:not(:disabled) {
-            background: var(--clr-hover);
+            background: var(--light-gray)
         }
 
         .qty-btn:disabled {
@@ -362,8 +304,8 @@
             text-align: center;
             font-size: 0.88rem;
             font-weight: 500;
-            border-left: 1px solid var(--clr-border);
-            border-right: 1px solid var(--clr-border);
+            border-left: 1px solid var(--border-light);
+            border-right: 1px solid var(--border-light);
             height: 34px;
             display: flex;
             align-items: center;
@@ -388,21 +330,21 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            border: 1px solid var(--clr-border);
-            background: var(--clr-surface);
+            border: 1px solid var(--border-light);
+            background: #fff;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.75rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             transition: all var(--transition);
         }
 
         .btn-remove:hover {
-            background: var(--clr-danger-lt);
-            border-color: var(--clr-danger);
-            color: var(--clr-danger);
+            background: #fee;
+            border-color: rgb(243, 77, 77);
+            color: rgb(243, 77, 77);
         }
 
         /* Row remove animation */
@@ -421,8 +363,8 @@
 
         /* ── Order summary ────────────────────────────── */
         .order-summary {
-            background: var(--clr-surface);
-            border: 1px solid var(--clr-border);
+            background: #fff;
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
             padding: 24px;
             max-width: 440px;
@@ -434,7 +376,7 @@
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             margin-bottom: 16px;
         }
 
@@ -447,7 +389,7 @@
         }
 
         .summary-row.total-row {
-            border-top: 1px solid var(--clr-border);
+            border-top: 1px solid var(--border-light);
             padding-top: 16px;
             margin-top: 4px;
             margin-bottom: 4px;
@@ -456,7 +398,7 @@
         .summary-row.total-row .summary-label {
             font-size: 0.95rem;
             font-weight: 500;
-            color: var(--clr-text);
+            color: var(--dark);
         }
 
         .summary-row.total-row .summary-value {
@@ -466,7 +408,7 @@
         }
 
         .summary-label {
-            color: var(--clr-muted);
+            color: var(--text-muted);
         }
 
         .summary-value {
@@ -475,7 +417,7 @@
 
         .summary-note {
             font-size: 0.78rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 20px;
             margin-top: 12px;
@@ -498,7 +440,7 @@
             gap: 10px;
             width: 100%;
             padding: 15px;
-            background: var(--clr-accent);
+            background: var(--primary);
             color: #fff;
             border: none;
             border-radius: var(--radius-sm);
@@ -513,6 +455,8 @@
 
         .btn-checkout:hover {
             opacity: 0.88;
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
         /* Continue shopping link */
@@ -520,7 +464,7 @@
             display: block;
             text-align: center;
             font-size: 0.83rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             text-decoration: none;
             transition: color var(--transition);
         }
@@ -532,33 +476,6 @@
         .continue-shopping i {
             margin-right: 4px;
             font-size: 0.75rem;
-        }
-
-        /* ── Footer ──────────────────────────────────── */
-        footer {
-            background: var(--clr-text);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.82rem;
-        }
-
-        .footer-bottom {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 20px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .footer-bottom a {
-            color: rgba(255, 255, 255, 0.4);
-            text-decoration: none;
-        }
-
-        .footer-bottom a:hover {
-            color: #fff;
         }
 
         /* ── Mobile: card layout under 640px ─────────── */
@@ -608,7 +525,7 @@
             .cart-qty-cell::before {
                 content: "Qty: ";
                 font-size: 0.78rem;
-                color: var(--clr-muted);
+                color: var(--text-muted);
                 margin-right: 8px;
                 display: flex;
                 align-items: center;
@@ -617,7 +534,7 @@
             .cart-price-cell::before {
                 content: "Price: ";
                 font-size: 0.78rem;
-                color: var(--clr-muted);
+                color: var(--text-muted);
                 margin-right: 4px;
                 font-family: var(--font-body);
                 font-size: 0.82rem;
@@ -641,16 +558,150 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header class="main-header">
-        <div class="header-inner">
-            <a href="index.html" class="logo">Furni<span>quin</span></a>
-            <div class="header-right">
-                <a href="index.html"><i class="fas fa-arrow-left" style="font-size:0.75rem;margin-right:4px;"></i>
-                    Continue Shopping</a>
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div class="top-wrapper" id="topWrapper">
+        <!-- Announcement Bar -->
+        <div class="announcement-bar">
+            <div class="container">
+                <div class="announcement-left">
+                    <div class="announcement-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Free Shipping on Orders</span>
+                    </div>
+                    <div class="announcement-item">
+                        <i class="fas fa-undo-alt"></i>
+                        <span>30-Day Returns</span>
+                    </div>
+                    <div class="announcement-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>2-Year Warranty</span>
+                    </div>
+                </div>
+                <div class="announcement-right">
+                    <a href="" id="adminPanelLink" class="announcement-link" style="display: none;" target="_blank">
+                        <i class="fas fa-user-shield"></i> Admin Panel
+                    </a>
+                    <div class="user-menu" id="userMenu">
+                        <div class="user-trigger" id="userTrigger">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Login</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </header>
+
+        <!-- NAV -->
+        <header class="main-header" id="header">
+            <div class="container">
+                <a href="index.html" class="logo">Furni<span>quin</span></a>
+
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <nav class="nav-menu">
+                    <div class="close-menu" id="closeMenu">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-grid">
+                                <div class="mega-col">
+                                    <h4>Living Room</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=sofa"><i class="fas fa-chevron-right"></i> Sofas</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=sectional"><i class="fas fa-chevron-right"></i>
+                                                Sectionals</a></li>
+                                        <li><a href="shop.html?cat=coffee"><i class="fas fa-chevron-right"></i> Coffee
+                                                Tables</a></li>
+                                        <li><a href="shop.html?cat=tv"><i class="fas fa-chevron-right"></i> TV Units</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=chair"><i class="fas fa-chevron-right"></i>
+                                                Armchairs</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h4>Bedroom</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=bed"><i class="fas fa-chevron-right"></i> Beds</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=mattress"><i class="fas fa-chevron-right"></i>
+                                                Mattresses</a></li>
+                                        <li><a href="shop.html?cat=wardrobe"><i class="fas fa-chevron-right"></i>
+                                                Wardrobes</a></li>
+                                        <li><a href="shop.html?cat=nightstand"><i class="fas fa-chevron-right"></i>
+                                                Nightstands</a></li>
+                                        <li><a href="shop.html?cat=dresser"><i class="fas fa-chevron-right"></i>
+                                                Dressers</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h4>Dining</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=dining-table"><i class="fas fa-chevron-right"></i>
+                                                Dining Tables</a></li>
+                                        <li><a href="shop.html?cat=dining-chair"><i class="fas fa-chevron-right"></i>
+                                                Dining Chairs</a></li>
+                                        <li><a href="shop.html?cat=buffet"><i class="fas fa-chevron-right"></i>
+                                                Buffets</a></li>
+                                        <li><a href="shop.html?cat=bar-stool"><i class="fas fa-chevron-right"></i> Bar
+                                                Stools</a></li>
+                                        <li><a href="shop.html?cat=china-cabinet"><i class="fas fa-chevron-right"></i>
+                                                China Cabinets</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mega-featured">
+                                <div class="mega-feature-item">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Free Shipping on Orders</span>
+                                </div>
+                                <div class="mega-feature-item">
+                                    <i class="fas fa-undo-alt"></i>
+                                    <span>30-Day Returns</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html#categories" class="nav-link">Collections</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="./about.html" class="nav-link">About</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </div>
+                </nav>
+
+                <div class="header-icons">
+                    <div class="icon-wrapper">
+                        <a href="cart.html" class="icon-link cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="Search products...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
 
     <!-- MAIN CART PAGE -->
     <main class="cart-page">
@@ -667,18 +718,81 @@
 
     <!-- FOOTER -->
     <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="logo">Furni<span>quin</span></span>
+                <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
+                    India.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Living Room</a></li>
+                    <li><a href="#">Bedroom</a></li>
+                    <li><a href="#">Dining Room</a></li>
+                    <li><a href="#">Home Office</a></li>
+                    <li><a href="#">Outdoor</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Delivery Info</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Design District, New York</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+            </div>
+        </div>
         <div class="footer-bottom">
-            <span>© 2026 Furniquin. All rights reserved.</span>
-            <span><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></span>
+            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div class="policies">
+                <a href="#">Refund policy</a>&middot;
+                <a href="#">Privacy policy</a>&middot;
+                <a href="#">Terms of service</a>&middot;
+                <a href="#">Shipping policy</a>
+            </div>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
         </div>
     </footer>
 
-    <script>
+    <script type="module">
+        import { getCategoryTree, getAllCategories } from "./category/categoryService.js";
+
         /* ─── Constants ──────────────────────────────── */
         const CART_KEY = "furniquin_cart";
 
         /* ─── Helpers ────────────────────────────────── */
-        function esc(s) {
+        function escapeHtml(s) {
             return String(s ?? "")
                 .replace(/&/g, "&amp;").replace(/</g, "&lt;")
                 .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -710,6 +824,151 @@
             if (!item) return;
             item.qty = Math.max(1, item.qty + delta);
             saveCart(cart);
+        }
+
+        // Cart
+        function syncCartBadge() {
+            try {
+                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+                document.querySelectorAll(".cart-count").forEach(el => {
+                    el.textContent = total;
+                });
+            } catch {
+                // localStorage unavailable — leave badge as-is
+            }
+        }
+
+        // nav bar product listing
+        async function buildNavMegaMenu() {
+            const megaGrid = document.querySelector(".mega-grid");
+            if (!megaGrid) return;
+
+            try {
+                const { tree } = await getCategoryTree();
+                if (!tree || tree.length === 0) return; // Keep static HTML as fallback
+
+                // Build one .mega-col per top-level category
+                const cols = tree.map((topCat) => {
+                    const children = topCat.children || [];
+                    const childLinks = children
+                        .map(
+                            (child) =>
+                                `<li>
+                            <a href="shop.html?slug=${encodeURIComponent(child.slug)}">
+                                <i class="fas fa-chevron-right"></i>
+                                ${escapeHtml(child.name)}
+                            </a>
+                        </li>`
+                        )
+                        .join("");
+
+                    return `
+                <div class="mega-col">
+                    <h4>
+                        <a href="category.html?slug=${encodeURIComponent(topCat.slug)}" class="mega-col-heading-link">
+                            ${escapeHtml(topCat.name)}
+                        </a>
+                    </h4>
+                    <ul class="mega-links">
+                        ${childLinks || `<li><a href="category.html?slug=${encodeURIComponent(topCat.slug)}"><i class="fas fa-chevron-right"></i> View All</a></li>`}
+                    </ul>
+                </div>`;
+                });
+
+                megaGrid.innerHTML = cols.join("");
+            } catch (err) {
+                // Silently fall back to the static HTML already in the DOM
+                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+            }
+        }
+
+        async function loginSwap() {
+            const userText = document.getElementById("userText")
+            const userTrigger = document.getElementById("userTrigger")
+            const adminPanelLink = document.getElementById("adminPanelLink")
+
+            let isLoggedIn = false
+
+            // check auth from backend
+            try {
+                const res = await fetch("http://localhost:8000/auth/me", {
+                    credentials: "include"
+                })
+
+                const data = await res.json()
+                if (data.isLoggedIn) {
+                    isLoggedIn = true,
+                        userText.textContent = "Account"
+
+                    // role check
+                    if (data.user.role === "admin") {
+                        adminPanelLink.style.display = "inline-flex"
+                    }
+
+                } else {
+                    userText.textContent = "Login"
+                }
+            } catch (err) {
+                console.error(err)
+                userText.textContent = "Login"
+            }
+
+            // click behavior
+            userTrigger.addEventListener("click", (e) => {
+                e.stopPropagation()
+
+                if (!isLoggedIn) {
+                    window.location.href = "./auth/signin.html"
+                } else {
+                    window.location.href = "./account.html"
+                }
+            })
+
+            adminPanelLink.addEventListener("click", (e) => {
+                e.preventDefault()
+                window.open("./admin/admin-panel.html", "_blank")
+            })
+        }
+
+        async function buildFooterShopLinks() {
+            // Target the <ul> inside the footer column whose <h4> is "Shop"
+            const footerShopUl = findFooterShopUl();
+            if (!footerShopUl) return;
+
+            try {
+                const { categories } = await getAllCategories();
+                if (!categories || categories.length === 0) return;
+
+                // Only top-level categories (no parent) in footer
+                const topLevel = categories.filter((c) => !c.parent);
+
+                if (topLevel.length === 0) return;
+
+                footerShopUl.innerHTML = topLevel
+                    .map(
+                        (cat) =>
+                            `<li>
+                        <a href="category.html?slug=${encodeURIComponent(cat.slug)}">
+                            ${escapeHtml(cat.name)}
+                        </a>
+                    </li>`
+                    )
+                    .join("");
+            } catch (err) {
+                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+            }
+        }
+
+        function findFooterShopUl() {
+            const footerCols = document.querySelectorAll(".footer-col");
+            for (const col of footerCols) {
+                const heading = col.querySelector("h4");
+                if (heading && heading.textContent.trim().toLowerCase() === "shop") {
+                    return col.querySelector("ul");
+                }
+            }
+            return null;
         }
 
         /* ─── Total calculation ──────────────────────── */
@@ -748,52 +1007,52 @@
 
                 // Variant meta tags (color / size / material)
                 const metaTags = [
-                    item.color ? `<span class="cart-meta-tag">${esc(item.color)}</span>` : "",
-                    item.size ? `<span class="cart-meta-tag">${esc(item.size)}</span>` : "",
-                    item.material ? `<span class="cart-meta-tag">${esc(item.material)}</span>` : "",
+                    item.color ? `<span class="cart-meta-tag">${escapeHtml(item.color)}</span>` : "",
+                    item.size ? `<span class="cart-meta-tag">${escapeHtml(item.size)}</span>` : "",
+                    item.material ? `<span class="cart-meta-tag">${escapeHtml(item.material)}</span>` : "",
                 ].filter(Boolean).join("");
 
                 // Image
                 const imgHtml = item.image
-                    ? `<img class="cart-product-img" src="${esc(item.image)}" alt="${esc(item.name)}" loading="lazy" />`
+                    ? `<img class="cart-product-img" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" />`
                     : `<div class="cart-product-img-ph">🪑</div>`;
 
                 return `
-                    <div class="cart-row" id="row-${esc(item.sku)}" data-sku="${esc(item.sku)}">
+                    <div class="cart-row" id="row-${escapeHtml(item.sku)}" data-sku="${escapeHtml(item.sku)}">
 
                         <!-- Product -->
                         <div class="cart-product">
                             ${imgHtml}
                             <div class="cart-product-details">
                                 <div class="cart-product-name">
-                                    <a href="product.html?slug=${encodeURIComponent(item.slug || "")}">${esc(item.name)}</a>
+                                    <a href="product.html?slug=${encodeURIComponent(item.slug || "")}">${escapeHtml(item.name)}</a>
                                 </div>
                                 ${metaTags ? `<div class="cart-product-meta">${metaTags}</div>` : ""}
-                                <div style="font-size:0.72rem;color:var(--clr-muted);margin-top:4px;">SKU: ${esc(item.sku)}</div>
+                                <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px;">SKU: ${escapeHtml(item.sku)}</div>
                             </div>
                         </div>
 
                         <!-- Quantity -->
                         <div class="cart-qty-cell">
                             <div class="qty-stepper">
-                                <button class="qty-btn btn-minus" data-sku="${esc(item.sku)}"
+                                <button class="qty-btn btn-minus" data-sku="${escapeHtml(item.sku)}"
                                     aria-label="Decrease quantity"
                                     ${item.qty <= 1 ? "disabled" : ""}>−</button>
-                                <div class="qty-value" id="qty-${esc(item.sku)}">${item.qty}</div>
-                                <button class="qty-btn btn-plus" data-sku="${esc(item.sku)}"
+                                <div class="qty-value" id="qty-${escapeHtml(item.sku)}">${item.qty}</div>
+                                <button class="qty-btn btn-plus" data-sku="${escapeHtml(item.sku)}"
                                     aria-label="Increase quantity">+</button>
                             </div>
                         </div>
 
                         <!-- Price -->
-                        <div class="cart-price-cell" id="price-${esc(item.sku)}">
+                        <div class="cart-price-cell" id="price-${escapeHtml(item.sku)}">
                             ${formatINR(lineTotal)}
                         </div>
 
                         <!-- Remove -->
                         <div class="cart-remove-cell">
-                            <button class="btn-remove btn-del" data-sku="${esc(item.sku)}"
-                                aria-label="Remove ${esc(item.name)} from cart"
+                            <button class="btn-remove btn-del" data-sku="${escapeHtml(item.sku)}"
+                                aria-label="Remove ${escapeHtml(item.name)} from cart"
                                 title="Remove item">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
@@ -945,6 +1204,13 @@
 
         /* ─── Boot ───────────────────────────────────── */
         render();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            syncCartBadge()
+            buildNavMegaMenu()
+            loginSwap()
+            buildFooterShopLinks()
+        })
     </script>
 </body>
 

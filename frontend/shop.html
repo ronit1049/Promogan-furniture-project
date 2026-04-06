@@ -11,6 +11,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css">
     <style>
         /* ── Reset & Base ─────────────────────────────── */
         *,
@@ -23,19 +24,11 @@
 
         :root {
             --clr-bg: #faf9f7;
-            --clr-surface: #ffffff;
-            --clr-border: #e8e4de;
-            --clr-text: #1a1814;
-            --clr-muted: #6b6560;
-            --clr-accent: #b5813e;
             --clr-accent-lt: #f3ead8;
-            --clr-hover: #f5f2ee;
             --font-display: 'Cormorant Garamond', Georgia, serif;
             --font-body: 'DM Sans', sans-serif;
             --radius-sm: 6px;
             --radius-md: 12px;
-            --radius-lg: 20px;
-            --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.06);
             --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.10);
             --transition: 0.22s ease;
             --max-w: 1240px;
@@ -48,48 +41,15 @@
         body {
             font-family: var(--font-body);
             background: var(--clr-bg);
-            color: var(--clr-text);
+            color: var(--dark);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ── Header ──────────────────────────────────── */
-        .main-header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(250, 249, 247, 0.96);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--clr-border);
-        }
-
-        .main-header .container {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 0 24px;
-            height: 68px;
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-
-        .logo {
-            font-family: var(--font-display);
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--clr-text);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--clr-accent);
-        }
-
         /* ── Breadcrumb ──────────────────────────────── */
         .breadcrumb-bar {
-            background: var(--clr-surface);
-            border-bottom: 1px solid var(--clr-border);
+            background: #fff;
+            border-bottom: 1px solid var(--border-light);
             padding: 12px 0;
         }
 
@@ -104,23 +64,23 @@
             align-items: center;
             gap: 6px;
             font-size: 0.8rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             list-style: none;
             flex-wrap: wrap;
         }
 
         .breadcrumb li a {
-            color: var(--clr-muted);
+            color: var(--text-muted);
             text-decoration: none;
             transition: color var(--transition);
         }
 
         .breadcrumb li a:hover {
-            color: var(--clr-accent);
+            color: var(--primary);
         }
 
         .breadcrumb li.active {
-            color: var(--clr-text);
+            color: var(--dark);
             font-weight: 500;
         }
 
@@ -132,8 +92,8 @@
 
         /* ── Shop Hero (left text + right image) ─────── */
         .shop-hero {
-            background: var(--clr-surface);
-            border-bottom: 1px solid var(--clr-border);
+            background: #fff;
+            border-bottom: 1px solid var(--border-light);
         }
 
         .shop-hero .inner {
@@ -151,7 +111,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border-right: 1px solid var(--clr-border);
+            border-right: 1px solid var(--border-light);
         }
 
         .cat-tag {
@@ -160,7 +120,7 @@
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--clr-accent);
+            color: var(--primary);
             background: var(--clr-accent-lt);
             padding: 4px 12px;
             border-radius: 20px;
@@ -179,14 +139,14 @@
 
         .hero-left p {
             font-size: 0.95rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             line-height: 1.7;
             max-width: 440px;
         }
 
         .hero-right {
             overflow: hidden;
-            background: var(--clr-hover);
+            background: var(--light-gray);
             position: relative;
         }
 
@@ -238,8 +198,8 @@
 
         /* ── Filter Sidebar ───────────────────────────── */
         .filter-sidebar {
-            background: var(--clr-surface);
-            border: 1px solid var(--clr-border);
+            background: #fff;
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
             padding: 24px;
             position: sticky;
@@ -251,7 +211,7 @@
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -263,7 +223,7 @@
             border: none;
             font-family: var(--font-body);
             font-size: 0.75rem;
-            color: var(--clr-accent);
+            color: var(--primary);
             cursor: pointer;
             padding: 0;
             text-transform: none;
@@ -286,7 +246,7 @@
         .filter-label {
             font-size: 0.82rem;
             font-weight: 500;
-            color: var(--clr-text);
+            color: var(--dark);
             margin-bottom: 10px;
             display: block;
         }
@@ -295,12 +255,12 @@
         .filter-select {
             width: 100%;
             padding: 9px 12px;
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-sm);
             background: var(--clr-bg);
             font-family: var(--font-body);
             font-size: 0.85rem;
-            color: var(--clr-text);
+            color: var(--dark);
             cursor: pointer;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6560' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
@@ -311,7 +271,7 @@
 
         .filter-select:focus {
             outline: none;
-            border-color: var(--clr-accent);
+            border-color: var(--primary);
         }
 
         /* price range inputs */
@@ -324,51 +284,51 @@
         .price-input {
             width: 100%;
             padding: 9px 10px;
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-sm);
             background: var(--clr-bg);
             font-family: var(--font-body);
             font-size: 0.85rem;
-            color: var(--clr-text);
+            color: var(--dark);
             transition: border-color var(--transition);
         }
 
         .price-input:focus {
             outline: none;
-            border-color: var(--clr-accent);
+            border-color: var(--primary);
         }
 
         .price-input::placeholder {
-            color: var(--clr-muted);
+            color: var(--text-muted);
         }
 
         /* text filter input */
         .filter-input {
             width: 100%;
             padding: 9px 12px;
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-sm);
             background: var(--clr-bg);
             font-family: var(--font-body);
             font-size: 0.85rem;
-            color: var(--clr-text);
+            color: var(--dark);
             transition: border-color var(--transition);
         }
 
         .filter-input:focus {
             outline: none;
-            border-color: var(--clr-accent);
+            border-color: var(--primary);
         }
 
         .filter-input::placeholder {
-            color: var(--clr-muted);
+            color: var(--text-muted);
         }
 
         /* apply button */
         .filter-apply-btn {
             width: 100%;
             padding: 11px;
-            background: var(--clr-text);
+            background: var(--dark);
             color: #fff;
             border: none;
             border-radius: var(--radius-sm);
@@ -381,7 +341,7 @@
         }
 
         .filter-apply-btn:hover {
-            background: var(--clr-accent);
+            background: var(--primary);
         }
 
         /* ── Product Area ─────────────────────────────── */
@@ -399,11 +359,11 @@
 
         .product-count {
             font-size: 0.85rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
         }
 
         .product-count strong {
-            color: var(--clr-text);
+            color: var(--dark);
         }
 
         .sort-wrap {
@@ -411,17 +371,17 @@
             align-items: center;
             gap: 8px;
             font-size: 0.85rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
         }
 
         .sort-select {
             padding: 8px 32px 8px 12px;
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-sm);
-            background: var(--clr-surface);
+            background: #fff;
             font-family: var(--font-body);
             font-size: 0.85rem;
-            color: var(--clr-text);
+            color: var(--dark);
             cursor: pointer;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6560' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
@@ -431,7 +391,7 @@
 
         .sort-select:focus {
             outline: none;
-            border-color: var(--clr-accent);
+            border-color: var(--primary);
         }
 
         /* ── Product Grid ─────────────────────────────── */
@@ -445,9 +405,9 @@
         .product-card {
             display: block;
             text-decoration: none;
-            color: var(--clr-text);
-            background: var(--clr-surface);
-            border: 1px solid var(--clr-border);
+            color: var(--dark);
+            background: #fff;
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
             overflow: hidden;
             transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
@@ -462,7 +422,7 @@
         .product-img-wrap {
             aspect-ratio: 1 / 1;
             overflow: hidden;
-            background: var(--clr-hover);
+            background: var(--light-gray);
             position: relative;
         }
 
@@ -485,7 +445,7 @@
             align-items: center;
             justify-content: center;
             font-size: 2.8rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             opacity: 0.4;
         }
 
@@ -493,7 +453,7 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            background: var(--clr-accent);
+            background: var(--primary);
             color: #fff;
             font-size: 0.68rem;
             font-weight: 500;
@@ -521,13 +481,13 @@
             font-family: var(--font-display);
             font-size: 1.05rem;
             font-weight: 600;
-            color: var(--clr-text);
+            color: var(--dark);
         }
 
         .product-price-original {
             font-family: var(--font-body);
             font-size: 0.78rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             text-decoration: line-through;
             margin-left: 6px;
             font-weight: 400;
@@ -537,7 +497,7 @@
         .prod-skel {
             border-radius: var(--radius-md);
             overflow: hidden;
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
         }
 
         .prod-skel-img {
@@ -570,7 +530,7 @@
             grid-column: 1 / -1;
             text-align: center;
             padding: 80px 24px;
-            color: var(--clr-muted);
+            color: var(--text-muted);
         }
 
         .state-box i {
@@ -583,7 +543,7 @@
         .state-box h3 {
             font-family: var(--font-display);
             font-size: 1.3rem;
-            color: var(--clr-text);
+            color: var(--dark);
             margin-bottom: 8px;
         }
 
@@ -592,7 +552,7 @@
         }
 
         .state-box a {
-            color: var(--clr-accent);
+            color: var(--primary);
             text-decoration: none;
         }
 
@@ -610,12 +570,12 @@
             min-width: 38px;
             height: 38px;
             padding: 0 10px;
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-sm);
-            background: var(--clr-surface);
+            background: #fff;
             font-family: var(--font-body);
             font-size: 0.85rem;
-            color: var(--clr-text);
+            color: var(--dark);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -624,14 +584,14 @@
         }
 
         .page-btn:hover {
-            border-color: var(--clr-accent);
-            color: var(--clr-accent);
+            border-color: var(--primary);
+            color: var(--primary);
         }
 
         .page-btn.active {
-            background: var(--clr-text);
+            background: var(--dark);
             color: #fff;
-            border-color: var(--clr-text);
+            border-color: var(--dark);
         }
 
         .page-btn:disabled {
@@ -641,7 +601,7 @@
 
         .page-ellipsis {
             padding: 0 4px;
-            color: var(--clr-muted);
+            color: var(--text-muted);
             font-size: 0.85rem;
             line-height: 38px;
         }
@@ -652,13 +612,13 @@
             align-items: center;
             gap: 8px;
             padding: 9px 16px;
-            border: 1px solid var(--clr-border);
+            border: 1px solid var(--border-light);
             border-radius: var(--radius-sm);
-            background: var(--clr-surface);
+            background: #fff;
             font-family: var(--font-body);
             font-size: 0.85rem;
             cursor: pointer;
-            color: var(--clr-text);
+            color: var(--dark);
         }
 
         .filter-overlay {
@@ -675,7 +635,7 @@
             top: 0;
             bottom: 0;
             width: 300px;
-            background: var(--clr-surface);
+            background: #fff;
             padding: 24px;
             overflow-y: auto;
             z-index: 201;
@@ -708,7 +668,7 @@
             border: none;
             cursor: pointer;
             font-size: 1.1rem;
-            color: var(--clr-muted);
+            color: var(--text-muted);
         }
 
         /* ── Responsive ───────────────────────────────── */
@@ -720,7 +680,7 @@
 
             .hero-left {
                 border-right: none;
-                border-bottom: 1px solid var(--clr-border);
+                border-bottom: 1px solid var(--border-light);
                 padding: 36px 0;
             }
 
@@ -757,12 +717,150 @@
 
 <body>
 
-    <!-- NAV -->
-    <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo">Furni<span>quin</span></a>
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <div class="top-wrapper" id="topWrapper">
+        <!-- Announcement Bar -->
+        <div class="announcement-bar">
+            <div class="container">
+                <div class="announcement-left">
+                    <div class="announcement-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Free Shipping on Orders</span>
+                    </div>
+                    <div class="announcement-item">
+                        <i class="fas fa-undo-alt"></i>
+                        <span>30-Day Returns</span>
+                    </div>
+                    <div class="announcement-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>2-Year Warranty</span>
+                    </div>
+                </div>
+                <div class="announcement-right">
+                    <a href="" id="adminPanelLink" class="announcement-link" style="display: none;" target="_blank">
+                        <i class="fas fa-user-shield"></i> Admin Panel
+                    </a>
+                    <div class="user-menu" id="userMenu">
+                        <div class="user-trigger" id="userTrigger">
+                            <i class="fas fa-user"></i>
+                            <span id="userText">Login</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </header>
+
+        <!-- NAV -->
+        <header class="main-header" id="header">
+            <div class="container">
+                <a href="index.html" class="logo">Furni<span>quin</span></a>
+
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <nav class="nav-menu">
+                    <div class="close-menu" id="closeMenu">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#" class="nav-link">Products <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-grid">
+                                <div class="mega-col">
+                                    <h4>Living Room</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=sofa"><i class="fas fa-chevron-right"></i> Sofas</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=sectional"><i class="fas fa-chevron-right"></i>
+                                                Sectionals</a></li>
+                                        <li><a href="shop.html?cat=coffee"><i class="fas fa-chevron-right"></i> Coffee
+                                                Tables</a></li>
+                                        <li><a href="shop.html?cat=tv"><i class="fas fa-chevron-right"></i> TV Units</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=chair"><i class="fas fa-chevron-right"></i>
+                                                Armchairs</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h4>Bedroom</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=bed"><i class="fas fa-chevron-right"></i> Beds</a>
+                                        </li>
+                                        <li><a href="shop.html?cat=mattress"><i class="fas fa-chevron-right"></i>
+                                                Mattresses</a></li>
+                                        <li><a href="shop.html?cat=wardrobe"><i class="fas fa-chevron-right"></i>
+                                                Wardrobes</a></li>
+                                        <li><a href="shop.html?cat=nightstand"><i class="fas fa-chevron-right"></i>
+                                                Nightstands</a></li>
+                                        <li><a href="shop.html?cat=dresser"><i class="fas fa-chevron-right"></i>
+                                                Dressers</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-col">
+                                    <h4>Dining</h4>
+                                    <ul class="mega-links">
+                                        <li><a href="shop.html?cat=dining-table"><i class="fas fa-chevron-right"></i>
+                                                Dining Tables</a></li>
+                                        <li><a href="shop.html?cat=dining-chair"><i class="fas fa-chevron-right"></i>
+                                                Dining Chairs</a></li>
+                                        <li><a href="shop.html?cat=buffet"><i class="fas fa-chevron-right"></i>
+                                                Buffets</a></li>
+                                        <li><a href="shop.html?cat=bar-stool"><i class="fas fa-chevron-right"></i> Bar
+                                                Stools</a></li>
+                                        <li><a href="shop.html?cat=china-cabinet"><i class="fas fa-chevron-right"></i>
+                                                China Cabinets</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mega-featured">
+                                <div class="mega-feature-item">
+                                    <i class="fas fa-truck"></i>
+                                    <span>Free Shipping on Orders</span>
+                                </div>
+                                <div class="mega-feature-item">
+                                    <i class="fas fa-undo-alt"></i>
+                                    <span>30-Day Returns</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="index.html#categories" class="nav-link">Collections</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="./about.html" class="nav-link">About</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </div>
+                </nav>
+
+                <div class="header-icons">
+                    <div class="icon-wrapper">
+                        <a href="cart.html" class="icon-link cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="Search products...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
 
     <!-- BREADCRUMB -->
     <div class="breadcrumb-bar">
@@ -891,24 +989,84 @@
         </div>
     </div>
 
-    <!-- SLIM FOOTER -->
-    <footer style="background:var(--clr-text);color:rgba(255,255,255,0.55);">
-        <div
-            style="max-width:var(--max-w);margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,0.08);">
-            <span>© 2026 Furniquin. All rights reserved.</span>
-            <span style="font-size:0.82rem;"><a href="#"
-                    style="color:rgba(255,255,255,0.45);text-decoration:none;">Privacy</a> · <a href="#"
-                    style="color:rgba(255,255,255,0.45);text-decoration:none;">Terms</a></span>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <span class="logo">Furni<span>quin</span></span>
+                <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
+                    India.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Living Room</a></li>
+                    <li><a href="#">Bedroom</a></li>
+                    <li><a href="#">Dining Room</a></li>
+                    <li><a href="#">Home Office</a></li>
+                    <li><a href="#">Outdoor</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Delivery Info</a></li>
+                </ul>
+            </div>
+            <div class="footer-col footer-contact">
+                <h4>Contact</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Design District, New York</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div class="policies">
+                <a href="#">Refund policy</a>&middot;
+                <a href="#">Privacy policy</a>&middot;
+                <a href="#">Terms of service</a>&middot;
+                <a href="#">Shipping policy</a>
+            </div>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
         </div>
     </footer>
 
+    <script src="./script.js"></script>
+
     <script type="module">
-        import { getCategoryBySlug, resolveThumbnail } from "./category/categoryService.js";
+        import { getCategoryBySlug, resolveThumbnail, getCategoryTree, getAllCategories } from "./category/categoryService.js";
 
         const BASE_URL = "http://localhost:8000";
 
         /* ── Helpers ─────────────────────────────────────── */
-        function esc(s) {
+        function escapeHtml(s) {
             return String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
         }
 
@@ -944,27 +1102,172 @@
             fetchProducts();
         });
 
+        // Cart
+        function syncCartBadge() {
+            try {
+                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+                document.querySelectorAll(".cart-count").forEach(el => {
+                    el.textContent = total;
+                });
+            } catch {
+                // localStorage unavailable — leave badge as-is
+            }
+        }
+
+        // nav bar product listing
+        async function buildNavMegaMenu() {
+            const megaGrid = document.querySelector(".mega-grid");
+            if (!megaGrid) return;
+
+            try {
+                const { tree } = await getCategoryTree();
+                if (!tree || tree.length === 0) return; // Keep static HTML as fallback
+
+                // Build one .mega-col per top-level category
+                const cols = tree.map((topCat) => {
+                    const children = topCat.children || [];
+                    const childLinks = children
+                        .map(
+                            (child) =>
+                                `<li>
+                            <a href="shop.html?slug=${encodeURIComponent(child.slug)}">
+                                <i class="fas fa-chevron-right"></i>
+                                ${escapeHtml(child.name)}
+                            </a>
+                        </li>`
+                        )
+                        .join("");
+
+                    return `
+                <div class="mega-col">
+                    <h4>
+                        <a href="category.html?slug=${encodeURIComponent(topCat.slug)}" class="mega-col-heading-link">
+                            ${escapeHtml(topCat.name)}
+                        </a>
+                    </h4>
+                    <ul class="mega-links">
+                        ${childLinks || `<li><a href="category.html?slug=${encodeURIComponent(topCat.slug)}"><i class="fas fa-chevron-right"></i> View All</a></li>`}
+                    </ul>
+                </div>`;
+                });
+
+                megaGrid.innerHTML = cols.join("");
+            } catch (err) {
+                // Silently fall back to the static HTML already in the DOM
+                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+            }
+        }
+
+        async function loginSwap() {
+            const userText = document.getElementById("userText")
+            const userTrigger = document.getElementById("userTrigger")
+            const adminPanelLink = document.getElementById("adminPanelLink")
+
+            let isLoggedIn = false
+
+            // check auth from backend
+            try {
+                const res = await fetch("http://localhost:8000/auth/me", {
+                    credentials: "include"
+                })
+
+                const data = await res.json()
+                if (data.isLoggedIn) {
+                    isLoggedIn = true,
+                        userText.textContent = "Account"
+
+                    // role check
+                    if (data.user.role === "admin") {
+                        adminPanelLink.style.display = "inline-flex"
+                    }
+
+                } else {
+                    userText.textContent = "Login"
+                }
+            } catch (err) {
+                console.error(err)
+                userText.textContent = "Login"
+            }
+
+            // click behavior
+            userTrigger.addEventListener("click", (e) => {
+                e.stopPropagation()
+
+                if (!isLoggedIn) {
+                    window.location.href = "./auth/signin.html"
+                } else {
+                    window.location.href = "./account.html"
+                }
+            })
+
+            adminPanelLink.addEventListener("click", (e) => {
+                e.preventDefault()
+                window.open("./admin/admin-panel.html", "_blank")
+            })
+        }
+
+        async function buildFooterShopLinks() {
+            // Target the <ul> inside the footer column whose <h4> is "Shop"
+            const footerShopUl = findFooterShopUl();
+            if (!footerShopUl) return;
+
+            try {
+                const { categories } = await getAllCategories();
+                if (!categories || categories.length === 0) return;
+
+                // Only top-level categories (no parent) in footer
+                const topLevel = categories.filter((c) => !c.parent);
+
+                if (topLevel.length === 0) return;
+
+                footerShopUl.innerHTML = topLevel
+                    .map(
+                        (cat) =>
+                            `<li>
+                        <a href="category.html?slug=${encodeURIComponent(cat.slug)}">
+                            ${escapeHtml(cat.name)}
+                        </a>
+                    </li>`
+                    )
+                    .join("");
+            } catch (err) {
+                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+            }
+        }
+
+        function findFooterShopUl() {
+            const footerCols = document.querySelectorAll(".footer-col");
+            for (const col of footerCols) {
+                const heading = col.querySelector("h4");
+                if (heading && heading.textContent.trim().toLowerCase() === "shop") {
+                    return col.querySelector("ul");
+                }
+            }
+            return null;
+        }
+
         /* ── Filter HTML (shared by sidebar & drawer) ────── */
         function filterHTML() {
             return `
                 <div class="filter-group">
                     <label class="filter-label">Price Range (₹)</label>
                     <div class="price-row">
-                        <input class="price-input" id="fi-minPrice" type="number" placeholder="Min" min="0" value="${esc(state.minPrice)}" />
-                        <input class="price-input" id="fi-maxPrice" type="number" placeholder="Max" min="0" value="${esc(state.maxPrice)}" />
+                        <input class="price-input" id="fi-minPrice" type="number" placeholder="Min" min="0" value="${escapeHtml(state.minPrice)}" />
+                        <input class="price-input" id="fi-maxPrice" type="number" placeholder="Max" min="0" value="${escapeHtml(state.maxPrice)}" />
                     </div>
                 </div>
                 <div class="filter-group">
                     <label class="filter-label">Color</label>
-                    <input class="filter-input" id="fi-color" type="text" placeholder="e.g. Walnut Brown" value="${esc(state.color)}" />
+                    <input class="filter-input" id="fi-color" type="text" placeholder="e.g. Walnut Brown" value="${escapeHtml(state.color)}" />
                 </div>
                 <div class="filter-group">
                     <label class="filter-label">Material</label>
-                    <input class="filter-input" id="fi-material" type="text" placeholder="e.g. Solid Wood" value="${esc(state.material)}" />
+                    <input class="filter-input" id="fi-material" type="text" placeholder="e.g. Solid Wood" value="${escapeHtml(state.material)}" />
                 </div>
                 <div class="filter-group">
                     <label class="filter-label">Size</label>
-                    <input class="filter-input" id="fi-size" type="text" placeholder="e.g. Queen, L, 6x4" value="${esc(state.size)}" />
+                    <input class="filter-input" id="fi-size" type="text" placeholder="e.g. Queen, L, 6x4" value="${escapeHtml(state.size)}" />
                 </div>
                 <button class="filter-apply-btn" id="fi-apply">Apply Filters</button>
             `;
@@ -1077,7 +1380,7 @@
                 // Primary image
                 const primaryImg = (product.images || []).find(img => img.isPrimary) || product.images?.[0];
                 const imgHtml = primaryImg
-                    ? `<img src="${esc(primaryImg.url)}" alt="${esc(product.name)}" loading="lazy" />`
+                    ? `<img src="${escapeHtml(primaryImg.url)}" alt="${escapeHtml(product.name)}" loading="lazy" />`
                     : `<div class="product-img-placeholder"><i class="fas fa-couch"></i></div>`;
 
                 // Price from first variant
@@ -1101,13 +1404,13 @@
                 const badge = discount > 0 ? `<div class="product-badge">${discount}% off</div>` : "";
 
                 return `
-                    <a class="product-card" href="product.html?slug=${encodeURIComponent(product.slug)}" aria-label="${esc(product.name)}">
+                    <a class="product-card" href="product.html?slug=${encodeURIComponent(product.slug)}" aria-label="${escapeHtml(product.name)}">
                         <div class="product-img-wrap">
                             ${imgHtml}
                             ${badge}
                         </div>
                         <div class="product-info">
-                            <div class="product-name">${esc(product.name)}</div>
+                            <div class="product-name">${escapeHtml(product.name)}</div>
                             <div>${priceHtml}</div>
                         </div>
                     </a>`;
@@ -1187,15 +1490,15 @@
                 // Hero left
                 document.getElementById("hero-left").innerHTML = `
                     <span class="cat-tag">Browse</span>
-                    <h1>${esc(data.name)}</h1>
-                    ${data.description ? `<p>${esc(data.description)}</p>` : `<p>Explore our curated collection of ${esc(data.name).toLowerCase()} furniture.</p>`}
+                    <h1>${escapeHtml(data.name)}</h1>
+                    ${data.description ? `<p>${escapeHtml(data.description)}</p>` : `<p>Explore our curated collection of ${escapeHtml(data.name).toLowerCase()} furniture.</p>`}
                 `;
 
                 // Hero right — use thumbnail if available
                 const heroRight = document.getElementById("hero-right");
                 if (data.thumbnail) {
                     const thumbUrl = data.thumbnail.startsWith("http") ? data.thumbnail : `${BASE_URL}${data.thumbnail}`;
-                    heroRight.innerHTML = `<img src="${thumbUrl}" alt="${esc(data.name)}" />`;
+                    heroRight.innerHTML = `<img src="${thumbUrl}" alt="${escapeHtml(data.name)}" />`;
                 }
                 // else keep the placeholder
             } catch (err) {
@@ -1221,6 +1524,13 @@
             loadHero();
             fetchProducts();
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            syncCartBadge()
+            buildNavMegaMenu()
+            loginSwap()
+            buildFooterShopLinks()
+        })
     </script>
 </body>
 

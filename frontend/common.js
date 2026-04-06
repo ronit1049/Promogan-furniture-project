@@ -17,15 +17,15 @@ window.addEventListener('storage', updateCartCount);
 
 // for watchlist 
 // ✅ Wishlist count update
-function updateWishlistCount() {
-    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-    let count = wishlist.length;
+// function updateWishlistCount() {
+//     let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+//     let count = wishlist.length;
 
-    const wishlistElement = document.querySelector('.wishlist-count');
-    if (wishlistElement) {
-        wishlistElement.textContent = count;
-    }
-}
+//     const wishlistElement = document.querySelector('.wishlist-count');
+//     if (wishlistElement) {
+//         wishlistElement.textContent = count;
+//     }
+// }
 
 // Run on page load
 document.addEventListener("DOMContentLoaded", () => {

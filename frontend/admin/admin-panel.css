@@ -976,6 +976,10 @@ tr:hover td {
     grid-template-columns: 1fr auto;
 }
 
+.product-filters-grid {
+    grid-template-columns: 2fr 1fr auto;
+}
+
 /* ============================
    TOAST
 ============================ */

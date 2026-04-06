@@ -321,7 +321,26 @@
                             </div>
 
                             <div class="info-box">
-                                <strong>Activation workflow:</strong> Create product → Upload images → Then activate
+                                <strong>Activation workflow:</strong> Create product → Upload images → Then activate.
+                                Use the filter below to view inactive products.
+                            </div>
+
+                            <div class="filters-grid product-filters-grid">
+                                <div class="form-group">
+                                    <label>Search</label>
+                                    <input type="text" id="productSearch" placeholder="Search by name..." />
+                                </div>
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select id="productStatusFilter">
+                                        <option value="">All Products</option>
+                                        <option value="active">Active Only</option>
+                                        <option value="inactive">Inactive Only</option>
+                                    </select>
+                                </div>
+                                <div class="form-group filter-btn-group">
+                                    <button onclick="loadProducts()" class="btn">Apply</button>
+                                </div>
                             </div>
 
                             <div class="table-wrapper">
