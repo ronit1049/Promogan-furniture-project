@@ -6,7 +6,7 @@ export const verifyCustomer = async (req, res, next) => {
     try {
         const token = req.cookies?.token
         if (!token) {
-            return res.status(401).json({ message: "Authentication required" })
+            return res.status(401).json({ message: "You've not logged in" })
         }
         const blacklisted = await redisClient.exists(`TOKEN:${token}`)
         if (blacklisted) {

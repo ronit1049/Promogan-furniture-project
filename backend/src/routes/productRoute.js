@@ -7,13 +7,13 @@ import upload from "../middleware/multer.js"
 
 const productRouter = express.Router()
 
+productRouter.get("/products", verifyAdmin, adminGetProducts)
 // public routes
 productRouter.get("/", getAllProducts)
 productRouter.get("/:id/related", getRelatedProducts)
 productRouter.get("/:slug", getProductBySlug)
 
 // admin routes
-productRouter.get("/products", verifyAdmin, adminGetProducts)
 productRouter.post("/products", upload.none(), verifyAdmin, createProduct)
 productRouter.patch("/products/:id", upload.none(), verifyAdmin, updateProduct)
 productRouter.patch("/products/:id/status", verifyAdmin, updateProductStatus)
