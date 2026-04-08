@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Patrick+Hand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *,
 *::before,
 *::after {
@@ -35,11 +37,11 @@ html {
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Jost', sans-serif;
     background: var(--warm-white);
     color: var(--dark);
     overflow-x: hidden;
-    padding-top: 120px;
+    padding-top: 100px;
 }
 
 .top-wrapper {
@@ -157,7 +159,7 @@ body {
 
 .mega-menu {
     position: absolute;
-    top: 22px;
+    top: 21px;
     left: 0;
     background: #f7f4ef;
     padding: 40px;
@@ -241,13 +243,13 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    color: #8a5a2b;
+    color: var(--primary-dark);
     font-size: 15px;
 }
 
 .mega-feature-item i {
     font-size: 20px;
-    color: #8a5a2b;
+    color: var(--primary-dark);
 }
 
 .logo {
@@ -286,32 +288,43 @@ body {
     cursor: default;
     animation: cat-pulse 1.4s ease-in-out infinite;
 }
+
 .cat-skeleton-icon {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: rgba(0,0,0,0.08);
+    background: rgba(0, 0, 0, 0.08);
     margin: 0 auto 12px;
 }
+
 .cat-skeleton-text {
     height: 14px;
-    background: rgba(0,0,0,0.08);
+    background: rgba(0, 0, 0, 0.08);
     border-radius: 6px;
     width: 60%;
     margin: 0 auto 8px;
 }
+
 .cat-skeleton-sub {
     height: 12px;
-    background: rgba(0,0,0,0.06);
+    background: rgba(0, 0, 0, 0.06);
     border-radius: 6px;
     width: 40%;
     margin: 0 auto;
 }
+
 @keyframes cat-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.45; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.45;
+    }
 }
- 
+
 /* ── Cat card with thumbnail image ───────────── */
 .cat-card--link {
     text-decoration: none;
@@ -320,6 +333,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
 .cat-thumb {
     width: 72px;
     height: 72px;
@@ -327,15 +341,16 @@ body {
     background-size: cover;
     background-position: center;
     margin-bottom: 12px;
-    border: 2px solid rgba(0,0,0,0.06);
+    border: 2px solid rgba(0, 0, 0, 0.06);
 }
- 
+
 /* ── Mega menu heading link (looks like plain h4) */
 .mega-col-heading-link {
-    color: inherit;
+    color: var(--primary-dark);
     text-decoration: none;
     font-weight: inherit;
 }
+
 .mega-col-heading-link:hover {
     text-decoration: underline;
 }
@@ -404,7 +419,7 @@ body {
     outline: none;
     font-size: 14px;
     width: 100px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Jost', sans-serif;
     flex: 1;
 }
 
@@ -423,7 +438,7 @@ body {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 60px;
-    padding: 120px 5% 80px;
+    padding: 0 5% 0;
     min-height: 90vh;
 }
 
@@ -686,6 +701,7 @@ body {
     cursor: pointer;
     transition: all .3s;
     color: var(--text-muted);
+    font-family: 'Jost', sans-serif;
 }
 
 .tab.active,
@@ -1122,7 +1138,7 @@ body {
     font-size: .9rem;
     background: #fff;
     outline: none;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Jost', sans-serif;
     transition: border-color .3s;
 }
 
@@ -1140,7 +1156,7 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: background .3s;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Jost', sans-serif;
 }
 
 .newsletter-form button:hover {
@@ -1315,8 +1331,6 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 50px;
-    height: 50px;
     background: var(--primary);
     color: var(--text-light);
     border-radius: 50%;
@@ -1340,6 +1354,26 @@ footer {
     background: var(--primary-dark);
     transform: translateY(-5px);
     border-color: var(--text-light);
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: #fff;
+    padding: 16px;
+    border-radius: 50%;
+    font-size: 22px;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    z-index: 20;
+}
+
+.whatsapp:hover {
+    transform: scale(1.1);
 }
 
 /* ── RESPONSIVE ── */

@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product — Furniquin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
-        rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Patrick+Hand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <style>
         /* ── Reset & Base ─────────────────────────────── */
@@ -30,7 +30,7 @@
             --clr-warn: #c0622a;
             --clr-warn-lt: #fdf0e8;
             --font-display: 'Cormorant Garamond', Georgia, serif;
-            --font-body: 'DM Sans', sans-serif;
+            --font-body: 'Jost', sans-serif;
             --radius-sm: 6px;
             --radius-md: 12px;
             --radius-lg: 20px;
@@ -1220,6 +1220,11 @@
         </div>
     </section>
 
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/+91811512115" target="_blank" class="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
@@ -1267,18 +1272,19 @@
             </div>
             <div class="footer-col footer-contact">
                 <h4>Contact</h4>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Design District, New York</p>
-                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</p>
+                <p><i class="fas fa-phone"></i> +91 8115 112115
+                </p>
                 <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
             </div>
         </div>
         <div class="footer-bottom">
             <div>&COPY; 2026, Furniquin. All rights reserved.</div>
             <div class="policies">
-                <a href="#">Refund policy</a>&middot;
-                <a href="#">Privacy policy</a>&middot;
-                <a href="#">Terms of service</a>&middot;
-                <a href="#">Shipping policy</a>
+                <a href="./policies/refund-policy.html">Refund policy</a>&middot;
+                <a href="./policies/privacy-policy.html">Privacy policy</a>&middot;
+                <a href="./policies/terms-of-service.html">Terms of service</a>&middot;
+                <a href="./policies/shipping-policy.html">Shipping policy</a>
             </div>
             <div class="payment-icons">
                 <i class="fab fa-cc-visa"></i>
@@ -1490,13 +1496,13 @@
             activeImgIdx = primaryIdx >= 0 ? primaryIdx : 0;
 
             const mainHtml = images.length > 0
-                ? `<img id="gallery-main-img" src="${escapeHtml(images[activeImgIdx].url)}" alt="Product image" />`
+                ? `<img id="gallery-main-img" src="${BASE_URL}${escapeHtml(images[activeImgIdx].url)}" alt="Product image" />`
                 : `<div class="gallery-main-placeholder"><i class="fas fa-couch"></i></div>`;
 
             const thumbsHtml = images.length > 1
                 ? images.map((img, i) => `
                     <button class="thumb-btn ${i === activeImgIdx ? "active" : ""}" data-idx="${i}" aria-label="View image ${i + 1}">
-                        <img src="${escapeHtml(img.url)}" alt="Thumbnail ${i + 1}" loading="lazy" />
+                        <img src="${BASE_URL}${escapeHtml(img.url)}" alt="Thumbnail ${i + 1}" loading="lazy" />
                     </button>`).join("")
                 : "";
 
@@ -1800,7 +1806,7 @@
             ].filter(Boolean).join("  ·  ");
 
             const imgHtml = img?.url
-                ? `<img class="cart-popup-img" src="${escapeHtml(img.url)}" alt="${escapeHtml(product.name)}" />`
+                ? `<img class="cart-popup-img" src="${BASE_URL}${escapeHtml(img.url)}" alt="${escapeHtml(product.name)}" />`
                 : `<div class="cart-popup-img-ph">🪑</div>`;
 
             prodEl.innerHTML = `

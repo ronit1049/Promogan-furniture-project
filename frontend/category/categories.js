@@ -90,7 +90,7 @@ async function buildCategorySection() {
         .join("");
 
     try {
-        const { categories } = await getFeaturedCategories();
+        const { categories } = await getAllCategories();
 
         if (!categories || categories.length === 0) {
             // Restore original static content if API returns empty
@@ -98,7 +98,10 @@ async function buildCategorySection() {
             return;
         }
 
-        grid.innerHTML = categories
+        const toplevel = categories.filter((c) => !c.parent);
+        if (toplevel.length === 0) return;
+
+        grid.innerHTML = toplevel
             .map((cat, i) => {
                 const hasThumbnail = !!cat.thumbnail;
                 const thumbUrl = resolveThumbnail(cat.thumbnail);

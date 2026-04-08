@@ -7,7 +7,7 @@
  *      builds dynamic filter tabs, then loads products per tab.
  */
 
-import { getFeaturedCategories } from "./categoryService.js";
+import { getAllCategories } from "./categoryService.js";
 import { getProducts, getPrimaryImage, variantFinalPrice, formatINR } from "./productService.js";
 
 /* ═══════════════════════════════════════════════════════
@@ -52,7 +52,7 @@ function buildProductCard(product) {
     const hasDisc = discount > 0;
 
     const imgHtml = img
-        ? `<img src="${esc(img)}" alt="${esc(product.name)}" loading="lazy" class="prod-img" />`
+        ? `<img src="http://localhost:8000${esc(img)}" alt="${esc(product.name)}" loading="lazy" class="prod-img" />`
         : `<div class="prod-img-ph"><i class="fas fa-couch"></i></div>`;
 
     const priceHtml = fp != null
@@ -133,9 +133,14 @@ async function buildFeaturedTabs() {
     tabsContainer.innerHTML = `<div class="tab-loading">Loading categories…</div>`;
 
     let categories = [];
+    let subLevel = []
     try {
-        const data = await getFeaturedCategories();
+        const data = await getAllCategories();
         categories = data.categories || [];
+
+        subLevel = categories.filter((c) => c.parent)
+        if (!subLevel) return
+
     } catch (err) {
         console.warn("[Furniquin] Featured categories failed:", err);
         // Fall back: render static "All" tab and load all products
@@ -151,7 +156,7 @@ async function buildFeaturedTabs() {
     tabsContainer.innerHTML = "";
     tabsContainer.appendChild(allTab);
 
-    categories.forEach(cat => {
+    subLevel.forEach(cat => {
         const btn = document.createElement("button");
         btn.className = "tab";
         btn.textContent = cat.name;

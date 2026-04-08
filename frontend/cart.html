@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Cart — Furniquin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
-        rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Patrick+Hand&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <style>
         /* ── Reset & Base ─────────────────────────────── */
@@ -28,11 +28,12 @@
             --clr-accent: #b5813e;
             --clr-accent-lt: #f3ead8;
             --font-display: 'Cormorant Garamond', Georgia, serif;
-            --font-body: 'DM Sans', sans-serif;
+            --font-body: 'Jost', sans-serif;
             --radius-sm: 6px;
             --radius-md: 12px;
             --transition: 0.2s ease;
             --max-w: 1000px;
+            --clr-success: #1fac49;
         }
 
         html {
@@ -99,7 +100,7 @@
             justify-content: center;
             margin: 0 auto 24px;
             font-size: 1.8rem;
-            color: var(--clr-accent);
+            color: var(--primary);
         }
 
         .cart-empty h2 {
@@ -716,6 +717,11 @@
 
     </main>
 
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/+91811512115" target="_blank" class="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
@@ -763,18 +769,18 @@
             </div>
             <div class="footer-col footer-contact">
                 <h4>Contact</h4>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Design District, New York</p>
-                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</p>
+                <p><i class="fas fa-phone"></i> +91 81151 12115</p>
                 <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
             </div>
         </div>
         <div class="footer-bottom">
             <div>&COPY; 2026, Furniquin. All rights reserved.</div>
             <div class="policies">
-                <a href="#">Refund policy</a>&middot;
-                <a href="#">Privacy policy</a>&middot;
-                <a href="#">Terms of service</a>&middot;
-                <a href="#">Shipping policy</a>
+                <a href="./policies/refund-policy.html">Refund policy</a>&middot;
+                <a href="./policies/privacy-policy.html">Privacy policy</a>&middot;
+                <a href="./policies/terms-of-service.html">Terms of service</a>&middot;
+                <a href="./policies/shipping-policy.html">Shipping policy</a>
             </div>
             <div class="payment-icons">
                 <i class="fab fa-cc-visa"></i>
@@ -1014,7 +1020,7 @@
 
                 // Image
                 const imgHtml = item.image
-                    ? `<img class="cart-product-img" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" />`
+                    ? `<img class="cart-product-img" src="http://localhost:8000${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" />`
                     : `<div class="cart-product-img-ph">🪑</div>`;
 
                 return `
