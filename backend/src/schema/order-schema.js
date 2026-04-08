@@ -83,12 +83,12 @@ const addressSchema = new Schema({
 const paymentSchema = new Schema({
     method: {
         type: String,
-        enum: ['COD', 'CARD', 'UPI', 'NET_BANKING', 'WALLET'],
-        required: true
+        enum: ['COD', 'ONLINE', 'CARD', 'UPI', 'NET_BANKING', 'WALLET'],
+        default: null
     },
     gateway: {
         type: String,
-        enum: ['RAZORPAY', 'STRIPE', 'PAYU'],
+        enum: ['RAZORPAY'],
         default: null // null for COD(cash on delivery)
     },
     status: {

@@ -24,6 +24,7 @@ export const createPaymentOrder = async (req, res) => {
         }
 
         const razorpayOrder = await razorpay.orders.create(options)
+        console.log(razorpayOrder)
 
         order.payment.gateway = 'RAZORPAY'
         order.payment.gatewayOrderId = razorpayOrder.id
@@ -78,6 +79,7 @@ export const verifyPayment = async (req, res) => {
 
         // fetch actual method from razorpay
         const razorpayPayment = await razorpay.payments.fetch(razorpay_payment_id)
+        console.log(razorpayPayment)
         const methodMap = {
             "upi": "UPI",
             "card": "CARD",
@@ -116,7 +118,7 @@ export const razorpayWebhook = async (req, res) => {
 
         const signature = req.headers["x-razorpay-signature"]
 
-        const expectedSignature = crypto.createHmac("sha256", secret).update(JSON.stringify(req.body)).digest("hex")
+        const expectedSignature = crypto.createHmac("sha256", secret).update(req.body).digest("hex")
 
         if (expectedSignature !== signature) {
             return res.status(400).json({ message: "Invalid signature" })
@@ -163,11 +165,18 @@ export const getAdminPayments = async (req, res) => {
 
         const skip = (page - 1) * limit
 
-        const orders = await Order.find(query).select("orderNumber payment totalAmount user createdAt").skip(skip).limit(parseInt(limit)).sort({ createdAt: -1 })
+        const [orders, total] = await Promise.all([ 
+            Order.find(query).select("orderNumber payment totalAmount user createdAt").skip(skip).limit(parseInt(limit)).sort({ createdAt: -1 }),
+            Order.countDocuments(query)
+        
+        ])
 
         res.status(200).json({
             success: true,
-            payments: orders
+            payments: orders,
+            total,
+            page,
+            limit
         })
     } catch (err) {
         console.error("Error: " + err)

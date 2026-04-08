@@ -163,7 +163,6 @@ export const getMyOrders = async (req, res) => {
         const orders = await Order.find({ user: userId }).sort({ createdAt: -1 }).skip(skip).limit(limit).select("orderNumber totalAmount orderStatus createdAt payment")
 
         const total = await Order.countDocuments({ user: userId })
-        console.log("no issue with get my orders")
         res.status(200).json({
             success: true,
             page,

@@ -24,7 +24,6 @@ export const verifyCustomer = async (req, res, next) => {
         }
 
         req.user = user
-        console.log("customer ok")
 
         next()
     } catch (err) {

@@ -9,20 +9,25 @@ import paymentRouter from "./routes/paymentRoute.js"
 import cors from "cors"
 import cookieParser from "cookie-parser"
 import path from "path"
+import { razorpayWebhook } from "./controller/payment-controller/payment.js"
 
 const app = express()
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://localhost:5502",
+    origin: ["http://localhost:5502", "https://unpalpable-ciara-nontaxonomic.ngrok-free.dev"],
     credentials: true
 }))
+
+// system routes
+app.post("/payment-webhook", express.raw({ type: "application/json" }), razorpayWebhook)
+
 app.use(express.json())
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')))
 
 app.use("/auth", authRouter)
 app.use("/category", categoryRouter)
 app.use("/product", productRouter)
-app.use("/order", orderRouter)
 app.use("/payment", paymentRouter)
+app.use("/order", orderRouter)
 
 export default app

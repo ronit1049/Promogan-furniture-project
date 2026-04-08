@@ -6,8 +6,6 @@ import jwt from "jsonwebtoken"
 import crypto from "node:crypto"
 import { sendEmail } from "../../email/email.js"
 
-console.log(process.env.FRONTEND_URL)
-
 export const customerSignUp = async (req, res) => {
     try {
         const { firstName, lastName, email, password } = req.body
@@ -257,6 +255,49 @@ export const checkAuth = async (req, res) => {
         })
     } catch (err) {
         return res.status(200).json({ isLoggedIn: false })
+    }
+}
+
+export const getMyProfile = async (req, res) => {
+    try {
+        const userId = req.user?._id
+        if (!userId) {
+            return res.status(401).json({
+                success: false,
+                message: "Unauthorized access"
+            })
+        }
+
+        const user = await User.findById(userId).select("firstName lastName email role phone addresses createdAt isActive").lean()
+        console.log(user)
+        console.log(user.isActive)
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            })
+        }
+
+        if (!user.isActive) {
+            return res.status(403).json({
+                success: false,
+                message: "Account is deactivated"
+            })
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Profile fetched successfully",
+            data: user
+        })
+
+    } catch (err) {
+        console.error("Error: " + err)
+        res.status(err.statusCode || 500).json({
+            success: false,
+            message: err.message || "Server error"
+        })
     }
 }
 
