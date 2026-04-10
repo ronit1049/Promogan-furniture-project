@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Furniquin</title>
+    <title>Services — Dreak Trading Pvt. Ltd.</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,7 +103,7 @@
         .booking h1 {
             font-family: 'Cormorant Garamond', serif;
             margin-bottom: 30px;
-            color: #b85c2e;
+            color: var(--primary-dark);
         }
 
         .booking form {
@@ -133,14 +134,14 @@
         .booking input:focus,
         .booking select:focus,
         .booking textarea:focus {
-            border-color: #d4713a;
+            border-color: var(--primary-dark);
             box-shadow: 0 0 0 2px rgba(212, 113, 58, 0.1);
         }
 
         /* BUTTON */
         .booking button {
             padding: 14px;
-            background: #d4713a;
+            background: var(--primary-dark);
             color: #fff;
             border: none;
             cursor: pointer;
@@ -151,7 +152,7 @@
         }
 
         .booking button:hover {
-            background: #b85c2e;
+            background: var(--primary);
             transform: translateY(-2px);
         }
 
@@ -216,7 +217,9 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="index.html" class="logo">Furni<span>quin</span></a>
+                <a href="index.html" class="logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </a>
 
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -392,7 +395,9 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <span class="logo">Furni<span>quin</span></span>
+                <span class="footer-logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </span>
                 <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
                     India.</p>
                 <div class="footer-socials">
@@ -437,11 +442,11 @@
                 <h4>Contact</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</p>
                 <p><i class="fas fa-phone"></i> +91 81151 12115</p>
-                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+                <p><i class="fas fa-envelope"></i> dreak.trading.pvt.ltd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div>&COPY; 2026, Dreak Trading Pvt. Ltd. All rights reserved.</div>
             <div class="policies">
                 <a href="./policies/refund-policy.html">Refund policy</a>&middot;
                 <a href="./policies/privacy-policy.html">Privacy policy</a>&middot;
@@ -476,7 +481,7 @@
         // cart
         function syncCartBadge() {
             try {
-                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const cart = JSON.parse(localStorage.getItem("dreak_cart")) || [];
                 const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
                 document.querySelectorAll(".cart-count").forEach(el => {
                     el.textContent = total;
@@ -526,7 +531,7 @@
                 megaGrid.innerHTML = cols.join("");
             } catch (err) {
                 // Silently fall back to the static HTML already in the DOM
-                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Mega menu API unavailable, using static fallback.", err);
             }
         }
 
@@ -608,7 +613,7 @@
                     )
                     .join("");
             } catch (err) {
-                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Footer shop links API unavailable, using static fallback.", err);
             }
         }
 

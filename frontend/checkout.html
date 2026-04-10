@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout — Furniquin</title>
+    <title>Checkout — Dreak Trading Pvt. Ltd.</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -24,7 +25,6 @@
 
         :root {
             --dark: #1a1510;
-            --primary: #d4713a;
             --text-light: #f5f5f5;
             --transition: all 0.3s ease;
 
@@ -44,14 +44,13 @@
         }
 
         body {
-            background: var(--cream);
-            color: var(--dark);
             font-family: var(--font-body);
             font-size: 14px;
             font-weight: 300;
             line-height: 1.6;
             min-height: 100vh;
             padding-top: 90px;
+            background-color: #fff;
         }
 
         .top-wrapper.hide {
@@ -77,36 +76,6 @@
             align-items: center;
             justify-content: space-between;
             padding: 10px 40px;
-        }
-
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-            position: relative;
-        }
-
-        .logo span {
-            color: var(--primary);
-            font-style: italic;
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), transparent);
-            transition: width 0.6s;
-        }
-
-        .logo:hover::after {
-            width: 100%;
         }
 
         .header-icons {
@@ -142,7 +111,7 @@
             position: absolute;
             top: -8px;
             right: -10px;
-            background: var(--primary);
+            background: var(--primary-dark);
             color: #fff;
             font-size: 11px;
             width: 18px;
@@ -157,44 +126,14 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             font-size: 12px;
             letter-spacing: 0.06em;
+            font-weight: 500;
         }
 
         .header-secure svg {
-            color: var(--dark);
-        }
-
-        /* ── Breadcrumb ──────────────────────────────────── */
-        .breadcrumb {
-            padding: 14px 40px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: var(--bark-light);
-            letter-spacing: 0.04em;
-            border-bottom: 1px solid var(--border);
-            background: var(--cream);
-        }
-
-        .breadcrumb a {
-            color: var(--bark-light);
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--primary);
-        }
-
-        .breadcrumb .sep {
-            color: var(--border);
-        }
-
-        .breadcrumb .active {
-            color: var(--dark);
-            font-weight: 400;
+            color: var(--primary-dark);
         }
 
         /* ── Layout ──────────────────────────────────────── */
@@ -252,6 +191,7 @@
             display: flex;
             align-items: baseline;
             gap: 10px;
+            background-color: rgba(117, 149, 179, 0.514);
         }
 
         .section-num {
@@ -303,7 +243,11 @@
             font-weight: 500;
             letter-spacing: 0.09em;
             text-transform: uppercase;
-            color: var(--bark-mid);
+            color: var(--primary-dark);
+        }
+
+        .field label span {
+            color: red;
         }
 
         .field input,
@@ -589,7 +533,7 @@
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: var(--primary-dark);
             color: #fff;
             border-radius: 50px;
             font-weight: 600;
@@ -611,7 +555,7 @@
         }
 
         .btn-secondary:hover {
-            background: var(--dark);
+            background: var(--primary-dark);
             color: #fff;
         }
 
@@ -670,6 +614,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            background-color: rgba(117, 149, 179, 0.514);
         }
 
         .summary-title {
@@ -836,10 +781,11 @@
 
         .currency-note {
             font-size: 10px;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             letter-spacing: 0.06em;
             text-align: right;
             margin-top: 4px;
+            font-weight: 400;
         }
 
         /* trust badges */
@@ -857,9 +803,10 @@
             align-items: center;
             gap: 4px;
             font-size: 10px;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             letter-spacing: 0.05em;
             text-align: center;
+            font-weight: 400;
         }
 
         .trust-item svg {
@@ -942,7 +889,8 @@
         }
 
         .policies a {
-            color: var(--dark);
+            font-weight: 400;
+            color: var(--primary-dark);
             padding: 0 3px;
         }
 
@@ -957,10 +905,6 @@
             .right-panel {
                 position: static;
                 order: -1;
-            }
-
-            .breadcrumb {
-                padding: 12px 20px;
             }
 
             .site-header {
@@ -987,7 +931,9 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="index.html" class="logo">Furni<span>quin</span></a>
+                <a href="index.html" class="logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </a>
 
                 <div class="header-icons">
                     <div class="icon-wrapper">
@@ -1008,17 +954,6 @@
         </header>
     </div>
 
-
-
-    <!-- ── Breadcrumb ── -->
-    <nav class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="sep">›</span>
-        <a href="cart.html">Cart</a>
-        <span class="sep">›</span>
-        <span class="active">Checkout</span>
-    </nav>
-
     <!-- ── Main Layout ── -->
     <main class="checkout-layout" id="main-layout">
 
@@ -1034,17 +969,17 @@
                 <div class="section-body">
                     <div class="form-grid" id="shipping-form">
                         <div class="field">
-                            <label>Full Name *</label>
+                            <label>Full Name <span class="require-star">*</span></label>
                             <input type="text" id="s-fullName" placeholder="e.g. Ramesh Kumar" autocomplete="name" />
                             <span class="err-msg">Please enter your full name</span>
                         </div>
                         <div class="field">
-                            <label>Phone *</label>
+                            <label>Phone <span class="require-star">*</span></label>
                             <input type="tel" id="s-phone" placeholder="10 - digit phone number" autocomplete="tel" />
                             <span class="err-msg">Please enter a valid phone number</span>
                         </div>
                         <div class="field full">
-                            <label>Address Line 1 *</label>
+                            <label>Address Line 1  <span class="require-star">*</span></label>
                             <input type="text" id="s-line1" placeholder="House / Flat No., Street Name"
                                 autocomplete="address-line1" />
                             <span class="err-msg">Please enter your address</span>
@@ -1055,12 +990,12 @@
                                 autocomplete="address-line2" />
                         </div>
                         <div class="field">
-                            <label>City *</label>
+                            <label>City  <span class="require-star">*</span></label>
                             <input type="text" id="s-city" placeholder="City" autocomplete="address-level2" />
                             <span class="err-msg">Please enter your city</span>
                         </div>
                         <div class="field">
-                            <label>State *</label>
+                            <label>State  <span class="require-star">*</span></label>
                             <div class="select-wrap">
                                 <select id="s-state">
                                     <option value="">Select State</option>
@@ -1097,13 +1032,13 @@
                             <span class="err-msg">Please select your state</span>
                         </div>
                         <div class="field">
-                            <label>Pincode *</label>
+                            <label>Pincode  <span class="require-star">*</span></label>
                             <input type="text" id="s-pincode" placeholder="6-digit pincode" maxlength="6"
                                 autocomplete="postal-code" />
                             <span class="err-msg">Please enter a valid 6-digit pincode</span>
                         </div>
                         <div class="field">
-                            <label>Country *</label>
+                            <label>Country  <span class="require-star">*</span></label>
                             <div class="select-wrap">
                                 <select id="s-country">
                                     <option value="India" selected>India</option>
@@ -1138,17 +1073,17 @@
                     <div class="billing-form-wrapper" id="billing-form-wrapper">
                         <div class="form-grid" id="billing-form">
                             <div class="field">
-                                <label>Full Name *</label>
+                                <label>Full Name  <span class="require-star">*</span></label>
                                 <input type="text" id="b-fullName" placeholder="e.g. Ramesh Kumar" />
                                 <span class="err-msg">Please enter your full name</span>
                             </div>
                             <div class="field">
-                                <label>Phone *</label>
-                                <input type="tel" id="b-phone" placeholder="+91 98765 43210" />
+                                <label>Phone  <span class="require-star">*</span></label>
+                                <input type="tel" id="b-phone" placeholder="10 - digit phone number" />
                                 <span class="err-msg">Please enter a valid phone number</span>
                             </div>
                             <div class="field full">
-                                <label>Address Line 1 *</label>
+                                <label>Address Line 1  <span class="require-star">*</span></label>
                                 <input type="text" id="b-line1" placeholder="House / Flat No., Street Name" />
                                 <span class="err-msg">Please enter your address</span>
                             </div>
@@ -1157,12 +1092,12 @@
                                 <input type="text" id="b-line2" placeholder="Area, Landmark (optional)" />
                             </div>
                             <div class="field">
-                                <label>City *</label>
+                                <label>City  <span class="require-star">*</span></label>
                                 <input type="text" id="b-city" placeholder="City" />
                                 <span class="err-msg">Please enter your city</span>
                             </div>
                             <div class="field">
-                                <label>State *</label>
+                                <label>State  <span class="require-star">*</span></label>
                                 <div class="select-wrap">
                                     <select id="b-state">
                                         <option value="">Select State</option>
@@ -1199,12 +1134,12 @@
                                 <span class="err-msg">Please select your state</span>
                             </div>
                             <div class="field">
-                                <label>Pincode *</label>
+                                <label>Pincode  <span class="require-star">*</span></label>
                                 <input type="text" id="b-pincode" placeholder="6-digit pincode" maxlength="6" />
                                 <span class="err-msg">Please enter a valid 6-digit pincode</span>
                             </div>
                             <div class="field">
-                                <label>Country *</label>
+                                <label>Country  <span class="require-star">*</span></label>
                                 <div class="select-wrap">
                                     <select id="b-country">
                                         <option value="India" selected>India</option>
@@ -1378,13 +1313,13 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
         /* ── Constants ── */
-        const CART_KEY = "furniquin_cart";
+        const CART_KEY = "dreak_cart";
         const API_BASE = "http://localhost:8000";
 
         // cart
         function syncCartBadge() {
             try {
-                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const cart = JSON.parse(localStorage.getItem("dreak_cart")) || [];
                 const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
                 document.querySelectorAll(".cart-count").forEach(el => {
                     el.textContent = total;
@@ -1629,7 +1564,6 @@
 
         /* ── Pay Now (Razorpay) ── */
         async function handlePayNow() {
-            console.log("hello")
             if (isProcessing) return;
             isProcessing = true;
 
@@ -1666,10 +1600,8 @@
             btn.classList.add("loading");
 
             try {
-                console.log("try block step 1")
                 // ── Step 1: Create order in your DB (paymentMethod: RAZORPAY) ──
                 if (!currentOrderId) {
-                    console.log("try block step 2")
                     const orderRes = await fetch(`${API_BASE}/order/create-order`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
@@ -1723,7 +1655,7 @@
                     key: key,
                     amount: amount,
                     currency: "INR",
-                    name: "Furniquin",
+                    name: "Dreak Trading Pvt. Ltd.",
                     description: `Order #${currentOrderNumber}`,
                     order_id: currentRazorpayOrderId,
 
@@ -1734,7 +1666,7 @@
                         email: userData.data.email
                     },
 
-                    theme: { color: "#2C2218" },
+                    theme: { color: "#173054" },
 
                     modal: {
                         ondismiss: async () => {

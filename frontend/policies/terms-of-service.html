@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of service - Furniquin</title>
+    <title>Terms of service — Dreak Trading Pvt. Ltd.</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +22,7 @@
 
     .terms-container {
         max-width: 65ch;
-        margin: 0 auto;
+        margin: 25px auto;
         padding-left: 20px;
         padding-right: 20px;
         min-height: 100vh;
@@ -90,7 +91,9 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="../index.html" class="logo">Furni<span>quin</span></a>
+                <a href="../index.html" class="logo">
+                    <img src="../icons/logo.png" alt="logo">
+                </a>
 
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -199,14 +202,14 @@
     <div class="terms-container">
         <h1>Terms of service</h1>
         <div class="terms-heading">
-            <p>Thank you for choosing Furniquin for your furniture needs. These Terms of Service outline the terms and conditions governing your use of our website and the payment services provided by Razorpay. Please read these terms carefully before making any purchases.</p>
+            <p>Thank you for choosing Dreak Trading for your furniture needs. These Terms of Service outline the terms and conditions governing your use of our website and the payment services provided by Razorpay. Please read these terms carefully before making any purchases.</p>
 
             <div class="policy-rule-container">
                 <div class="policy-heading">1. Acceptance of Terms:</div>
                 <div class="policy-content">By accessing our website and using the Razorpay payment services, you agree to comply with and be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use our website or Razorpay services.</div>
 
                 <div class="policy-heading">2. Payment Processing:</div>
-                <div class="policy-content">Furniquin uses Razorpay as the payment gateway to process transactions. You acknowledge and agree that all payments made through Razorpay are subject to their terms of service and privacy policy.</div>
+                <div class="policy-content">Dreak Trading uses Razorpay as the payment gateway to process transactions. You acknowledge and agree that all payments made through Razorpay are subject to their terms of service and privacy policy.</div>
 
                 <div class="policy-heading">3. Ordering and Payment:</div>
                 <div class="policy-content">When you place an order on our website, you agree to provide accurate and complete information for the purchase. Payments must be made using the available payment methods supported by Razorpay. We reserve the right to cancel or refuse any order at our discretion.</div>
@@ -219,7 +222,9 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <span class="logo">Furni<span>quin</span></span>
+                <span class="footer-logo">
+                    <img src="../icons/logo.png" alt="logo">
+                </span>
                 <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
                     India.</p>
                 <div class="footer-socials">
@@ -264,11 +269,11 @@
                 <h4>Contact</h4>
                 <p><i class="fas fa-map-marker-alt"></i> 123 Design District, New York</p>
                 <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+                <p><i class="fas fa-envelope"></i> dreak.trading.pvt.ltd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div>&COPY; 2026, Dreak Trading Pvt. Ltd. All rights reserved.</div>
             <div class="policies">
                 <a href="./refund-policy.html">Refund policy</a>&middot;
                 <a href="./privacy-policy.html">Privacy policy</a>&middot;
@@ -326,7 +331,7 @@
         // cart
         function syncCartBadge() {
             try {
-                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const cart = JSON.parse(localStorage.getItem("dreak_cart")) || [];
                 const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
                 document.querySelectorAll(".cart-count").forEach(el => {
                     el.textContent = total;
@@ -376,7 +381,7 @@
                 megaGrid.innerHTML = cols.join("");
             } catch (err) {
                 // Silently fall back to the static HTML already in the DOM
-                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Mega menu API unavailable, using static fallback.", err);
             }
         }
 
@@ -458,7 +463,7 @@
                     )
                     .join("");
             } catch (err) {
-                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Footer shop links API unavailable, using static fallback.", err);
             }
         }
 

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Orders — Furniquin</title>
+    <title>My Orders — Dreak Trading Pvt. Ltd</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,8 +43,6 @@
         }
 
         body {
-            background: var(--warm-white);
-            color: var(--dark);
             font-family: var(--font-body);
             font-size: 14px;
             font-weight: 300;
@@ -61,15 +60,12 @@
             color: var(--text-muted);
             letter-spacing: 0.04em;
             border-bottom: 1px solid var(--border-light);
+            margin-top: 20px;
         }
 
         .breadcrumb a {
-            color: var(--text-muted);
+            color: var(--primary-dark);
             text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--primary);
         }
 
         .breadcrumb .sep {
@@ -112,7 +108,7 @@
 
         .orders-count {
             font-size: 12px;
-            color: var(--text-muted);
+            color: var(--primary-dark);
             letter-spacing: 0.06em;
         }
 
@@ -199,20 +195,20 @@
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--primary-dark);
         }
 
         .order-meta-val {
             font-size: 13px;
             font-weight: 400;
-            color: var(--dark);
+            color: black;
         }
 
         .order-number-val {
             font-family: var(--font-display);
             font-size: 15px;
             font-weight: 500;
-            color: var(--dark);
+            color: var(black);
             letter-spacing: 0.04em;
         }
 
@@ -383,16 +379,16 @@
             font-family: var(--font-display);
             font-size: 20px;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--primary-dark);
         }
 
         .order-item-count {
             font-size: 12px;
-            color: var(--text-muted);
+            color: var(--primary-dark);
         }
 
         .view-detail-arrow {
-            color: var(--text-muted);
+            color: var(--primary-dark);
             font-size: 18px;
             transition: transform var(--transition), color var(--transition);
         }
@@ -528,13 +524,13 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: var(--clr-accent-lt);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 24px;
             font-size: 1.8rem;
-            color: var(--primary);
+            color: var(--primary-dark);
+            background: rgba(117, 149, 179, 0.514);
         }
 
         .empty-title {
@@ -542,6 +538,7 @@
             font-size: 1.6rem;
             font-weight: 600;
             margin-bottom: 8px;
+            color: var(--primary-dark);
         }
 
         .empty-sub {
@@ -555,7 +552,7 @@
             align-items: center;
             gap: 8px;
             padding: 13px 28px;
-            background: var(--dark);
+            background-color: var(--primary-dark);
             color: #fff;
             text-decoration: none;
             border-radius: 50px;
@@ -565,8 +562,8 @@
         }
 
         .btn-shop:hover {
-           background: var(--primary);
-           transform: translateY(-2px);
+            background: var(--primary);
+            transform: translateY(-2px);
         }
 
         /* ── Toast ── */
@@ -599,6 +596,11 @@
 
         .toast.success {
             background: #27AE60;
+        }
+
+        /* ── Footer ── */
+        .footer-grid {
+            margin-bottom: 20px;
         }
 
         @media (max-width: 680px) {
@@ -668,7 +670,9 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="index.html" class="logo">Furni<span>quin</span></a>
+                <a href="index.html" class="logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </a>
 
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -827,7 +831,9 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <span class="logo">Furni<span>quin</span></span>
+                <span class="footer-logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </span>
                 <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
                     India.</p>
                 <div class="footer-socials">
@@ -872,11 +878,11 @@
                 <h4>Contact</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</p>
                 <p><i class="fas fa-phone"></i> +91 81151 12115</p>
-                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+                <p><i class="fas fa-envelope"></i> dreak.trading.pvt.ltd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div>&COPY; 2026, Dreak Trading Pvt. Ltd. All rights reserved.</div>
             <div class="policies">
                 <a href="./policies/refund-policy.html">Refund policy</a>&middot;
                 <a href="./policies/privacy-policy.html">Privacy policy</a>&middot;
@@ -987,15 +993,41 @@
 
         function renderPagination() {
             const el = document.getElementById("pagination");
-            if (totalPages <= 1) { el.style.display = "none"; return; }
+            if (totalPages <= 1) {
+                el.style.display = "none";
+                return;
+            }
             el.style.display = "flex";
 
-            let html = `<button class="page-btn" onclick="goPage(${currentPage - 1})" ${currentPage === 1 ? "disabled" : ""}>‹</button>`;
+            // 1. Generate HTML without inline onclick. 
+            // Use data-attributes to store the page number.
+            let html = `<button class="page-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""}>
+                    <i class="fas fa-chevron-left"></i>
+                </button>`;
+
             for (let p = 1; p <= totalPages; p++) {
-                html += `<button class="page-btn ${p === currentPage ? "active" : ""}" onclick="goPage(${p})">${p}</button>`;
+                html += `<button class="page-btn ${p === currentPage ? "active" : ""}" data-page="${p}">${p}</button>`;
             }
-            html += `<button class="page-btn" onclick="goPage(${currentPage + 1})" ${currentPage === totalPages ? "disabled" : ""}>›</button>`;
+
+            html += `<button class="page-btn" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""}>
+                <i class="fas fa-chevron-right"></i>
+             </button>`;
+
             el.innerHTML = html;
+
+            // 2. Select all buttons and attach listeners
+            const buttons = el.querySelectorAll(".page-btn");
+            buttons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    // Get the page number from the data attribute
+                    const pageNum = parseInt(btn.getAttribute("data-page"));
+
+                    // Only trigger if the button isn't disabled and page is valid
+                    if (!btn.disabled && pageNum >= 1 && pageNum <= totalPages) {
+                        goPage(pageNum);
+                    }
+                });
+            });
         }
 
         async function loadOrders(page = 1) {
@@ -1038,7 +1070,7 @@
 
         function syncCartBadge() {
             try {
-                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const cart = JSON.parse(localStorage.getItem("dreak_cart")) || [];
                 const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
                 document.querySelectorAll(".cart-count").forEach(el => {
                     el.textContent = total;
@@ -1087,7 +1119,7 @@
                 megaGrid.innerHTML = cols.join("");
             } catch (err) {
                 // Silently fall back to the static HTML already in the DOM
-                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Mega menu API unavailable, using static fallback.", err);
             }
         }
 
@@ -1169,7 +1201,7 @@
                     )
                     .join("");
             } catch (err) {
-                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Footer shop links API unavailable, using static fallback.", err);
             }
         }
 

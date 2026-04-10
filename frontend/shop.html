@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shop — Furniquin</title>
+    <title>Shop — Dreak Trading Pvt. Ltd.</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +42,6 @@
         body {
             font-family: var(--font-body);
             background: var(--clr-bg);
-            color: var(--dark);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -64,19 +64,15 @@
             align-items: center;
             gap: 6px;
             font-size: 0.8rem;
-            color: var(--text-muted);
             list-style: none;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .breadcrumb li a {
-            color: var(--text-muted);
+            color: var(--primaryd-dark);
             text-decoration: none;
             transition: color var(--transition);
-        }
-
-        .breadcrumb li a:hover {
-            color: var(--primary);
         }
 
         .breadcrumb li.active {
@@ -120,8 +116,8 @@
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--primary);
-            background: var(--clr-accent-lt);
+            color: var(--primary-dark);
+            background: rgba(117, 149, 179, 0.514);
             padding: 4px 12px;
             border-radius: 20px;
             margin-bottom: 16px;
@@ -211,7 +207,7 @@
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--primary-dark);
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -246,7 +242,7 @@
         .filter-label {
             font-size: 0.82rem;
             font-weight: 500;
-            color: var(--dark);
+            color: var(--primary-dark);
             margin-bottom: 10px;
             display: block;
         }
@@ -328,7 +324,7 @@
         .filter-apply-btn {
             width: 100%;
             padding: 11px;
-            background: var(--dark);
+            background: var(--primary-dark);
             color: #fff;
             border: none;
             border-radius: var(--radius-sm);
@@ -359,11 +355,11 @@
 
         .product-count {
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: var(--primary-dark);
         }
 
         .product-count strong {
-            color: var(--dark);
+            color: var(--primary-dark);
         }
 
         .sort-wrap {
@@ -371,17 +367,17 @@
             align-items: center;
             gap: 8px;
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: var(--primary-dark);
         }
 
         .sort-select {
             padding: 8px 32px 8px 12px;
-            border: 1px solid var(--border-light);
+            border: 1px solid var(--primary-dark);
             border-radius: var(--radius-sm);
             background: #fff;
             font-family: var(--font-body);
             font-size: 0.85rem;
-            color: var(--dark);
+            color: var(--primary-dark);
             cursor: pointer;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6560' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
@@ -405,7 +401,6 @@
         .product-card {
             display: block;
             text-decoration: none;
-            color: var(--dark);
             background: #fff;
             border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
@@ -416,7 +411,7 @@
         .product-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-hover);
-            border-color: rgba(181, 129, 62, 0.35);
+            border-color: var(--primary);
         }
 
         .product-img-wrap {
@@ -475,13 +470,14 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            color: var(--primary-dark);
         }
 
         .product-price {
             font-family: var(--font-display);
             font-size: 1.05rem;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--primary-dark);
         }
 
         .product-price-original {
@@ -757,7 +753,9 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="index.html" class="logo">Furni<span>quin</span></a>
+                <a href="index.html" class="logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </a>
 
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -998,7 +996,9 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <span class="logo">Furni<span>quin</span></span>
+                <span class="footer-logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </span>
                 <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
                     India.</p>
                 <div class="footer-socials">
@@ -1044,11 +1044,11 @@
                 <p><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</p>
                 <p><i class="fas fa-phone"></i>
                     +91 8115 112115</p>
-                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+                <p><i class="fas fa-envelope"></i> dreak.trading.pvt.ltd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div>&COPY; 2026, Dreak Trading Pvt. Ltd. All rights reserved.</div>
             <div class="policies">
                 <a href="./policies/refund-policy.html">Refund policy</a>&middot;
                 <a href="./policies/privacy-policy.html">Privacy policy</a>&middot;
@@ -1111,7 +1111,7 @@
         // Cart
         function syncCartBadge() {
             try {
-                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const cart = JSON.parse(localStorage.getItem("dreak_cart")) || [];
                 const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
                 document.querySelectorAll(".cart-count").forEach(el => {
                     el.textContent = total;
@@ -1161,7 +1161,7 @@
                 megaGrid.innerHTML = cols.join("");
             } catch (err) {
                 // Silently fall back to the static HTML already in the DOM
-                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Mega menu API unavailable, using static fallback.", err);
             }
         }
 
@@ -1238,7 +1238,7 @@
                     )
                     .join("");
             } catch (err) {
-                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Footer shop links API unavailable, using static fallback.", err);
             }
         }
 
@@ -1356,7 +1356,7 @@
                 renderCount(data.totalProducts || 0);
                 renderPagination(data.page, data.totalPages);
             } catch (err) {
-                console.error("[Furniquin] Products fetch error:", err);
+                console.error("[Dreak Trading] Products fetch error:", err);
                 grid.innerHTML = `
                     <div class="state-box">
                         <i class="fas fa-exclamation-circle"></i>
@@ -1484,7 +1484,7 @@
 
                 // Breadcrumb: if it has a parent, show parent in breadcrumb
                 document.getElementById("bc-current").textContent = data.name;
-                document.title = `${data.name} — Furniquin`;
+                document.title = `${data.name} — Dreak Trading`;
 
                 // Try to find parent info via the slug (if depth > 0, the parent slug is in URL referrer or we skip it)
                 // For now show a sensible breadcrumb with Collections link
@@ -1508,7 +1508,7 @@
                 }
                 // else keep the placeholder
             } catch (err) {
-                console.warn("[Furniquin] Hero load failed:", err);
+                console.warn("[Dreak Trading] Hero load failed:", err);
                 document.getElementById("hero-left").innerHTML = `
                     <span class="cat-tag">Browse</span>
                     <h1>Our Collection</h1>

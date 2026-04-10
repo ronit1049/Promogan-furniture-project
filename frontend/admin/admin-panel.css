@@ -706,7 +706,7 @@ tr:hover td {
 }
 
 .pagination button {
-    width: 32px;
+    width: 60px;
     height: 32px;
     border-radius: var(--radius-sm);
     background: var(--surface-2);

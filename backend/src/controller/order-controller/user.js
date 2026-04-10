@@ -4,6 +4,7 @@ import Product from "../../schema/product-schema.js"
 import User from "../../schema/user-schema.js"
 import redisClient from "../../config/redis.js"
 import razorpay from "../../config/razorpay.js"
+import PDFDocument from "pdfkit"
 
 const generateOrderNumber = () => {
     const ts = Date.now().toString(36).toUpperCase()
@@ -293,16 +294,18 @@ export const retryPayment = async (req, res) => {
         })
 
         order.payment.gateway = "RAZORPAY",
-            order.payment.gatewayOrderId = razorpayOrder.id
+        order.payment.gatewayOrderId = razorpayOrder.id
         order.payment.status = "Pending"
+
+        console.log(razorpayOrder)
 
         await order.save()
 
         res.status(200).json({
             success: true,
-            razorpayOrdeId: razorpayOrder.id,
+            razorpayOrderId: razorpayOrder.id,
             amount: Math.round(order.totalAmount * 100),
-            key: process.env.RAZORPAY_KEY_SECRET,
+            key: process.env.RAZORPAY_KEY_ID,
             orderNumber: order.orderNumber,
             orderId: order._id,
             message: "Payment retry initiated",

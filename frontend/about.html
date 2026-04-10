@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Furniquin</title>
-
+    <title>About Us — Dreak Trading Pvt. Ltd.</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -81,7 +81,7 @@
         .about-text h1 {
             font-family: 'Cormorant Garamond', serif;
             margin-bottom: 15px;
-            color: #b85c2e;
+            color: var(--primary-dark);
         }
 
         .about-text p {
@@ -238,7 +238,9 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="index.html" class="logo">Furni<span>quin</span></a>
+                <a href="index.html" class="logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </span></a>
 
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -345,7 +347,7 @@
 
     <!-- HERO -->
     <section class="about-hero fade-up">
-        <h1>About Furniquin</h1>
+        <h1>About Dreak Trading</h1>
         <p>Crafting beautiful furniture that turns houses into homes. Trusted by thousands across India.</p>
     </section>
 
@@ -357,7 +359,7 @@
             <div class="about-text">
                 <h1>Our Story</h1>
                 <p>
-                    Founded in 2010, Furniquin began as a small workshop with a big dream — to create furniture that
+                    Founded in "Year", Dreak Trading began as a small workshop with a big dream — to create furniture that
                     blends comfort, elegance, and durability.
                     Today, we serve thousands of homes and offices with thoughtfully designed products.
                 </p>
@@ -384,7 +386,7 @@
 
     <!-- MANUFACTURING PROCESS -->
     <section class="process fade-up">
-        <h1 style="text-align:center; margin-bottom:30px; font-family: 'Cormorant Garamond', serif; color: #b85c2e;">Our Manufacturing Process</h1>
+        <h1 style="text-align:center; margin-bottom:30px; font-family: 'Cormorant Garamond', serif; color: var(--primary-dark);">Our Manufacturing Process</h1>
 
         <div class="process-steps">
 
@@ -437,7 +439,9 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <span class="logo">Furni<span>quin</span></span>
+                <span class="footer-logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </span>
                 <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
                     India.</p>
                 <div class="footer-socials">
@@ -482,11 +486,11 @@
                 <h4>Contact</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</p>
                 <p><i class="fas fa-phone"></i>+91 81151 12115</p>
-                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+                <p><i class="fas fa-envelope"></i> dreak.trading.pvt.ltd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div>&COPY; 2026, Dreak Trading Pvt. Ltd. All rights reserved.</div>
             <div class="policies">
                 <a href="./policies/refund-policy.html">Refund policy</a>&middot;
                 <a href="./policies/privacy-policy.html">Privacy policy</a>&middot;
@@ -514,7 +518,7 @@
         // cart
         function syncCartBadge() {
             try {
-                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const cart = JSON.parse(localStorage.getItem("dreak_cart")) || [];
                 const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
                 document.querySelectorAll(".cart-count").forEach(el => {
                     el.textContent = total;
@@ -564,7 +568,7 @@
                 megaGrid.innerHTML = cols.join("");
             } catch (err) {
                 // Silently fall back to the static HTML already in the DOM
-                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Mega menu API unavailable, using static fallback.", err);
             }
         }
 
@@ -646,7 +650,7 @@
                     )
                     .join("");
             } catch (err) {
-                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Footer shop links API unavailable, using static fallback.", err);
             }
         }
 

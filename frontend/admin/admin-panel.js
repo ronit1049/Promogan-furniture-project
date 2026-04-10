@@ -103,7 +103,7 @@ const flattenCategories = (categories) => {
 
     categories.forEach(cat => {
         result.push(cat)
-        if(cat.children && cat.children.length > 0) {
+        if (cat.children && cat.children.length > 0) {
             result = result.concat(flattenCategories(cat.children))
         }
     })
@@ -412,7 +412,7 @@ const loadProducts = async () => {
     try {
         const statusEl = document.getElementById("productStatusFilter");
         const searchEl = document.getElementById("productSearch");
-        
+
         // Elements only exist in the Manage tab — read optionally
         const status = statusEl ? statusEl.value : "";
         const search = searchEl ? searchEl.value.trim() : "";
@@ -422,7 +422,9 @@ const loadProducts = async () => {
         if (search) query += `&search=${encodeURIComponent(search)}`;
         // No status param = all products returned (active + inactive)
 
-        const res = await fetch(`http://localhost:8000/product/products${query}`, { credentials: "include" });
+        const res = await fetch(`http://localhost:8000/product/products${query}`, { 
+            credentials: "include" 
+        });
         const data = await res.json();
         productsData = data.data || [];
         renderProducts();
@@ -1288,6 +1290,71 @@ const initiateRefund = async (gatewayPaymentId, orderNumber, amount) => {
         showToast("Server error during refund", "error");
         console.error(err);
     }
+};
+
+// ================================================================
+// PAYMENTS — Search by Order Number
+// ================================================================
+
+const searchPaymentByOrder = async () => {
+    const orderNumber = document.getElementById("paymentOrderSearch").value.trim();
+    if (!orderNumber) {
+        showToast("Please enter an order number.", "error");
+        return;
+    }
+
+    try {
+        // Step 1: use get-all-orders search to resolve the order number to a MongoDB _id
+        const searchRes = await fetch(
+            `http://localhost:8000/order/get-all-orders?search=${encodeURIComponent(orderNumber)}&limit=1`,
+            { credentials: "include" }
+        );
+        const searchData = await searchRes.json();
+
+        if (!searchData.orders || searchData.orders.length === 0) {
+            showToast("No order found with that order number.", "error");
+            return;
+        }
+
+        const orderId = searchData.orders[0]._id;
+
+        // Step 2: fetch full order detail by _id
+        const orderRes = await fetch(`http://localhost:8000/order/get-order/${orderId}`, {
+            credentials: "include"
+        });
+        const orderData = await orderRes.json();
+
+        if (!orderRes.ok) {
+            showToast(orderData.message || "Failed to fetch order.", "error");
+            return;
+        }
+
+        const order = orderData.order;
+
+        // Step 3: render as a single-row payment table entry
+        renderPayments([{
+            orderNumber: order.orderNumber,
+            payment: order.payment,
+            totalAmount: order.totalAmount,
+            createdAt: order.createdAt
+        }]);
+
+        // Show the "currently filtered" banner
+        document.getElementById("paymentSearchLabel").textContent = order.orderNumber;
+        document.getElementById("paymentSearchBanner").style.display = "block";
+        document.getElementById("paymentPagination").style.display = "none";
+
+    } catch (err) {
+        showToast("Server error during search.", "error");
+        console.error(err);
+    }
+};
+
+const clearPaymentSearch = () => {
+    document.getElementById("paymentOrderSearch").value = "";
+    document.getElementById("paymentSearchBanner").style.display = "none";
+    document.getElementById("paymentPagination").style.display = "";
+    loadPayments();
 };
 
 // Auto-load payments when tab opens

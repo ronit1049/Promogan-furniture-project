@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refund policy - Furniquin</title>
+    <title>Refund policy — Dreak Trading</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="stylesheet" href="../style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +24,7 @@
 
     .refund-container {
         max-width: 65ch;
-        margin: 0 auto;
+        margin: 25px auto;
         padding-left: 20px;
         padding-right: 20px;
         min-height: 100vh;
@@ -93,7 +94,9 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="../index.html" class="logo">Furni<span>quin</span></a>
+                <a href="../index.html" class="logo">
+                    <img src="../icons/logo.png" alt="logo">
+                </a>
 
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -202,13 +205,13 @@
     <div class="refund-container">
         <h1>Refund policy</h1>
         <div class="refund-heading">
-            <p>Welcome to Furniquin, where your satisfaction is our top priority. We are committed to
+            <p>Welcome to Dreak Trading, where your satisfaction is our top priority. We are committed to
                 providing you with exceptional products, and we want to ensure you have a clear understanding of
                 our Refund, Returns, and Cancellation Policy.</p>
 
             <div class="policy-rule-container">
                 <div class="policy-heading">1. Returns - Your Satisfaction Matters:</div>
-                <div class="policy-content">At Furniquin, we carefully inspect and package our products to ensure
+                <div class="policy-content">At Dreak Trading, we carefully inspect and package our products to ensure
                     they reach you in
                     perfect condition. In the event that you are not completely satisfied with your purchase, here's how
                     our return process works:
@@ -230,7 +233,9 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <span class="logo">Furni<span>quin</span></span>
+                <span class="footer-logo">
+                    <img src="../icons/logo.png" alt="logo">
+                </span>
                 <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
                     India.</p>
                 <div class="footer-socials">
@@ -275,11 +280,11 @@
                 <h4>Contact</h4>
                 <p><i class="fas fa-map-marker-alt"></i> 123 Design District, New York</p>
                 <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+                <p><i class="fas fa-envelope"></i> dreak.trading.pvt.ltd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div>&COPY; 2026, Dreak Trading Pvt. Ltd. All rights reserved.</div>
             <div class="policies">
                 <a href="#">Refund policy</a>&middot;
                 <a href="./privacy-policy.html">Privacy policy</a>&middot;
@@ -337,7 +342,7 @@
         // cart
         function syncCartBadge() {
             try {
-                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const cart = JSON.parse(localStorage.getItem("dreak_cart")) || [];
                 const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
                 document.querySelectorAll(".cart-count").forEach(el => {
                     el.textContent = total;
@@ -387,7 +392,7 @@
                 megaGrid.innerHTML = cols.join("");
             } catch (err) {
                 // Silently fall back to the static HTML already in the DOM
-                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Mega menu API unavailable, using static fallback.", err);
             }
         }
 
@@ -469,7 +474,7 @@
                     )
                     .join("");
             } catch (err) {
-                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Footer shop links API unavailable, using static fallback.", err);
             }
         }
 

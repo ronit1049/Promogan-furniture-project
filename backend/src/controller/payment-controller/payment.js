@@ -24,7 +24,6 @@ export const createPaymentOrder = async (req, res) => {
         }
 
         const razorpayOrder = await razorpay.orders.create(options)
-        console.log(razorpayOrder)
 
         order.payment.gateway = 'RAZORPAY'
         order.payment.gatewayOrderId = razorpayOrder.id

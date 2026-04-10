@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Order Detail — Furniquin</title>
+    <title>Order Detail — Dreak Trading Pvt. Ltd.</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -12,7 +13,6 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <style>
         *,
         *::before,
@@ -24,9 +24,8 @@
 
         :root {
             --cream: #F7F3EE;
-            --bark-mid: #5C4A36;
-            --bark-light: #8C7560;
             --shadow: rgba(44, 34, 24, 0.08);
+            --bark-light: #dfd8c9;
             --error: #C0392B;
             --success: #27AE60;
             --warning: #E67E22;
@@ -42,8 +41,6 @@
         }
 
         body {
-            background: var(--cream);
-            color: var(--dark);
             font-family: var(--font-body);
             font-size: 14px;
             font-weight: 300;
@@ -58,26 +55,24 @@
             align-items: center;
             gap: 8px;
             font-size: 12px;
-            color: var(--bark-light);
+            color: var(--dark);
             letter-spacing: 0.04em;
             border-bottom: 1px solid var(--light-gray);
+            margin-top: 70px;
         }
 
         .breadcrumb a {
-            color: var(--bark-light);
+            color: var(--primary-dark);
             text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--primary);
+            font-weight: 500;
         }
 
         .breadcrumb .sep {
-            color: var(--light-gray);
+            color: var(--primary-dark);
         }
 
         .breadcrumb .active {
-            color: var(--dark);
+            color: var(--primary-dark);
             font-weight: 400;
         }
 
@@ -136,7 +131,7 @@
         .card-header {
             padding: 16px 24px;
             border-bottom: 1px solid var(--light-gray);
-            background: #fff;
+            background: rgba(117, 149, 179, 0.514);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -148,7 +143,7 @@
             font-size: 18px;
             font-weight: 500;
             letter-spacing: 0.02em;
-            color: var(--dark);
+            color: var(--primary-dark);
         }
 
         .card-body {
@@ -157,7 +152,7 @@
 
         /* ── Order hero ── */
         .order-hero {
-            background: linear-gradient(135deg, var(--dark), #2a2520);
+            background: rgba(117, 149, 179, 0.514);
             border-radius: 20px;
             padding: 28px 32px;
             color: var(--cream);
@@ -176,7 +171,7 @@
             font-size: 11px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             margin-bottom: 6px;
         }
 
@@ -185,13 +180,13 @@
             font-size: 28px;
             font-weight: 400;
             letter-spacing: 0.04em;
-            color: var(--primary);
+            color: var(--primary-dark);
             margin-bottom: 8px;
         }
 
         .hero-date {
             font-size: 12px;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             letter-spacing: 0.04em;
         }
 
@@ -206,7 +201,7 @@
             font-family: var(--font-display);
             font-size: 36px;
             font-weight: 600;
-            color: #fff;
+            color: var(--primary-dark);
             letter-spacing: 0.02em;
         }
 
@@ -299,7 +294,7 @@
             height: 20px;
             border-radius: 50%;
             border: 2px solid var(--light-gray);
-            background: #fff;
+            background: rgba(117, 149, 179, 0.514);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -308,13 +303,13 @@
         }
 
         .tl-dot.done {
-            background: var(--dark);
+            background: rgba(117, 149, 179, 0.514);
             border-color: var(--dark);
         }
 
         .tl-dot.active {
-            background: var(--primary);
-            border-color: var(--primary);
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
         }
 
         .tl-dot.done::after,
@@ -328,7 +323,7 @@
         .tl-line {
             flex: 1;
             width: 2px;
-            background: var(--light-gray);
+            background: rgba(117, 149, 179, 0.514);
             margin: 4px 0;
             min-height: 20px;
         }
@@ -344,27 +339,27 @@
         .tl-status {
             font-size: 13px;
             font-weight: 400;
-            color: var(--dark);
+            color: var(--primary-dark);
         }
 
         .tl-status.active {
-            color: var(--primary);
+            color: var(--primary-dark);
             font-weight: 500;
         }
 
         .tl-status.faded {
-            color: var(--bark-light);
+            color: var(--primary-dark);
         }
 
         .tl-time {
             font-size: 11px;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             margin-top: 2px;
         }
 
         .tl-note {
             font-size: 11px;
-            color: var(--bark-light);
+            color: var(--dark);
             font-style: italic;
             margin-top: 2px;
         }
@@ -420,7 +415,7 @@
         .item-name {
             font-size: 14px;
             font-weight: 400;
-            color: var(--dark);
+            color: var(--primary-dark);
             margin-bottom: 3px;
             white-space: nowrap;
             overflow: hidden;
@@ -429,14 +424,14 @@
 
         .item-meta {
             font-size: 11.5px;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             margin-bottom: 4px;
             line-height: 1.5;
         }
 
         .item-sku {
             font-size: 10.5px;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             letter-spacing: 0.05em;
             opacity: 0.7;
         }
@@ -448,7 +443,7 @@
 
         .item-unit-price {
             font-size: 12px;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             margin-bottom: 2px;
         }
 
@@ -456,13 +451,13 @@
             font-family: var(--font-display);
             font-size: 16px;
             font-weight: 500;
-            color: var(--dark);
+            color: var(--primary-dark);
         }
 
         .item-qty-tag {
             display: inline-block;
-            background: var(--light-gray);
-            color: var(--bark-mid);
+            background: rgba(117, 149, 179, 0.514);
+            color: var(--primary-dark);
             font-size: 10px;
             padding: 1px 7px;
             border-radius: 3px;
@@ -484,26 +479,26 @@
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             margin-bottom: 8px;
         }
 
         .address-name {
             font-size: 14px;
             font-weight: 500;
-            color: var(--dark);
+            color: var(--primary-dark);
             margin-bottom: 4px;
         }
 
         .address-lines {
             font-size: 13px;
-            color: var(--bark-mid);
+            color: var(--primary-dark);
             line-height: 1.7;
         }
 
         .address-phone {
             font-size: 12.5px;
-            color: var(--bark-light);
+            color: var(--primary-dark);
             margin-top: 4px;
         }
 
@@ -528,11 +523,11 @@
         }
 
         .pay-row .key {
-            color: var(--bark-light);
+            color: var(--primary-dark);
         }
 
         .pay-row .val {
-            color: var(--dark);
+            color: var(--primary-dark);
             font-weight: 400;
         }
 
@@ -588,12 +583,12 @@
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
-            color: var(--bark-mid);
+            color: var(--primary-dark);
         }
 
         .total-row .tv {
             font-weight: 400;
-            color: var(--dark);
+            color: var(--primary-dark);
         }
 
         .total-row.grand {
@@ -606,14 +601,14 @@
             font-family: var(--font-display);
             font-size: 16px;
             font-weight: 500;
-            color: var(--dark);
+            color: var(--primary-dark);
         }
 
         .total-row.grand .tv {
             font-family: var(--font-display);
             font-size: 22px;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--primary-dark);
         }
 
         /* ── Action buttons ── */
@@ -677,12 +672,7 @@
         }
 
         .btn-secondary {
-            border: 1px solid var(--light-gray);
-            color: var(--text-muted);
-        }
-
-        .btn-secondary:hover {
-            background: var(--dark);
+            background-color: var(--primary-dark);
             color: #fff;
         }
 
@@ -737,7 +727,7 @@
 
         .modal-sub {
             font-size: 13px;
-            color: var(--bark-light);
+            color: var(--dark);
             margin-bottom: 20px;
             line-height: 1.6;
         }
@@ -747,7 +737,7 @@
             font-weight: 500;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--bark-mid);
+            color: var(--dark);
             margin-bottom: 8px;
             display: block;
         }
@@ -785,12 +775,12 @@
 
         .btn-ghost {
             background: transparent;
-            color: var(--bark-mid);
+            color: var(--dark);
             border: 1.5px solid var(--light-gray);
         }
 
         .btn-ghost:hover {
-            border-color: var(--bark-light);
+            border-color: var(--dark);
         }
 
         .btn-danger {
@@ -833,6 +823,11 @@
 
         .toast.success {
             background: #27AE60;
+        }
+
+        /* ── Footer ── */
+        .footer-grid {
+            margin-bottom: 20px;
         }
 
         /* ── Skeleton ── */
@@ -921,7 +916,9 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="index.html" class="logo">Furni<span>quin</span></a>
+                <a href="index.html" class="logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </a>
 
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -1084,7 +1081,7 @@
             <textarea id="cancel-reason" placeholder="e.g. Changed my mind, found a better price…"></textarea>
             <div class="modal-actions">
                 <button class="btn btn-ghost" onclick="closeModal()"><span class="btn-text">Keep Order</span></button>
-                <button class="btn btn-danger" id="confirm-cancel-btn" onclick="confirmCancel()">
+                <button class="btn btn-danger" id="confirm-cancel-btn">
                     <span class="btn-text">Yes, Cancel</span>
                     <div class="spinner"></div>
                 </button>
@@ -1098,12 +1095,14 @@
     <a href="https://wa.me/+91811512115" target="_blank" class="whatsapp">
         <i class="fab fa-whatsapp"></i>
     </a>
-    
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <span class="logo">Furni<span>quin</span></span>
+                <span class="footer-logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </span>
                 <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
                     India.</p>
                 <div class="footer-socials">
@@ -1148,11 +1147,11 @@
                 <h4>Contact</h4>
                 <p><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</p>
                 <p><i class="fas fa-phone"></i> +91 81151 12115</p>
-                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+                <p><i class="fas fa-envelope"></i> dreak.trading.pvt.ltd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div>&COPY; 2026, Dreak Trading Pvt. Ltd. All rights reserved.</div>
             <div class="policies">
                 <a href="./policies/refund-policy.html">Refund policy</a>&middot;
                 <a href="./policies/privacy-policy.html">Privacy policy</a>&middot;
@@ -1168,6 +1167,7 @@
         </div>
     </footer>
 
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script type="module">
         import { getCategoryTree, getAllCategories } from "./category/categoryService.js";
 
@@ -1199,7 +1199,7 @@
 
         /* ── Address block ── */
         function addressBlock(label, addr) {
-            if (!addr) return `<div class="address-block"><div class="address-label">${label}</div><p class="address-lines" style="color:var(--bark-light)">Not available</p></div>`;
+            if (!addr) return `<div class="address-block"><div class="address-label">${label}</div><p class="address-lines" style="color:var(--dark)">Not available</p></div>`;
             return `
       <div class="address-block">
         <div class="address-label">${label}</div>
@@ -1209,7 +1209,7 @@
           ${addr.city}, ${addr.state} — ${addr.pincode}<br/>
           ${addr.country}
         </div>
-        <div class="address-phone">📞 ${addr.phone}</div>
+        <div class="address-phone"><i class="fas fa-phone"></i> ${addr.phone}</div>
       </div>`;
         }
 
@@ -1252,7 +1252,7 @@
         /* ── Render full page ── */
         function render(order) {
             orderData = order;
-            document.title = `${order.orderNumber} — Furniquin`;
+            document.title = `${order.orderNumber} — Dreak Trading`;
             document.getElementById("bc-order-num").textContent = order.orderNumber;
 
             const canCancel = ["Pending", "Confirmed"].includes(order.orderStatus);
@@ -1279,7 +1279,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Items Ordered</h3>
-          <span style="font-size:12px;color:var(--bark-light)">${order.items.length} item${order.items.length !== 1 ? "s" : ""}</span>
+          <span style="font-size:12px;color:var(--dark)">${order.items.length} item${order.items.length !== 1 ? "s" : ""}</span>
         </div>
         <div class="card-body">
           <div class="order-items-list">
@@ -1310,12 +1310,12 @@
         <div class="card-header">
           <h3 class="card-title">Order Status</h3>
           ${order.tracking?.trackingId
-                    ? `<span style="font-size:12px;color:var(--bark-light)">Tracking: ${order.tracking.trackingId}</span>`
+                    ? `<span style="font-size:12px;color:var(--dark)">Tracking: ${order.tracking.trackingId}</span>`
                     : ""}
         </div>
         <div class="card-body">
           <div class="timeline">${buildTimeline(order)}</div>
-          ${order.cancelReason ? `<div style="margin-top:16px;padding:12px 14px;background:var(--cream);border-radius:var(--radius);font-size:12.5px;color:var(--bark-mid)"><strong>Cancellation reason:</strong> ${order.cancelReason}</div>` : ""}
+          ${order.cancelReason ? `<div style="margin-top:16px;padding:12px 14px;background:var(--cream);border-radius:var(--radius);font-size:12.5px;color:var(--dark)"><strong>Cancellation reason:</strong> ${order.cancelReason}</div>` : ""}
         </div>
       </div>
 
@@ -1391,7 +1391,7 @@
               <span class="tv">${fmt(order.totalAmount)}</span>
             </div>
           </div>
-          <p style="font-size:10px;color:var(--bark-light);letter-spacing:0.06em;text-align:right;margin-top:8px">All prices in Indian Rupees (INR)</p>
+          <p style="font-size:10px;color:var(--primary-dark);letter-spacing:0.06em;text-align:right;margin-top:8px">All prices in Indian Rupees (INR)</p>
         </div>
       </div>
 
@@ -1401,26 +1401,26 @@
         <div class="card-body" style="display:flex;flex-direction:column;gap:10px">
 
           ${canRetry ? `
-          <button class="btn btn-primary" id="retry-btn" onclick="handleRetryPayment()">
-            <span class="btn-text">🔄 Retry Payment</span>
+          <button class="btn btn-primary" id="retry-btn">
+            <span class="btn-text"> <i class="fas fa-rotate-right"></i> Retry Payment</span>
             <div class="spinner"></div>
           </button>` : ""}
 
           ${canCancel ? `
-          <button class="btn btn-secondary" id="cancel-btn" onclick="openModal()">
+          <button class="btn btn-secondary" id="cancel-btn">
             <span class="btn-text">✕ Cancel Order</span>
           </button>` : ""}
 
           ${!canCancel && !canRetry ? `
-          <p style="font-size:12.5px;color:var(--bark-light);text-align:center;padding:8px 0">
+          <p style="font-size:12.5px;color:var(--dark);text-align:center;padding:8px 0">
             No actions available for this order.
           </p>` : ""}
 
-          <a href="${BASE_URL}/order/generate-invoice-customer/${orderId}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border:1.5px solid var(--light-gray);border-radius:var(--radius);font-family:var(--font-body);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--bark-mid);text-decoration:none;transition:all var(--transition)" onmouseover="this.style.borderColor='var(--primary)';this.style.color='var(--dark)'" onmouseout="this.style.borderColor='var(--light-gray)';this.style.color='var(--bark-mid)'">
+          <a href="${BASE_URL}/order/generate-invoice-customer/${orderId}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border:1.5px solid var(--primary-dark);border-radius:var(--radius);font-family:var(--font-body);font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--primary-dark);text-decoration:none;transition:all var(--transition)">
             📄 <span>Download Invoice</span>
           </a>
 
-          <a href="orders.html" style="display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;letter-spacing:0.06em;color:var(--bark-light);text-decoration:none;padding:8px 0;transition:color var(--transition)" onmouseover="this.style.color='var(--dark)'" onmouseout="this.style.color='var(--bark-light)'">
+          <a href="orders.html" style="display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;letter-spacing:0.06em;color:var(--primary-dark);text-decoration:none;padding:8px 0;transition:color var(--transition)">
             ← Back to My Orders
           </a>
         </div>
@@ -1430,11 +1430,30 @@
       <div class="card">
         <div class="card-body" style="text-align:center;padding:20px 24px">
           <div style="font-size:22px;margin-bottom:8px">💬</div>
-          <div style="font-family:var(--font-display);font-size:16px;font-weight:500;color:var(--dark);margin-bottom:6px">Need help?</div>
-          <p style="font-size:12px;color:var(--bark-light);margin-bottom:14px;line-height:1.6">For any order-related queries, reach out to our support team.</p>
-          <a href="mailto:support@furniquin.com" style="font-size:12px;color:var(--primary);text-decoration:none;letter-spacing:0.05em">support@furniquin.com</a>
+          <div style="font-family:var(--font-display);font-size:16px;font-weight:500;color:var(--primary-dark);margin-bottom:6px">Need help?</div>
+          <p style="font-size:12px;color:var(--primary-dark);margin-bottom:14px;line-height:1.6">For any order-related queries, reach out to our support team.</p>
+          <a href="mailto:dreak.trading.pvt.ltd@gmail.com" style="font-size:12px;color:var(--primary);text-decoration:none;letter-spacing:0.05em">dreak.trading.pvt.ltd@gmail.com</a>
         </div>
       </div>`;
+
+            if (canRetry) {
+                const retryBtn = document.getElementById("retry-btn");
+                if (retryBtn) {
+                    retryBtn.addEventListener("click", handleRetryPayment)
+                }
+            }
+            
+            if (canCancel) {
+                const cancelBtn = document.getElementById("cancel-btn");
+                if (cancelBtn) {
+                    cancelBtn.addEventListener("click", openModal)
+                }
+
+                const confirmCancelBtn = document.getElementById("confirm-cancel-btn")
+                if (confirmCancelBtn) {
+                    confirmCancelBtn.addEventListener("click", confirmCancel)
+                }
+            }
         }
 
         /* ── Cancel Modal ── */
@@ -1478,7 +1497,6 @@
             }
         }
 
-        /* ── Retry Payment ── */
         async function handleRetryPayment() {
             const btn = document.getElementById("retry-btn");
             btn.disabled = true;
@@ -1496,19 +1514,26 @@
 
                 const { razorpayOrderId, amount, key, orderNumber } = data;
 
+                const userRes = await fetch(`${BASE_URL}/auth/my-profile`, {
+                    credentials: "include"
+                })
+                if (!userRes.ok) throw new Error("Failed to fetch user information")
+                const userData = await userRes.json()
+
                 // Step 2: Open Razorpay
                 const options = {
                     key,
                     amount,
                     currency: "INR",
-                    name: "Furniquin",
+                    name: "Dreak Trading Pvt. Ltd.",
                     description: `Order #${orderNumber}`,
                     order_id: razorpayOrderId,
                     prefill: {
                         name: orderData?.shippingAddress?.fullName || "",
                         contact: orderData?.shippingAddress?.phone || "",
+                        email: userData?.data?.email || ""
                     },
-                    theme: { color: "#2C2218" },
+                    theme: { color: "#173054" },
                     modal: {
                         ondismiss: () => {
                             btn.disabled = false;
@@ -1583,7 +1608,7 @@
         // cart
         function syncCartBadge() {
             try {
-                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const cart = JSON.parse(localStorage.getItem("dreak_cart")) || [];
                 const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
                 document.querySelectorAll(".cart-count").forEach(el => {
                     el.textContent = total;
@@ -1633,7 +1658,7 @@
                 megaGrid.innerHTML = cols.join("");
             } catch (err) {
                 // Silently fall back to the static HTML already in the DOM
-                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Mega menu API unavailable, using static fallback.", err);
             }
         }
 
@@ -1715,7 +1740,7 @@
                     )
                     .join("");
             } catch (err) {
-                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Footer shop links API unavailable, using static fallback.", err);
             }
         }
 

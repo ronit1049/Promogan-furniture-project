@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Furniquin | Trusted Home & Office Furniture Shop</title>
+    <title>Dreak Trading — Trusted Home & Office Furniture Shop</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
@@ -52,7 +53,9 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="#" class="logo">Furni<span>quin</span></a>
+                <a href="#" class="logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </a>
 
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -149,7 +152,7 @@
                         </a>
                     </div>
                     <div class="search-bar">
-                        <input type="text" class="search-input" placeholder="Search products...">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search products...">
                         <button class="search-btn"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -226,7 +229,7 @@
     <div class="marquee-wrap">
         <div class="marquee-inner">
             <span>Premium Quality</span><span>Free Delivery</span><span>Custom Orders</span>
-            <span>5-Year Warranty</span><span>100% Handcrafted</span><span>Eco-Friendly Materials</span>
+            <span>2-Year Warranty</span><span>100% Handcrafted</span><span>Eco-Friendly Materials</span>
             <span>Premium Quality</span><span>Free Delivery</span><span>Custom Orders</span>
             <span>5-Year Warranty</span><span>100% Handcrafted</span><span>Eco-Friendly Materials</span>
         </div>
@@ -275,11 +278,6 @@
             <p class="section-sub">Handpicked pieces loved by our customers.</p>
         </div>
         <div class="filter-tabs fade-up">
-            <!-- <button class="tab active" onclick="filterProducts(this,'all')">All</button>
-            <button class="tab" onclick="filterProducts(this,'sofa')">Sofas</button>
-            <button class="tab" onclick="filterProducts(this,'bed')">Beds</button>
-            <button class="tab" onclick="filterProducts(this,'table')">Tables</button>
-            <button class="tab" onclick="filterProducts(this,'chair')">Chairs</button> -->
         </div>
         <div class="products-grid" id="productsGrid"></div>
     </section>
@@ -288,31 +286,31 @@
     <section class="section" id="about">
         <div class="section-header fade-up">
             <div class="section-tag">Why Choose Us</div>
-            <h2 class="section-title">The Furniquin Promise</h2>
+            <h2 class="section-title">Promise From Us</h2>
             <p class="section-sub">We stand behind every piece we sell with quality and care.</p>
         </div>
         <div class="features-grid fade-up">
             <div class="feature-card">
-                <div class="feature-icon">🪵</div>
+                <div class="feature-icon"><i class="fas fa-crown me-2" style="color: var(--primary)"></i></div>
                 <div class="feature-title">Premium Materials</div>
                 <div class="feature-desc">Solid hardwood, premium fabrics, and sustainable materials sourced
                     responsibly.
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🚚</div>
+                <div class="feature-icon"><i class="fas fa-truck" style="color: var(--primary);"></i></div>
                 <div class="feature-title">Free White-Glove Delivery</div>
                 <div class="feature-desc">Assembly and placement included. We bring your furniture to its perfect spot.
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
-                <div class="feature-title">5-Year Warranty</div>
+                <div class="feature-icon"><i class="fas fa-shield-alt" style="color: var(--primary);"></i></div>
+                <div class="feature-title">2-Year Warranty</div>
                 <div class="feature-desc">Every product is covered. If something breaks, we fix or replace it. Simple.
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">↩️</div>
+                <div class="feature-icon"><i class="fas fa-reply" style="color: var(--primary);"></i></div>
                 <div class="feature-title">Easy 30-Day Returns</div>
                 <div class="feature-desc">Not satisfied? We'll pick it up and give you a full refund, no questions
                     asked.
@@ -359,7 +357,7 @@
             </div>
             <div class="testi-card">
                 <div class="testi-stars">★★★★★</div>
-                <p class="testi-text">"Furnished our entire office with Furniquin. The team was professional, delivery
+                <p class="testi-text">"Furnished our entire office with Dreak Trading. The team was professional, delivery
                     was on
                     time, and the furniture is built to last. Highly recommend!"</p>
                 <div class="testi-author">
@@ -407,7 +405,9 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <span class="logo">Furni<span>quin</span></span>
+                <span class="footer-logo">
+                    <img src="./icons/logo.png" alt="">
+                </span>
                 <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
                     India.</p>
                 <div class="footer-socials">
@@ -453,11 +453,11 @@
                 <p><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</p>
                 <p><i class="fas fa-phone"></i>
                     +91 8115 112115</p>
-                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+                <p><i class="fas fa-envelope"></i> dreak.trading.pvt.ltd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div>&COPY; 2026, Dreak Trading Pvt. Ltd. All rights reserved.</div>
             <div class="policies">
                 <a href="./policies/refund-policy.html">Refund policy</a>&middot;
                 <a href="#">Privacy policy</a>&middot;

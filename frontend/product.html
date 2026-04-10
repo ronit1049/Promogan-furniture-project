@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product — Furniquin</title>
+    <title>Product — Dreak Trading Pvt. Ltd.</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +48,6 @@
         body {
             font-family: var(--font-body);
             background: var(--clr-bg);
-            color: var(--dark);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -70,13 +70,13 @@
             align-items: center;
             gap: 6px;
             font-size: 0.8rem;
-            color: var(--text-muted);
             list-style: none;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .breadcrumb li a {
-            color: var(--text-muted);
+            color: var(--primary-dark);
             text-decoration: none;
             transition: color var(--transition);
         }
@@ -86,7 +86,7 @@
         }
 
         .breadcrumb li.active {
-            color: var(--dark);
+            color: rgba(117, 149, 179, 0.514);
             font-weight: 500;
         }
 
@@ -244,11 +244,12 @@
             line-height: 1.2;
             letter-spacing: -0.3px;
             margin-bottom: 8px;
+            color: var(--primary-dark);
         }
 
         .product-sku {
             font-size: 0.78rem;
-            color: var(--text-muted);
+            color: var(--primary-dark);
             margin-bottom: 20px;
         }
 
@@ -293,7 +294,7 @@
             font-size: 2rem;
             font-weight: 600;
             line-height: 1;
-            color: var(--dark);
+            color: var(--primary-dark);
         }
 
         .price-original {
@@ -469,9 +470,9 @@
 
         .btn-add-cart {
             padding: 14px 20px;
-            background: var(--dark);
-            color: #fff;
-            border: 1.5px solid var(--dark);
+            background: rgba(117, 149, 179, 0.514);
+            color: var(--primary);
+            border: 1.5px solid rgba(117, 149, 179, 0.514);
             border-radius: var(--radius-sm);
             font-family: var(--font-body);
             font-size: 0.9rem;
@@ -485,15 +486,16 @@
         }
 
         .btn-add-cart:hover {
-            background: var(--primary);
-            border-color: var(--primary);
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: #fff;
         }
 
         .btn-buy-now {
             padding: 14px 20px;
-            background: var(--primary);
+            background: var(--primary-dark);
             color: #fff;
-            border: 1.5px solid var(--primary);
+            border: 1.5px solid var(--primary-dark);
             border-radius: var(--radius-sm);
             font-family: var(--font-body);
             font-size: 0.9rem;
@@ -528,7 +530,7 @@
             align-items: flex-start;
             gap: 10px;
             font-size: 0.83rem;
-            color: var(--text-muted);
+            color: var(--primary-dark);
         }
 
         .meta-item i {
@@ -593,9 +595,9 @@
             font-weight: 500;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--primary-dark);
             padding: 14px 20px;
-            background: var(--light-gray);
+            background: rgba(117, 149, 179, 0.514);
             border-bottom: 1px solid var(--border-light);
         }
 
@@ -613,8 +615,8 @@
             padding: 12px 20px;
             font-size: 0.83rem;
             font-weight: 500;
-            color: var(--dark);
-            background: var(--light-gray);
+            color: var(--primary-dark);
+            background: rgba(117, 149, 179, 0.514);
             border-right: 1px solid var(--border-light);
         }
 
@@ -881,8 +883,8 @@
             justify-content: center;
             gap: 8px;
             padding: 13px;
-            background: var(--dark);
-            color: #fff;
+            background: rgba(117, 149, 179, 0.514);
+            color: var(--primary);
             border: none;
             border-radius: var(--radius-sm);
             font-family: var(--font-body);
@@ -894,7 +896,8 @@
         }
 
         .btn-view-cart:hover {
-            background: var(--primary);
+            background: var(--primary-dark);
+            color: #fff;
         }
 
         .btn-checkout-popup {
@@ -902,7 +905,7 @@
             align-items: center;
             justify-content: center;
             padding: 13px;
-            background: var(--primary);
+            background: var(--primary-dark);
             color: #fff;
             border: none;
             border-radius: var(--radius-sm);
@@ -1010,7 +1013,9 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="index.html" class="logo">Furni<span>quin</span></a>
+                <a href="index.html" class="logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </a>
 
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -1229,7 +1234,9 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <span class="logo">Furni<span>quin</span></span>
+                <span class="footer-logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </span>
                 <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
                     India.</p>
                 <div class="footer-socials">
@@ -1275,11 +1282,11 @@
                 <p><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</p>
                 <p><i class="fas fa-phone"></i> +91 8115 112115
                 </p>
-                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+                <p><i class="fas fa-envelope"></i> dreak.trading.pvt.ltd@.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div>&COPY; 2026, Dreak Trading Pvt. Ltd. All rights reserved.</div>
             <div class="policies">
                 <a href="./policies/refund-policy.html">Refund policy</a>&middot;
                 <a href="./policies/privacy-policy.html">Privacy policy</a>&middot;
@@ -1314,7 +1321,7 @@
         }
 
         /* ─── Cart (localStorage) ────────────────────────── */
-        const CART_KEY = "furniquin_cart";
+        const CART_KEY = "dreak_cart";
 
         function getCart() {
             try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
@@ -1393,7 +1400,7 @@
                 megaGrid.innerHTML = cols.join("");
             } catch (err) {
                 // Silently fall back to the static HTML already in the DOM
-                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Mega menu API unavailable, using static fallback.", err);
             }
         }
 
@@ -1468,7 +1475,7 @@
 
         /* ─── Render product ─────────────────────────────── */
         function renderProduct(p) {
-            document.title = `${p.name} — Furniquin`;
+            document.title = `${p.name} — Dreak Trading`;
 
             // Breadcrumb
             if (p.category) {
@@ -1526,8 +1533,10 @@
 
             // Fade out
             mainImg.classList.add("fade");
+
             setTimeout(() => {
-                mainImg.src = images[idx].url;
+                mainImg.src = `${BASE_URL}${escapeHtml(images[idx].url)}`;
+
                 mainImg.onload = () => mainImg.classList.remove("fade");
                 mainImg.onerror = () => mainImg.classList.remove("fade");
             }, 200);
@@ -1875,7 +1884,7 @@
                     )
                     .join("");
             } catch (err) {
-                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Footer shop links API unavailable, using static fallback.", err);
             }
         }
 

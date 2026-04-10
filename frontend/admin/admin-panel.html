@@ -17,7 +17,7 @@
         <aside class="sidebar">
             <div class="logo">
                 <span class="logo-icon">⬡</span>
-                <span class="logo-text">FURNISH<br><em>ADMIN</em></span>
+                <span class="logo-text">DREAK TRADING<br><em>ADMIN PANEL</em></span>
             </div>
             <nav>
                 <ul class="nav-links">
@@ -494,6 +494,23 @@
                             <div class="form-group filter-btn-group">
                                 <button onclick="loadPayments()" class="btn">Apply Filter</button>
                             </div>
+                        </div>
+
+                        <div class="filters-grid payment-filters-grid">
+                            <div class="form-group">
+                                <label>Search by Order Number</label>
+                                <input type="text" id="paymentOrderSearch" placeholder="e.g. ORD-MMU6635T-TDPDCP">
+                            </div>
+                            <div class="form-group filter-btn-group">
+                                <button onclick="searchPaymentByOrder()" class="btn">Search</button>
+                            </div>
+                        </div>
+
+                        <div id="paymentSearchBanner" style="display:none" class="warning-box"
+                            style="margin-bottom:12px">
+                            Showing results for order: <strong id="paymentSearchLabel"></strong>
+                            <button onclick="clearPaymentSearch()" class="btn-xs neutral" style="margin-left:12px">✕
+                                Clear</button>
                         </div>
 
                         <div class="table-wrapper">

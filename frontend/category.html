@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Category — Furniquin</title>
+    <title>Category — Dreak Trading Pvt. Ltd.</title>
+    <link rel="icon" type="image/svg+xml" href="./icons/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,23 +64,19 @@
             align-items: center;
             gap: 6px;
             font-size: 0.8rem;
-            color: var(--text-muted);
             list-style: none;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .breadcrumb li a {
-            color: var(--text-muted);
+            color: var(--primary-dark);
             text-decoration: none;
             transition: color var(--transition);
         }
 
-        .breadcrumb li a:hover {
-            color: var(--primary);
-        }
-
         .breadcrumb li.active {
-            color: var(--dark);
+            color: rgba(117, 149, 179, 0.514);
             font-weight: 500;
         }
 
@@ -108,8 +105,8 @@
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--primary);
-            background: var(--clr-accent-lt);
+            color: var(--primary-dark);
+            background: rgba(117, 149, 179, 0.514);
             padding: 4px 12px;
             border-radius: 20px;
             margin-bottom: 16px;
@@ -117,6 +114,7 @@
 
         .cat-hero h1 {
             font-family: var(--font-display);
+            color: var(--primary-dark);
             font-size: clamp(2rem, 5vw, 3.2rem);
             font-weight: 600;
             line-height: 1.15;
@@ -127,7 +125,7 @@
 
         .cat-hero p {
             font-size: 1rem;
-            color: var(--text-muted);
+            color: var(--primary);
             max-width: 560px;
             line-height: 1.7;
         }
@@ -193,10 +191,11 @@
             font-weight: 600;
             margin-bottom: 8px;
             letter-spacing: -0.3px;
+            color: var(--primary-dark);
         }
 
         .subcat-sub {
-            color: var(--text-muted);
+            color: var(--primary);
             font-size: 0.92rem;
             margin-bottom: 36px;
         }
@@ -212,7 +211,7 @@
         .subcat-card {
             display: block;
             text-decoration: none;
-            color: var(--dark);
+            color: var(--primary-dark);
             background: #fff;
             border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
@@ -388,7 +387,7 @@
         <!-- NAV -->
         <header class="main-header" id="header">
             <div class="container">
-                <a href="index.html" class="logo">Furni<span>quin</span></a>
+                <a href="index.html" class="logo"><img src="./icons/logo.png" alt="logo"></a>
 
                 <div class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -542,7 +541,9 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-brand">
-                <span class="logo">Furni<span>quin</span></span>
+                <span class="footer-logo">
+                    <img src="./icons/logo.png" alt="logo">
+                </span>
                 <p>Trusted home and office furniture since 2010. Crafted with love, delivered with care to homes across
                     India.</p>
                 <div class="footer-socials">
@@ -588,11 +589,11 @@
                 <p><i class="fas fa-map-marker-alt"></i> Kolkata, West Bengal</p>
                 <p><i class="fas fa-phone"></i>
                     +91 8115 112115</p>
-                <p><i class="fas fa-envelope"></i> info@furniquin.com</p>
+                <p><i class="fas fa-envelope"></i> dreak.trading.pvt.ltd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div>&COPY; 2026, Furniquin. All rights reserved.</div>
+            <div>&COPY; 2026, Dreak Trading Pvt. Ltd. All rights reserved.</div>
             <div class="policies">
                 <a href="./policies/refund-policy.html">Refund policy</a>&middot;
                 <a href="./policies/privacy-policy.html">Privacy policy</a>&middot;
@@ -626,7 +627,7 @@
 
         function syncCartBadge() {
             try {
-                const cart = JSON.parse(localStorage.getItem("furniquin_cart")) || [];
+                const cart = JSON.parse(localStorage.getItem("dreak_cart")) || [];
                 const total = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
                 document.querySelectorAll(".cart-count").forEach(el => {
                     el.textContent = total;
@@ -680,7 +681,7 @@
                 megaGrid.innerHTML = cols.join("");
             } catch (err) {
                 // Silently fall back to the static HTML already in the DOM
-                console.warn("[Furniquin] Mega menu API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Mega menu API unavailable, using static fallback.", err);
             }
         }
 
@@ -690,7 +691,7 @@
         }
 
         function renderHero(cat) {
-            document.title = `${cat.name} — Furniquin`;
+            document.title = `${cat.name} — Dreak Trading`;
             bcCurrent.textContent = cat.name;
             heroEl.innerHTML = `
                 <span class="cat-tag">Collection</span>
@@ -811,7 +812,7 @@
                     )
                     .join("");
             } catch (err) {
-                console.warn("[Furniquin] Footer shop links API unavailable, using static fallback.", err);
+                console.warn("[Dreak Trading] Footer shop links API unavailable, using static fallback.", err);
             }
         }
 

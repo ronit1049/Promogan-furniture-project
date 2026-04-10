@@ -23,13 +23,13 @@ export const customerSignUp = async (req, res) => {
         req.body.role = "customer"
         const customer = await User.create(req.body)
 
-        const token = jwt.sign({ _id: customer._id, fname: customer.firstName, lname: customer.lastName, email: customer.email, role: customer.role }, process.env.JWT_SECRET_KEY, { expiresIn: '2h' })
+        const token = jwt.sign({ _id: customer._id, fname: customer.firstName, lname: customer.lastName, email: customer.email, role: customer.role }, process.env.JWT_SECRET_KEY, { expiresIn: '7d' })
 
         res.cookie("token", token, {
             httpOnly: true,
             secure: false,
             sameSite: "lax",
-            maxAge: 2 * 60 * 60 * 1000
+            maxAge: 7 * 24 * 60 * 60 * 1000
         })
 
         res.status(201).json({
@@ -62,13 +62,13 @@ export const customerSignIn = async (req, res) => {
             return res.status(404).json({ message: "Invalid credentials" })
         }
 
-        const token = jwt.sign({ _id: customer._id, fname: customer.firstName, lname: customer.lastName, email: customer.email, role: customer.role }, process.env.JWT_SECRET_KEY, { expiresIn: "2h" })
+        const token = jwt.sign({ _id: customer._id, fname: customer.firstName, lname: customer.lastName, email: customer.email, role: customer.role }, process.env.JWT_SECRET_KEY, { expiresIn: "7d" })
 
         res.cookie("token", token, {
             httpOnly: true,
             secure: false,
             sameSite: "lax",
-            maxAge: 2 * 60 * 60 * 1000
+            maxAge: 7 * 24 * 60 * 60 * 1000
         })
 
         res.status(200).json({
@@ -135,12 +135,12 @@ export const forgotPassword = async (req, res) => {
 
         // email template
         const html = `
-            <h2>Furniture Shop</h2>
+            <h2>Dreak Trading Pvt. Ltd.</h2>
 
             <p>Reset your password</p>
             <p>Click the button below to reset your password. If you didn't request this, ignore this email.</p>
 
-            <a href="${resetURL}" style="display:inline-block;padding:10px 20px;background:black;color:white;text-decoration:none;border-radius:5px;">Reset Your Password</a>
+            <a href="${resetURL}" style="display:inline-block;padding:10px 20px;background: #173054;color:white;text-decoration:none;border-radius:5px;">Reset Your Password</a>
             <p>This link will expire in 15 minutes</p>
         `
 
@@ -211,14 +211,14 @@ export const resetPassword = async (req, res) => {
                 role: user.role
             },
             process.env.JWT_SECRET_KEY,
-            { expiresIn: "2h" }
+            { expiresIn: "7d" }
         )
 
         res.cookie("token", jwtToken, {
             httpOnly: true,
             secure: false,
             sameSite: "lax",
-            maxAge: 2 * 60 * 60 * 1000
+            maxAge: 7 * 24 * 60 * 60 * 1000
         })
 
         res.status(200).json({

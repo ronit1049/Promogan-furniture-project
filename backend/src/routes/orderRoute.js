@@ -10,7 +10,7 @@ orderRouter.post("/create-order", verifyCustomer, createOrder)
 orderRouter.get("/my-orders", verifyCustomer, getMyOrders)
 orderRouter.get("/my-order/:id", verifyCustomer, getOrderById)
 orderRouter.patch("/cancel-order/:id", verifyCustomer, cancelOrder)
-orderRouter.post("/retry-payment", verifyCustomer, retryPayment)
+orderRouter.post("/retry-payment/:id", verifyCustomer, retryPayment)
 orderRouter.get("/generate-invoice-customer/:id", verifyCustomer, generateInvoice)
 
 // private routes
